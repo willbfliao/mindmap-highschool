@@ -2,13 +2,25 @@
 
 const STORAGE_PREFIX = 'bio-mindmap-';
 
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
 function getTopicParam() {
   return new URLSearchParams(window.location.search).get('topic');
 }
 
 async function loadTopics() {
-  const res = await fetch('content/topics.json');
-  return res.json();
+  try {
+    const res = await fetch('content/topics.json');
+    return res.json();
+  } catch {
+    document.body.innerHTML =
+      '<div class="loading" style="height:100vh">無法載入主題資料，請檢查網路連線後重新整理</div>';
+    throw new Error('Failed to load topics.json');
+  }
 }
 
 function getAllTopics(data) {
@@ -47,7 +59,10 @@ async function initHomepage() {
   for (const category of data.categories) {
     const section = document.createElement('section');
     section.className = 'category';
-    section.innerHTML = `<h2 class="category-title">${category.name}</h2>`;
+    const h2 = document.createElement('h2');
+    h2.className = 'category-title';
+    h2.textContent = category.name;
+    section.appendChild(h2);
 
     const grid = document.createElement('div');
     grid.className = 'card-grid';
@@ -57,15 +72,15 @@ async function initHomepage() {
       card.className = 'card' + (isRead(topic.id) ? ' completed' : '');
       card.innerHTML = `
         <div class="card-check">✓</div>
-        <div class="card-icon">${topic.icon}</div>
-        <div class="card-title">${topic.title}</div>
-        <div class="card-title-en">${topic.titleEn}</div>
+        <div class="card-icon">${escapeHtml(topic.icon)}</div>
+        <div class="card-title">${escapeHtml(topic.title)}</div>
+        <div class="card-title-en">${escapeHtml(topic.titleEn)}</div>
         <div class="card-meta">
-          <span class="card-badge exam">學測佔比 ${topic.examRatio}%</span>
+          <span class="card-badge exam">學測佔比 ${escapeHtml(String(topic.examRatio))}%</span>
         </div>
         <div class="card-actions">
-          <a href="viewer.html?topic=${topic.id}" class="btn btn-primary">查看心智圖</a>
-          <a href="quiz.html?topic=${topic.id}" class="btn btn-secondary">📝 練習</a>
+          <a href="viewer.html?topic=${encodeURIComponent(topic.id)}" class="btn btn-primary">查看心智圖</a>
+          <a href="quiz.html?topic=${encodeURIComponent(topic.id)}" class="btn btn-secondary">📝 練習</a>
         </div>
       `;
       grid.appendChild(card);
@@ -77,63 +92,7 @@ async function initHomepage() {
 }
 
 /* ===== Viewer (Markmap) ===== */
-
-async function initViewer() {
-  const topicId = getTopicParam();
-  if (!topicId) { window.location.href = 'index.html'; return; }
-
-  const data = await loadTopics();
-  const allTopics = getAllTopics(data);
-  const topic = allTopics.find(t => t.id === topicId);
-  if (!topic) { window.location.href = 'index.html'; return; }
-
-  // Title
-  document.title = topic.title + ' - 心智圖';
-  document.getElementById('viewer-title').textContent = topic.icon + ' ' + topic.title;
-
-  // Mark read button
-  const btnRead = document.getElementById('btn-mark-read');
-  updateReadButton(btnRead, topicId);
-  btnRead.addEventListener('click', () => {
-    if (isRead(topicId)) {
-      markAsUnread(topicId);
-    } else {
-      markAsRead(topicId);
-    }
-    updateReadButton(btnRead, topicId);
-  });
-
-  // Quiz button
-  document.getElementById('btn-quiz').addEventListener('click', () => {
-    window.location.href = 'quiz.html?topic=' + topicId;
-  });
-
-  // Fetch markdown and render
-  try {
-    const res = await fetch('content/' + topic.file);
-    const md = await res.text();
-
-    const { Transformer } = window.markmap;
-    const transformer = new Transformer();
-    const { root } = transformer.transform(md);
-
-    const svgEl = document.getElementById('mindmap-svg');
-    const { Markmap } = window.markmap;
-    const mm = Markmap.create(svgEl, {
-      colorFreezeLevel: 2,
-      initialExpandLevel: 2,
-      paddingX: 16
-    }, root);
-
-    // Fit button
-    document.getElementById('btn-fit').addEventListener('click', () => {
-      mm.fit();
-    });
-  } catch (err) {
-    document.getElementById('mindmap-svg').outerHTML =
-      '<div class="loading" style="height:80vh">無法載入心智圖內容</div>';
-  }
-}
+// Viewer initialization logic is in viewer.html inline script (uses markmap-autoloader)
 
 function updateReadButton(btn, topicId) {
   if (isRead(topicId)) {
@@ -193,15 +152,15 @@ function renderQuiz(qData) {
     card.className = 'question-card';
     card.innerHTML = `
       <div class="question-number">第 ${idx + 1} 題 / 共 ${total} 題</div>
-      ${q.year ? `<span class="question-year">${q.year} 年學測</span>` : ''}
-      <div class="question-text">${q.text}</div>
+      ${q.year ? `<span class="question-year">${escapeHtml(String(q.year))} 年學測</span>` : ''}
+      <div class="question-text">${escapeHtml(q.text)}</div>
       <ul class="options-list">
         ${q.options.map((opt, oi) => {
           const letter = String.fromCharCode(65 + oi);
-          return `<li><button class="option-btn" data-letter="${letter}">${opt}</button></li>`;
+          return `<li><button class="option-btn" data-letter="${letter}">${escapeHtml(opt)}</button></li>`;
         }).join('')}
       </ul>
-      <div class="explanation">${q.explanation || ''}</div>
+      <div class="explanation">${escapeHtml(q.explanation || '')}</div>
     `;
 
     const buttons = card.querySelectorAll('.option-btn');

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>題庫練習</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="viewer-nav">
+    <a href="index.html" class="back-btn">← 返回首頁</a>
+    <span class="topic-title" id="quiz-title">載入中...</span>
+    <div class="nav-actions">
+      <button class="btn btn-secondary" id="btn-mindmap">🧠 心智圖</button>
+    </div>
+  </nav>
+
+  <div class="quiz-container" style="margin-top: 56px;">
+    <div class="quiz-header">
+      <h1 id="quiz-heading">題庫練習</h1>
+      <p class="quiz-progress" id="quiz-progress"></p>
+    </div>
+
+    <div id="questions-container"></div>
+
+    <div class="score-summary" id="score-summary">
+      <div class="score-number" id="score-number">0</div>
+      <div class="score-label" id="score-label">答對題數</div>
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; justify-content: center;">
+        <button class="btn btn-primary" onclick="location.reload()">重新作答</button>
+        <a href="index.html" class="btn btn-secondary">返回首頁</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    initQuiz();
+  </script>
+</body>
+</html>

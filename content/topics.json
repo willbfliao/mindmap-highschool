@@ -1,0 +1,92 @@
+{
+  "title": "高中生物心智圖",
+  "subtitle": "互動式學習 · 人體生理",
+  "categories": [
+    {
+      "id": "human-physiology",
+      "name": "人體生理",
+      "topics": [
+        {
+          "id": "nervous-system",
+          "file": "nervous-system.md",
+          "title": "神經系統",
+          "titleEn": "Nervous System",
+          "icon": "🧠",
+          "color": "#6366f1",
+          "examRatio": 14,
+          "questionCount": 8
+        },
+        {
+          "id": "endocrine",
+          "file": "endocrine.md",
+          "title": "內分泌系統",
+          "titleEn": "Endocrine System",
+          "icon": "⚗️",
+          "color": "#ec4899",
+          "examRatio": 12,
+          "questionCount": 8
+        },
+        {
+          "id": "circulatory",
+          "file": "circulatory.md",
+          "title": "循環系統",
+          "titleEn": "Circulatory System",
+          "icon": "❤️",
+          "color": "#ef4444",
+          "examRatio": 10,
+          "questionCount": 8
+        },
+        {
+          "id": "immune",
+          "file": "immune.md",
+          "title": "免疫系統",
+          "titleEn": "Immune System",
+          "icon": "🛡️",
+          "color": "#10b981",
+          "examRatio": 11,
+          "questionCount": 8
+        },
+        {
+          "id": "digestive",
+          "file": "digestive.md",
+          "title": "消化系統",
+          "titleEn": "Digestive System",
+          "icon": "🍽️",
+          "color": "#f59e0b",
+          "examRatio": 8,
+          "questionCount": 8
+        },
+        {
+          "id": "respiratory",
+          "file": "respiratory.md",
+          "title": "呼吸系統",
+          "titleEn": "Respiratory System",
+          "icon": "🫁",
+          "color": "#06b6d4",
+          "examRatio": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "urinary",
+          "file": "urinary.md",
+          "title": "泌尿系統",
+          "titleEn": "Urinary System",
+          "icon": "💧",
+          "color": "#3b82f6",
+          "examRatio": 6,
+          "questionCount": 8
+        },
+        {
+          "id": "reproductive",
+          "file": "reproductive.md",
+          "title": "生殖系統",
+          "titleEn": "Reproductive System",
+          "icon": "🧬",
+          "color": "#8b5cf6",
+          "examRatio": 8,
+          "questionCount": 8
+        }
+      ]
+    }
+  ]
+}

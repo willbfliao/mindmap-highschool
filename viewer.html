@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>心智圖檢視器</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .markmap { width: 100%; height: calc(100vh - 56px); }
+    .markmap > svg { width: 100%; height: 100%; display: block; }
+    /* Make markmap text visible on dark background */
+    .markmap-node text { fill: #f1f5f9 !important; }
+    .markmap-node circle { fill: var(--bg, #0f172a) !important; stroke-width: 2px !important; }
+  </style>
+</head>
+<body>
+  <nav class="viewer-nav">
+    <a href="index.html" class="back-btn">← 返回</a>
+    <span class="topic-title" id="viewer-title">載入中...</span>
+    <div class="nav-actions">
+      <button class="btn btn-secondary" id="btn-quiz">📝 練習題</button>
+      <button class="btn btn-primary" id="btn-mark-read">✓ 標記已讀</button>
+    </div>
+  </nav>
+
+  <div id="markmap-wrap" class="markmap" style="margin-top:56px;"></div>
+
+  <script src="js/app.js"></script>
+  <script>
+    (async function() {
+      const topicId = new URLSearchParams(window.location.search).get('topic');
+      if (!topicId) { window.location.href = 'index.html'; return; }
+
+      const data = await loadTopics();
+      const allTopics = getAllTopics(data);
+      const topic = allTopics.find(t => t.id === topicId);
+      if (!topic) { window.location.href = 'index.html'; return; }
+
+      document.title = topic.title + ' - 心智圖';
+      document.getElementById('viewer-title').textContent = topic.icon + ' ' + topic.title;
+
+      // Mark read button
+      const btnRead = document.getElementById('btn-mark-read');
+      updateReadButton(btnRead, topicId);
+      btnRead.addEventListener('click', () => {
+        if (isRead(topicId)) { markAsUnread(topicId); } else { markAsRead(topicId); }
+        updateReadButton(btnRead, topicId);
+      });
+
+      // Quiz button
+      document.getElementById('btn-quiz').addEventListener('click', () => {
+        window.location.href = 'quiz.html?topic=' + topicId;
+      });
+
+      // Fetch markdown
+      try {
+        const res = await fetch('content/' + topic.file);
+        const md = await res.text();
+
+        // Use markmap-autoloader approach
+        const wrap = document.getElementById('markmap-wrap');
+        const el = document.createElement('script');
+        el.type = 'text/template';
+        el.className = 'markmap';
+        el.textContent = md;
+        wrap.appendChild(el);
+
+        // Load autoloader
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/markmap-autoloader';
+        document.head.appendChild(script);
+      } catch (err) {
+        document.getElementById('markmap-wrap').innerHTML =
+          '<div class="loading" style="height:80vh">無法載入心智圖內容</div>';
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
-# Project Guidelines
+# Bio-Mindmap — Project Guidelines
 
-> **Shared source of truth**: See [CLAUDE.md](../CLAUDE.md) for the canonical project guidelines.
-> This file mirrors that content for GitHub Copilot compatibility.
+> This file is the single source of truth for project context.
+> Also referenced by `.github/copilot-instructions.md` for GitHub Copilot.
 
 ## Overview
 
@@ -39,6 +39,8 @@ Routing uses URL query params (`?subject=science&sub=biology&topic=nervous-syste
 - Both `markmap-lib` and `markmap-view` export to `window.markmap` global
 - Sidebar with 2 tabs: 📘 概念與應用 / 🎯 考試準備
 - Node completion tracked per-node in LocalStorage with ISO timestamps
+- Detail JSON files (`content/{subject}/{sub}/details/{topic}.json`) provide `associations` and `examTips`
+- Question JSON files (`questions/{subject}/{sub}/{topic}.json`) have `tags` arrays for node matching
 
 ## Code Style
 
@@ -53,9 +55,9 @@ Routing uses URL query params (`?subject=science&sub=biology&topic=nervous-syste
 ## Content Structure
 
 - `content/subjects.json` — master subject index with hierarchy (subjects, sub-subjects)
-- `content/{subject}/topics.json` — topics for subjects without sub-subjects
-- `content/{subject}/{sub}/topics.json` — topics for sub-subjects
-- `content/{subject}/{sub}/*.md` — Markmap source; headers define map nodes
+- `content/{subject}/topics.json` — topics for subjects without sub-subjects (e.g., chinese, english, math)
+- `content/{subject}/{sub}/topics.json` — topics for sub-subjects (e.g., science/biology, social/history)
+- `content/{subject}/{sub}/*.md` — Markmap source; headers (`#`/`##`/`###`) define map nodes
 - `content/{subject}/{sub}/details/*.json` — node detail data (associations, examTips)
 - `questions/{subject}/{sub}/*.json` — multiple-choice questions with `answer`, `explanation`, and `tags`
 
@@ -69,3 +71,22 @@ Subjects with `hasSubjects: true` (自然, 社會) contain sub-subjects. Others 
 - Keep the project dependency-free (no npm packages); external libs loaded via CDN only
 - Progress state stored in LocalStorage with `isRead(subjectId, subId, topicId)` / `markAsRead(...)` helpers
 - Node-level progress stored as ISO timestamp via `toggleNodeCheck()` / `isNodeChecked()` / `getNodeCheckedTime()`
+
+## Agents / Roles
+
+| Role | Purpose |
+|------|---------|
+| `coding` | Write/edit code — JS, HTML, CSS, JSON, Markdown |
+| `content` | Create educational content — mind map .md, quiz .json, topics.json |
+| `planning` | Plan features, decompose tasks, architecture decisions |
+| `reviewer` | Code review, security audit, best practices check |
+| `testing` | Validate changes, smoke test, data integrity checks |
+| `doc-writer` | Documentation, README, code comments |
+
+## Do NOT
+
+- Add npm packages or build tools
+- Introduce TypeScript or any framework
+- Modify files outside the requested scope
+- Use `markmap-autoloader` (use programmatic API instead)
+- Use `window.markmapView` (both libs export to `window.markmap`)

@@ -11,9 +11,9 @@
     #markmap-wrap svg { width: 100%; height: 100%; display: block; }
 
     /* ===== Markmap dark theme ===== */
-    .markmap-node text { fill: #ffffff !important; font-weight: 500 !important; }
+    .markmap-node text { font-weight: 500 !important; }
     .markmap-node circle { fill: var(--bg, #0f172a) !important; stroke-width: 2px !important; }
-    .markmap-foreign { color: #ffffff !important; font-weight: 500 !important; }
+    .markmap-foreign { font-weight: 500 !important; }
 
     /* ===== Detail Sidebar ===== */
     #detail-sidebar {
@@ -52,6 +52,12 @@
       flex-shrink: 0;
     }
     .sidebar-header h3 { font-size: 1.1rem; font-weight: 600; margin: 0; }
+    .sidebar-header-text { flex: 1; min-width: 0; }
+    .sidebar-path {
+      font-size: 0.7rem; color: var(--text-muted); opacity: 0.7;
+      margin-bottom: 0.15rem; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+    }
     .sidebar-close {
       background: none; border: none; color: var(--text-muted);
       font-size: 1.5rem; cursor: pointer; padding: 0 0.25rem;
@@ -86,8 +92,9 @@
     /* Node checkbox in sidebar */
     .sidebar-check-row {
       display: flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 0; border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
     }
     .sidebar-check-row input[type="checkbox"] {
       width: 18px; height: 18px; accent-color: var(--success, #10b981);
@@ -146,17 +153,42 @@
 
     /* Clickable node indicator */
     .markmap-node.clickable-node { cursor: pointer; }
-    .markmap-node.clickable-node:hover text { text-decoration: underline; }
+    .markmap-node.clickable-node .markmap-foreign {
+      color: #a5b4fc !important;
+    }
+    .markmap-node.clickable-node text {
+      fill: #a5b4fc !important;
+    }
+    .markmap-node.clickable-node:hover .markmap-foreign {
+      color: #c7d2fe !important;
+      text-decoration: underline;
+    }
+    .markmap-node.clickable-node:hover text {
+      fill: #c7d2fe !important;
+      text-decoration: underline;
+      text-decoration-color: #c7d2fe;
+    }
+    /* Non-clickable nodes (root & category) dimmer */
+    .markmap-node:not(.clickable-node) .markmap-foreign {
+      color: rgba(255,255,255,0.6) !important;
+    }
+    .markmap-node:not(.clickable-node) text {
+      fill: rgba(255,255,255,0.6) !important;
+    }
 
     /* Node completion status on mindmap */
     .markmap-node.node-checked circle {
       fill: var(--success, #10b981) !important;
       stroke: var(--success, #10b981) !important;
     }
-    .markmap-node.node-checked text {
+    .markmap-node.node-checked > text,
+    .markmap-node.node-checked foreignObject {
       opacity: 0.6 !important;
-      text-decoration: line-through !important;
-      text-decoration-color: rgba(255,255,255,0.4) !important;
+    }
+    .markmap-node .node-time-label {
+      font-size: 10px; fill: var(--success, #10b981);
+      opacity: 0.85; pointer-events: none;
+      text-decoration: none !important;
     }
     .markmap-node.node-unchecked circle {
       fill: var(--bg, #0f172a) !important;
@@ -206,8 +238,16 @@
     <div class="sidebar-resize-handle" id="sidebar-resize-handle"></div>
     <div class="sidebar-inner">
       <div class="sidebar-header">
-        <h3 id="sidebar-title">節點詳情</h3>
+        <div class="sidebar-header-text">
+          <div class="sidebar-path" id="sidebar-path"></div>
+          <h3 id="sidebar-title">節點詳情</h3>
+        </div>
         <button class="sidebar-close" id="sidebar-close">&times;</button>
+      </div>
+      <div class="sidebar-check-row" id="sidebar-check-row">
+        <input type="checkbox" id="sidebar-cb">
+        <label for="sidebar-cb">已完成複習</label>
+        <span class="sidebar-check-time" id="sidebar-check-time"></span>
       </div>
       <nav class="sidebar-tabs">
         <button class="sidebar-tab active" data-tab="concepts">📘 概念與應用</button>
@@ -370,22 +410,86 @@
         setTimeout(() => attachNodeClickHandlers(), 350);
       });
 
+      function formatNodeTime(isoStr) {
+        if (!isoStr) return '';
+        const d = new Date(isoStr);
+        return (d.getMonth()+1) + '/' + d.getDate() + ' ' +
+          String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+      }
+
+      function applyNodeTimestamp(el, nodeId) {
+        // Remove old timestamp label
+        el.querySelectorAll('.node-time-label').forEach(t => t.remove());
+        const t = getNodeCheckedTime(nodeId);
+        if (!t) return;
+        const timeStr = '\u2714 ' + formatNodeTime(t);
+
+        // Find the content element to measure its position and size
+        const foreign = el.querySelector('foreignObject');
+        const nodeText = el.querySelector(':scope > text');
+        let xPos = 8, yPos = 20;
+
+        if (foreign) {
+          const fx = parseFloat(foreign.getAttribute('x')) || 0;
+          const fw = parseFloat(foreign.getAttribute('width')) || 0;
+          const fy = parseFloat(foreign.getAttribute('y')) || 0;
+          const fh = parseFloat(foreign.getAttribute('height')) || 0;
+          xPos = fx + fw + 6;
+          yPos = fy + fh / 2 + 4;
+        } else if (nodeText) {
+          try {
+            const bbox = nodeText.getBBox();
+            xPos = bbox.x + bbox.width + 6;
+            yPos = bbox.y + bbox.height / 2 + 4;
+          } catch(e) { /* getBBox can fail if not rendered */ }
+        }
+
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.classList.add('node-time-label');
+        label.setAttribute('x', String(xPos));
+        label.setAttribute('y', String(yPos));
+        label.textContent = timeStr;
+        el.appendChild(label);
+      }
+
       function attachNodeClickHandlers() {
+        // Build text→entries lookup to detect duplicates
+        const textToEntries = {};
+        Object.values(nodeMap).forEach(e => {
+          if (e.depth < 2) return;
+          if (!textToEntries[e.text]) textToEntries[e.text] = [];
+          textToEntries[e.text].push(e);
+        });
+
         svg.querySelectorAll('.markmap-node').forEach(el => {
           const textEl = el.querySelector('text, .markmap-foreign');
           if (!textEl) return;
           const rawText = textEl.textContent.trim();
 
-          // Find matching nodeMap entry
-          const entry = Object.values(nodeMap).find(e => e.text === rawText && e.depth >= 2);
-          if (!entry) return;
+          // Resolve matching nodeMap entry, disambiguate duplicates by parent
+          let entry;
+          const candidates = textToEntries[rawText];
+          if (!candidates || candidates.length === 0) return;
+          if (candidates.length === 1) {
+            entry = candidates[0];
+          } else {
+            // Disambiguate: check parent SVG group's text
+            const parentG = el.parentElement && el.parentElement.closest('.markmap-node');
+            const parentTextEl = parentG && parentG.querySelector('text, .markmap-foreign');
+            const parentText = parentTextEl ? parentTextEl.textContent.trim() : '';
+            entry = candidates.find(e => {
+              const pPath = e.pathParts;
+              return pPath.length >= 2 && pPath[pPath.length - 2] === parentText;
+            }) || candidates[0];
+          }
 
+          const boundNodeId = entry.node._nodeId;
           el.classList.add('clickable-node');
           el.style.cursor = 'pointer';
 
           // Apply checked/unchecked visual
-          el.dataset.nodeId = entry.node._nodeId;
-          if (isNodeChecked(entry.node._nodeId)) {
+          el.dataset.nodeId = boundNodeId;
+          if (isNodeChecked(boundNodeId)) {
             el.classList.add('node-checked');
             el.classList.remove('node-unchecked');
           } else {
@@ -393,14 +497,17 @@
             el.classList.remove('node-checked');
           }
 
-          // Remove old handler by cloning
-          const newTextEl = textEl.cloneNode(true);
-          textEl.parentNode.replaceChild(newTextEl, textEl);
+          // Add click handler (use flag to avoid duplicates)
+          if (!textEl.dataset.bound) {
+            textEl.dataset.bound = '1';
+            textEl.addEventListener('click', (e) => {
+              e.stopPropagation();
+              openSidebar(entry);
+            });
+          }
 
-          newTextEl.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openSidebar(entry);
-          });
+          // Apply timestamp as separate element (not inside node content)
+          applyNodeTimestamp(el, boundNodeId);
         });
       }
 
@@ -414,11 +521,15 @@
             el.classList.remove('node-checked');
             el.classList.add('node-unchecked');
           }
+          applyNodeTimestamp(el, nodeId);
         });
       }
 
       function openSidebar(entry) {
         sidebarTitle.textContent = entry.text;
+        const pathEl = document.getElementById('sidebar-path');
+        const breadcrumb = entry.pathParts.slice(0, -1);
+        pathEl.textContent = breadcrumb.length > 0 ? breadcrumb.join(' › ') : '';
         sidebar.classList.add('open');
 
         // Adjust markmap wrap width
@@ -461,15 +572,11 @@
         } else {
           conceptsPane.innerHTML = '<p class="detail-item" style="color:var(--text-muted)">此節點暫無子項目</p>';
         }
-        // Checkbox
-        const checkRow = document.createElement('div');
-        checkRow.className = 'sidebar-check-row';
-        const cb = document.createElement('input');
-        cb.type = 'checkbox';
-        cb.id = 'sidebar-cb';
+
+        // Header checkbox
+        const cb = document.getElementById('sidebar-cb');
+        const timeSpan = document.getElementById('sidebar-check-time');
         cb.checked = isNodeChecked(nodeId);
-        const timeSpan = document.createElement('span');
-        timeSpan.className = 'sidebar-check-time';
         function updateCheckTime() {
           const t = getNodeCheckedTime(nodeId);
           if (t) {
@@ -480,19 +587,15 @@
           }
         }
         updateCheckTime();
-        cb.addEventListener('change', () => {
+        // Remove previous handler if any, then attach new one
+        if (cb._handler) cb.removeEventListener('change', cb._handler);
+        cb._handler = () => {
           toggleNodeCheck(nodeId);
           updateProgress();
           updateNodeCheckVisuals();
           updateCheckTime();
-        });
-        const lbl = document.createElement('label');
-        lbl.htmlFor = 'sidebar-cb';
-        lbl.textContent = '已完成複習';
-        checkRow.appendChild(cb);
-        checkRow.appendChild(lbl);
-        checkRow.appendChild(timeSpan);
-        conceptsPane.appendChild(checkRow);
+        };
+        cb.addEventListener('change', cb._handler);
 
         // --- Tab 2: 考試準備 (exam tips + questions) ---
         const examPane = document.getElementById('tab-exam');

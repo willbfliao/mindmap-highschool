@@ -5,7 +5,7 @@
     {
       "id": "q1",
       "year": 113,
-      "text": "在 $\\text{K}_2\\text{Cr}_2\\text{O}_7$ 中，Cr 的氧化數為何？",
+      "text": "在 K₂Cr₂O₇ 中，Cr 的氧化數為何？",
       "options": [
         "(A) +3",
         "(B) +6",
@@ -14,12 +14,14 @@
       ],
       "answer": "B",
       "explanation": "解析：K為+1（×2=+2），O為-2（×7=-14），設Cr為x，2x+2+(-14)=0，2x=12，x=+6。",
-      "tags": ["氧化數"]
+      "tags": [
+        "氧化數"
+      ]
     },
     {
       "id": "q2",
       "year": 111,
-      "text": "在反應 $\\text{Zn} + \\text{CuSO}_4 \\to \\text{ZnSO}_4 + \\text{Cu}$ 中，還原劑為何？",
+      "text": "在反應 Zn + CuSO₄ → ZnSO₄ + Cu 中，還原劑為何？",
       "options": [
         "(A) Zn",
         "(B) Cu",
@@ -28,21 +30,25 @@
       ],
       "answer": "A",
       "explanation": "解析：Zn的氧化數從0升高到+2（被氧化），所以Zn是還原劑。Cu²⁺的氧化數從+2降低到0（被還原），CuSO₄是氧化劑。",
-      "tags": ["氧化劑與還原劑"]
+      "tags": [
+        "氧化劑與還原劑"
+      ]
     },
     {
       "id": "q3",
       "year": 110,
       "text": "下列反應何者不是氧化還原反應？",
       "options": [
-        "(A) $\\text{Mg} + 2\\text{HCl} \\to \\text{MgCl}_2 + \\text{H}_2$",
-        "(B) $\\text{NaOH} + \\text{HCl} \\to \\text{NaCl} + \\text{H}_2\\text{O}$",
-        "(C) $2\\text{Fe} + 3\\text{Cl}_2 \\to 2\\text{FeCl}_3$",
-        "(D) $\\text{Zn} + \\text{CuSO}_4 \\to \\text{ZnSO}_4 + \\text{Cu}$"
+        "(A) Mg + 2HCl → MgCl₂ + H₂",
+        "(B) NaOH + HCl → NaCl + H₂O",
+        "(C) 2Fe + 3Cl₂ → 2FeCl₃",
+        "(D) Zn + CuSO₄ → ZnSO₄ + Cu"
       ],
       "answer": "B",
       "explanation": "解析：NaOH+HCl→NaCl+H₂O是酸鹼中和反應，所有元素的氧化數反應前後都沒有改變，不是氧化還原反應。",
-      "tags": ["氧化與還原的定義"]
+      "tags": [
+        "氧化與還原的定義"
+      ]
     },
     {
       "id": "q4",
@@ -56,12 +62,14 @@
       ],
       "answer": "C",
       "explanation": "解析：金屬活性序中Zn>Fe>Cu>Ag，鋅的活性最大，最容易失去電子。",
-      "tags": ["常見的氧化還原反應"]
+      "tags": [
+        "常見的氧化還原反應"
+      ]
     },
     {
       "id": "q5",
       "year": 109,
-      "text": "$\\text{Cl}_2 + \\text{H}_2\\text{O} \\to \\text{HCl} + \\text{HClO}$ 屬於何種反應？",
+      "text": "Cl₂ + H₂O → HCl + HClO 屬於何種反應？",
       "options": [
         "(A) 中和反應",
         "(B) 置換反應",
@@ -70,12 +78,14 @@
       ],
       "answer": "C",
       "explanation": "解析：Cl₂中Cl的氧化數為0，反應後分別變為-1（HCl）和+1（HClO），同一元素同時被氧化和被還原，為歧化反應。",
-      "tags": ["歧化反應"]
+      "tags": [
+        "歧化反應"
+      ]
     },
     {
       "id": "q6",
       "year": 108,
-      "text": "用半反應法平衡 $\\text{MnO}_4^- + \\text{Fe}^{2+} \\to \\text{Mn}^{2+} + \\text{Fe}^{3+}$（酸性），Fe²⁺ 的係數為？",
+      "text": "用半反應法平衡 MnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺（酸性），Fe²⁺ 的係數為？",
       "options": [
         "(A) 1",
         "(B) 3",
@@ -84,7 +94,9 @@
       ],
       "answer": "C",
       "explanation": "解析：MnO₄⁻+5e⁻→Mn²⁺（還原），Fe²⁺→Fe³⁺+e⁻（氧化）。使電子數相等：5×(Fe²⁺→Fe³⁺+e⁻)，所以Fe²⁺係數為5。",
-      "tags": ["半反應法平衡氧化還原方程式"]
+      "tags": [
+        "半反應法平衡氧化還原方程式"
+      ]
     },
     {
       "id": "q7",
@@ -98,12 +110,14 @@
       ],
       "answer": "C",
       "explanation": "解析：Cu在金屬活性序中排在氫的後面，活性比氫低，不能與稀酸反應置換出H₂。Zn、Fe、Mg都排在氫前面。",
-      "tags": ["常見的氧化還原反應"]
+      "tags": [
+        "常見的氧化還原反應"
+      ]
     },
     {
       "id": "q8",
       "year": 106,
-      "text": "在 $\\text{H}_2\\text{O}_2$ 中，氧的氧化數為何？",
+      "text": "在 H₂O₂ 中，氧的氧化數為何？",
       "options": [
         "(A) −2",
         "(B) −1",
@@ -112,7 +126,9 @@
       ],
       "answer": "B",
       "explanation": "解析：H₂O₂中H為+1（×2=+2），設O為x，2x+2=0，x=-1。這是氧化數規則的例外（過氧化物中O為-1）。",
-      "tags": ["氧化數"]
+      "tags": [
+        "氧化數"
+      ]
     }
   ]
 }

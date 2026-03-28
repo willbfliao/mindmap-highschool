@@ -701,7 +701,6 @@
         // Adjust markmap wrap width
         const sidebarW = sidebar.offsetWidth;
         wrap.style.marginRight = sidebarW + 'px';
-        setTimeout(() => mm.fit(), 350);
 
         populateSidebar(entry);
       }
@@ -709,7 +708,6 @@
       function closeSidebar() {
         sidebar.classList.remove('open');
         wrap.style.marginRight = '0';
-        setTimeout(() => mm.fit(), 350);
       }
 
       document.getElementById('sidebar-close').addEventListener('click', closeSidebar);

@@ -1,5 +1,192 @@
 {
-  "title": "國文心智圖",
-  "subtitle": "即將推出",
-  "categories": []
+  "title": "高中國文心智圖",
+  "subtitle": "互動式學習 · 古文十五篇 · 108課綱",
+  "groupByCategory": true,
+  "categories": [
+    {
+      "id": "pre-qin",
+      "name": "先秦時代",
+      "tag": "常考思想學說與歷史敘事",
+      "topics": [
+        {
+          "id": "zhu-zhi-wu",
+          "file": "zhu-zhi-wu.md",
+          "title": "燭之武退秦師",
+          "titleEn": "Zhu Zhiwu Repels Qin",
+          "icon": "🏛️",
+          "color": "#b45309",
+          "examRatio": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "da-tong-xiao-kang",
+          "file": "da-tong-xiao-kang.md",
+          "title": "大同與小康",
+          "titleEn": "The Great Unity and Minor Prosperity",
+          "icon": "🏛️",
+          "color": "#b45309",
+          "examRatio": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "quan-xue",
+          "file": "quan-xue.md",
+          "title": "勸學",
+          "titleEn": "Exhortation to Learning",
+          "icon": "🏛️",
+          "color": "#b45309",
+          "examRatio": 7,
+          "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "han-wei",
+      "name": "漢魏六朝",
+      "tag": "常考時代動盪下的政治理想與生命觀",
+      "topics": [
+        {
+          "id": "jian-zhu-ke-shu",
+          "file": "jian-zhu-ke-shu.md",
+          "title": "諫逐客書",
+          "titleEn": "Memorial Against the Expulsion of Guest Officials",
+          "icon": "⚔️",
+          "color": "#dc2626",
+          "examRatio": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "chu-shi-biao",
+          "file": "chu-shi-biao.md",
+          "title": "出師表",
+          "titleEn": "Memorial on Sending Out the Troops",
+          "icon": "⚔️",
+          "color": "#dc2626",
+          "examRatio": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "tao-hua-yuan-ji",
+          "file": "tao-hua-yuan-ji.md",
+          "title": "桃花源記",
+          "titleEn": "The Peach Blossom Spring",
+          "icon": "⚔️",
+          "color": "#dc2626",
+          "examRatio": 7,
+          "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "tang-song",
+      "name": "唐宋時期",
+      "tag": "常考文學復古、生命哲理與小說流變",
+      "topics": [
+        {
+          "id": "shi-shuo",
+          "file": "shi-shuo.md",
+          "title": "師說",
+          "titleEn": "On the Teacher",
+          "icon": "🏯",
+          "color": "#2563eb",
+          "examRatio": 8,
+          "questionCount": 8
+        },
+        {
+          "id": "qiu-ran-ke-zhuan",
+          "file": "qiu-ran-ke-zhuan.md",
+          "title": "虯髯客傳",
+          "titleEn": "The Tale of the Curly-Bearded Guest",
+          "icon": "🏯",
+          "color": "#2563eb",
+          "examRatio": 8,
+          "questionCount": 8
+        },
+        {
+          "id": "chi-bi-fu",
+          "file": "chi-bi-fu.md",
+          "title": "赤壁賦",
+          "titleEn": "Ode on the Red Cliff",
+          "icon": "🏯",
+          "color": "#2563eb",
+          "examRatio": 8,
+          "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "ming-qing",
+      "name": "明清時期",
+      "tag": "常考抒情言志、公安派風格與筆記小說",
+      "topics": [
+        {
+          "id": "xiang-ji-xuan-zhi",
+          "file": "xiang-ji-xuan-zhi.md",
+          "title": "項脊軒志",
+          "titleEn": "Record of the Xiang Ji Study",
+          "icon": "🖋️",
+          "color": "#7c3aed",
+          "examRatio": 6,
+          "questionCount": 8
+        },
+        {
+          "id": "wan-you-liu-qiao",
+          "file": "wan-you-liu-qiao.md",
+          "title": "晚遊六橋待月記",
+          "titleEn": "Evening Visit to Six Bridges Awaiting the Moon",
+          "icon": "🖋️",
+          "color": "#7c3aed",
+          "examRatio": 6,
+          "questionCount": 8
+        },
+        {
+          "id": "lao-shan-dao-shi",
+          "file": "lao-shan-dao-shi.md",
+          "title": "勞山道士",
+          "titleEn": "The Taoist of Lao Mountain",
+          "icon": "🖋️",
+          "color": "#7c3aed",
+          "examRatio": 6,
+          "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "taiwan-classical",
+      "name": "台灣古典文學",
+      "tag": "常考本土歷史發展與社會變遷",
+      "topics": [
+        {
+          "id": "quan-he-lun",
+          "file": "quan-he-lun.md",
+          "title": "勸和論",
+          "titleEn": "On Encouraging Harmony",
+          "icon": "🌺",
+          "color": "#059669",
+          "examRatio": 5,
+          "questionCount": 8
+        },
+        {
+          "id": "lu-gang-cheng-fu-ji",
+          "file": "lu-gang-cheng-fu-ji.md",
+          "title": "鹿港乘桴記",
+          "titleEn": "A Raft Journey from Lukang",
+          "icon": "🌺",
+          "color": "#059669",
+          "examRatio": 6,
+          "questionCount": 8
+        },
+        {
+          "id": "hua-ju-zi-xu",
+          "file": "hua-ju-zi-xu.md",
+          "title": "畫菊自序",
+          "titleEn": "Preface to Paintings of Chrysanthemums",
+          "icon": "🌺",
+          "color": "#059669",
+          "examRatio": 5,
+          "questionCount": 8
+        }
+      ]
+    }
+  ]
 }

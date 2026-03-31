@@ -126,6 +126,10 @@
     }
     .detail-bullet { padding-left: 1rem; margin-bottom: 0.35rem; position: relative; }
     .detail-bullet::before { content: '·'; position: absolute; left: 0; color: var(--text-muted); }
+    .detail-bullet-l2 { padding-left: 2rem; margin-bottom: 0.3rem; position: relative; font-size: 0.85em; }
+    .detail-bullet-l2::before { content: '–'; position: absolute; left: 1rem; color: var(--text-muted); }
+    .detail-bullet-l3 { padding-left: 3rem; margin-bottom: 0.25rem; position: relative; font-size: 0.8em; color: var(--text-muted); }
+    .detail-bullet-l3::before { content: '·'; position: absolute; left: 2rem; color: var(--text-muted); }
 
     /* Quiz inside sidebar */
     .sidebar-question { margin-bottom: 1.25rem; }
@@ -443,6 +447,8 @@
         return;
       }
       const allTopics = getAllTopics(topicsData);
+      const topicTitleToId = {};
+      allTopics.forEach(t => { topicTitleToId[t.title] = t.id; });
 
       /* ---------- Quiz button → pick topic ---------- */
       document.getElementById('btn-quiz').addEventListener('click', () => {
@@ -726,7 +732,7 @@
       async function populateSidebar(entry) {
         const nodeId = entry.node._nodeId;
         const nodeText = entry.text;
-        const detailData = findDetailForNode(nodeText);
+        const detailData = findDetailForNode(nodeText, entry.pathParts);
 
         // Ensure KaTeX is loaded before rendering formulas
         if (detailData && detailData.formulaDetails) {
@@ -785,7 +791,7 @@
           });
         }
         // Then questions
-        const relatedQs = findQuestionsForNode(nodeText);
+        const relatedQs = findQuestionsForNode(nodeText, entry.pathParts);
         if (relatedQs.length > 0) {
           const qTitle = document.createElement('div');
           qTitle.className = 'detail-section-title';
@@ -918,40 +924,44 @@
           detailData.formulaDetails.forEach(fd => renderFormulaCard(fd, container));
         }
 
-        // Render child nodes
-        (parentNode.children || []).forEach(child => {
-          const text = (child.content || '').replace(/<[^>]+>/g, '').trim();
-          if (!text) return;
-          const div = document.createElement('div');
-          div.className = 'detail-item';
-          const span = document.createElement('span');
-          span.textContent = text;
-          if (!hasFormulas) {
-            span.style.fontWeight = '600';
-          }
-          div.appendChild(span);
-          const searchQuery = (pathQuery + ' ' + text).trim();
-          const searchLink = document.createElement('a');
-          searchLink.className = 'search-link';
-          searchLink.href = 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(searchQuery);
-          searchLink.target = '_blank';
-          searchLink.rel = 'noopener noreferrer';
-          searchLink.title = 'Google AI 搜尋 ' + searchQuery;
-          searchLink.textContent = '🔍';
-          div.appendChild(searchLink);
-          container.appendChild(div);
-          if (child.children && child.children.length > 0) {
-            child.children.forEach(sub => {
-              const subText = (sub.content || '').replace(/<[^>]+>/g, '').trim();
-              if (subText) {
-                const p = document.createElement('div');
-                p.className = 'detail-bullet';
-                p.textContent = subText;
-                container.appendChild(p);
-              }
-            });
-          }
-        });
+        // Recursive child renderer (supports arbitrary depth)
+        function renderChildren(node, target, depth, maxDepth) {
+          (node.children || []).forEach(child => {
+            const text = (child.content || '').replace(/<[^>]+>/g, '').trim();
+            if (!text) return;
+            if (depth === 0) {
+              // Top-level children: bold header with search link
+              const div = document.createElement('div');
+              div.className = 'detail-item';
+              const span = document.createElement('span');
+              span.textContent = text;
+              if (!hasFormulas) span.style.fontWeight = '600';
+              div.appendChild(span);
+              const searchQuery = (pathQuery + ' ' + text).trim();
+              const searchLink = document.createElement('a');
+              searchLink.className = 'search-link';
+              searchLink.href = 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(searchQuery);
+              searchLink.target = '_blank';
+              searchLink.rel = 'noopener noreferrer';
+              searchLink.title = 'Google AI 搜尋 ' + searchQuery;
+              searchLink.textContent = '🔍';
+              div.appendChild(searchLink);
+              target.appendChild(div);
+            } else {
+              // Deeper children: bullets with increasing indent
+              const cls = depth === 1 ? 'detail-bullet' : depth === 2 ? 'detail-bullet-l2' : 'detail-bullet-l3';
+              const p = document.createElement('div');
+              p.className = cls;
+              p.textContent = text;
+              target.appendChild(p);
+            }
+            // Recurse if there are deeper children
+            if (child.children && child.children.length > 0 && depth < maxDepth) {
+              renderChildren(child, target, depth + 1, maxDepth);
+            }
+          });
+        }
+        renderChildren(parentNode, container, 0, 4);
 
         // Append associations at the end of concepts
         if (associations.length > 0) {
@@ -981,7 +991,23 @@
         return results;
       }
 
-      function findDetailForNode(nodeText) {
+      function resolveTopicIdFromPath(pathParts) {
+        if (!pathParts) return null;
+        // Walk pathParts to find the first part that matches a known topic title
+        for (const part of pathParts) {
+          if (topicTitleToId[part]) return topicTitleToId[part];
+        }
+        return null;
+      }
+
+      function findDetailForNode(nodeText, pathParts) {
+        // Try scoped lookup first (avoid cross-topic collision)
+        const scopedId = resolveTopicIdFromPath(pathParts);
+        if (scopedId && detailsCache[scopedId]) {
+          const d = detailsCache[scopedId];
+          if (d.nodes && d.nodes[nodeText]) return d.nodes[nodeText];
+        }
+        // Fallback: search all cached topics
         for (const topicId in detailsCache) {
           const d = detailsCache[topicId];
           if (d.nodes && d.nodes[nodeText]) return d.nodes[nodeText];
@@ -989,15 +1015,25 @@
         return null;
       }
 
-      function findQuestionsForNode(nodeText) {
+      function findQuestionsForNode(nodeText, pathParts) {
         const results = [];
+        // Try scoped lookup first
+        const scopedId = resolveTopicIdFromPath(pathParts);
+        if (scopedId && questionsCache[scopedId]) {
+          const qd = questionsCache[scopedId];
+          if (qd.questions) {
+            qd.questions.forEach(q => {
+              if (q.tags && q.tags.includes(nodeText)) results.push(q);
+            });
+          }
+          if (results.length > 0) return results;
+        }
+        // Fallback: search all cached topics
         for (const topicId in questionsCache) {
           const qd = questionsCache[topicId];
           if (!qd.questions) continue;
           qd.questions.forEach(q => {
-            if (q.tags && q.tags.includes(nodeText)) {
-              results.push(q);
-            }
+            if (q.tags && q.tags.includes(nodeText)) results.push(q);
           });
         }
         return results;

@@ -109,7 +109,10 @@
     }
 
     /* Sidebar content items */
-    .detail-item { margin-bottom: 0.75rem; line-height: 1.7; font-size: 0.9rem; }
+    .detail-item {
+      margin-bottom: 0.25rem; line-height: 1.7; font-size: 0.9rem;
+      padding-bottom: 0.15rem;
+    }
     .detail-item strong { color: var(--accent); }
     .detail-item .search-link {
       display: inline-block; margin-left: 0.35rem;
@@ -121,15 +124,40 @@
     .detail-section-title {
       font-size: 0.8rem; color: var(--text-muted);
       text-transform: uppercase; letter-spacing: 0.05em;
-      margin: 1rem 0 0.5rem; padding-bottom: 0.25rem;
+      margin: 1.25rem 0 0.5rem; padding-bottom: 0.25rem;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .detail-bullet { padding-left: 1rem; margin-bottom: 0.35rem; position: relative; }
-    .detail-bullet::before { content: '·'; position: absolute; left: 0; color: var(--text-muted); }
-    .detail-bullet-l2 { padding-left: 2rem; margin-bottom: 0.3rem; position: relative; font-size: 0.85em; }
-    .detail-bullet-l2::before { content: '–'; position: absolute; left: 1rem; color: var(--text-muted); }
-    .detail-bullet-l3 { padding-left: 3rem; margin-bottom: 0.25rem; position: relative; font-size: 0.8em; color: var(--text-muted); }
-    .detail-bullet-l3::before { content: '·'; position: absolute; left: 2rem; color: var(--text-muted); }
+    /* Depth 1: sub-section headers (出處, 作者, etc.) */
+    .detail-bullet {
+      padding-left: 0.75rem; margin-top: 0.85rem; margin-bottom: 0.3rem;
+      position: relative; font-weight: 600; font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .detail-bullet::before {
+      content: ''; position: absolute; left: 0; top: 0.55em;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent, #6366f1); opacity: 0.7;
+    }
+    /* Depth 2: content bullets */
+    .detail-bullet-l2 {
+      padding-left: 1.75rem; margin-bottom: 0.25rem;
+      position: relative; font-size: 0.85rem;
+      line-height: 1.65; color: var(--text);
+    }
+    .detail-bullet-l2::before {
+      content: '–'; position: absolute; left: 0.85rem;
+      color: var(--text-muted); opacity: 0.5;
+    }
+    /* Depth 3: nested detail bullets */
+    .detail-bullet-l3 {
+      padding-left: 2.75rem; margin-bottom: 0.2rem;
+      position: relative; font-size: 0.8rem;
+      line-height: 1.6; color: var(--text-muted);
+    }
+    .detail-bullet-l3::before {
+      content: '·'; position: absolute; left: 1.85rem;
+      color: var(--text-muted); opacity: 0.5;
+    }
 
     /* Quiz inside sidebar */
     .sidebar-question { margin-bottom: 1.25rem; }
@@ -785,7 +813,7 @@
           examPane.appendChild(tipsTitle);
           detailData.examTips.forEach(tip => {
             const div = document.createElement('div');
-            div.className = 'detail-bullet';
+            div.className = 'detail-bullet-l2';
             div.textContent = tip;
             examPane.appendChild(div);
           });

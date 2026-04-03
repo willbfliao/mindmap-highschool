@@ -288,36 +288,64 @@
       border-radius: 3px; transition: width 0.3s;
     }
 
-    /* ===== Search Panel ===== */
+    /* ===== Search Panel (inline expand) ===== */
     .search-container {
       position: relative;
+      display: flex;
+      align-items: center;
     }
+    /* Hide button when search is open */
+    .search-container.open #btn-search { display: none; }
     .search-panel {
-      display: none;
-      position: absolute;
-      top: calc(100% + 6px);
-      right: 0;
-      width: 340px;
+      position: relative;
+      width: 0;
+      overflow: hidden;
+      transition: width 0.25s ease;
+    }
+    .search-container.open .search-panel {
+      width: 220px;
+    }
+    .search-input-wrap {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      min-width: 220px;
+    }
+    #search-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    #search-input::placeholder { color: rgba(255,255,255,0.35); }
+    .search-close-btn {
+      background: none; border: none; color: rgba(255,255,255,0.5);
+      font-size: 1.1rem; cursor: pointer; padding: 6px 10px;
+      line-height: 1; transition: color 0.15s;
+    }
+    .search-close-btn:hover { color: #fff; }
+    /* Results dropdown from input */
+    .search-results-wrap {
+      position: fixed;
+      top: 56px;
+      right: 1rem;
+      width: min(340px, calc(100vw - 2rem));
       background: var(--bg-card);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 10px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4);
       z-index: 1000;
       overflow: hidden;
+      display: none;
     }
-    .search-panel.open { display: block; }
-    #search-input {
-      width: 100%;
-      padding: 12px 14px;
-      border: none;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: transparent;
-      color: var(--text);
-      font-size: 0.95rem;
-      outline: none;
-      box-sizing: border-box;
-    }
-    #search-input::placeholder { color: rgba(255,255,255,0.35); }
+    .search-results-wrap.has-results { display: block; }
     .search-results {
       list-style: none;
       margin: 0; padding: 0;
@@ -370,7 +398,9 @@
       .sidebar-resize-handle { display: none; }
       .viewer-nav .topic-title { font-size: 0.85rem; }
       .nav-progress { display: none; }
-      .search-panel { width: calc(100vw - 2rem); right: -0.5rem; }
+      .search-container.open .search-panel { width: 180px; }
+      .search-input-wrap { min-width: 180px; }
+      .search-results-wrap { width: calc(100vw - 2rem); right: -0.5rem; }
     }
   </style>
 </head>
@@ -386,7 +416,12 @@
       <div class="search-container" id="search-container">
         <button class="btn btn-secondary" id="btn-search">🔍 搜尋</button>
         <div class="search-panel" id="search-panel">
-          <input type="text" id="search-input" placeholder="搜尋心智圖節點..." autocomplete="off">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" placeholder="搜尋心智圖節點..." autocomplete="off">
+            <button class="search-close-btn" id="search-close-btn">&times;</button>
+          </div>
+        </div>
+        <div class="search-results-wrap" id="search-results-wrap">
           <ul class="search-results" id="search-results"></ul>
         </div>
       </div>
@@ -1168,35 +1203,48 @@
       }
 
       /* ===== Search functionality ===== */
+      const searchContainer = document.getElementById('search-container');
       const searchPanel = document.getElementById('search-panel');
       const searchInput = document.getElementById('search-input');
       const searchResults = document.getElementById('search-results');
+      const searchResultsWrap = document.getElementById('search-results-wrap');
       const btnSearch = document.getElementById('btn-search');
 
-      function toggleSearch() {
-        searchPanel.classList.toggle('open');
-        if (searchPanel.classList.contains('open')) {
-          searchInput.value = '';
-          searchResults.innerHTML = '';
-          searchInput.focus();
-        }
+      function openSearch() {
+        searchContainer.classList.add('open');
+        searchInput.value = '';
+        searchResults.innerHTML = '';
+        searchResultsWrap.classList.remove('has-results');
+        setTimeout(() => searchInput.focus(), 260); // after width transition
+      }
+
+      function closeSearch() {
+        searchContainer.classList.remove('open');
+        searchResultsWrap.classList.remove('has-results');
+        searchInput.value = '';
+        searchResults.innerHTML = '';
       }
 
       btnSearch.addEventListener('click', (e) => {
         e.stopPropagation();
-        toggleSearch();
+        openSearch();
       });
 
-      // Close search panel when clicking outside
+      document.getElementById('search-close-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeSearch();
+      });
+
+      // Close search when clicking outside
       document.addEventListener('click', (e) => {
-        if (!searchPanel.classList.contains('open')) return;
-        if (!document.getElementById('search-container').contains(e.target)) {
-          searchPanel.classList.remove('open');
+        if (!searchContainer.classList.contains('open')) return;
+        if (!searchContainer.contains(e.target)) {
+          closeSearch();
         }
       });
 
       // Prevent panel clicks from closing
-      searchPanel.addEventListener('click', (e) => e.stopPropagation());
+      searchContainer.addEventListener('click', (e) => e.stopPropagation());
 
       // Build safe HTML with <mark> highlights (XSS-safe: uses textContent for non-match parts)
       function buildHighlightedEl(text, query) {
@@ -1226,11 +1274,16 @@
         searchTimer = setTimeout(() => {
           const query = searchInput.value.trim().toLowerCase();
           searchResults.innerHTML = '';
-          if (!query) return;
+          if (!query) {
+            searchResultsWrap.classList.remove('has-results');
+            return;
+          }
 
           const allMatches = Object.values(nodeMap)
             .filter(e => e.text.toLowerCase().includes(query));
           const matches = allMatches.slice(0, 20);
+
+          searchResultsWrap.classList.add('has-results');
 
           if (matches.length === 0) {
             searchResults.innerHTML = '<li class="search-no-result">找不到相關節點</li>';
@@ -1331,7 +1384,7 @@
       // Navigate to a node: unfold, zoom, highlight
       function navigateToNode(entry) {
         // Close search panel
-        searchPanel.classList.remove('open');
+        closeSearch();
 
         // Unfold ancestors
         unfoldToNode(entry.node, root);
@@ -1381,7 +1434,7 @@
           toggleSearch();
         }
         if (e.key === 'Escape' && searchPanel.classList.contains('open')) {
-          searchPanel.classList.remove('open');
+          closeSearch();
           searchInput.blur();
         }
       });

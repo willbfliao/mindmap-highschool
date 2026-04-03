@@ -1,10 +1,12 @@
 {
   "title": "高中物理心智圖",
-  "subtitle": "互動式學習 · 力學 · 電磁學 · 能量",
+  "subtitle": "互動式學習 · 必修＋選修 I~V · 力學 · 電磁學 · 近代物理",
+  "groupByCategory": true,
   "categories": [
     {
-      "id": "physics-history",
-      "name": "物理學史",
+      "id": "required-physics",
+      "name": "📘 必修物理（高一）",
+      "tag": "必修",
       "topics": [
         {
           "id": "physics-history",
@@ -15,13 +17,7 @@
           "color": "#b45309",
           "examRatio": 5,
           "questionCount": 8
-        }
-      ]
-    },
-    {
-      "id": "matter-interactions",
-      "name": "物質的組成與交互作用",
-      "topics": [
+        },
         {
           "id": "matter-interactions",
           "file": "matter-interactions.md",
@@ -31,13 +27,7 @@
           "color": "#8b5cf6",
           "examRatio": 20,
           "questionCount": 8
-        }
-      ]
-    },
-    {
-      "id": "kinematics",
-      "name": "運動學",
-      "topics": [
+        },
         {
           "id": "kinematics",
           "file": "kinematics.md",
@@ -47,13 +37,7 @@
           "color": "#f97316",
           "examRatio": 25,
           "questionCount": 8
-        }
-      ]
-    },
-    {
-      "id": "electromagnetism",
-      "name": "電磁學",
-      "topics": [
+        },
         {
           "id": "electromagnetism",
           "file": "electromagnetism.md",
@@ -63,13 +47,7 @@
           "color": "#3b82f6",
           "examRatio": 30,
           "questionCount": 8
-        }
-      ]
-    },
-    {
-      "id": "energy",
-      "name": "能量",
-      "topics": [
+        },
         {
           "id": "energy",
           "file": "energy.md",
@@ -78,6 +56,261 @@
           "icon": "⚡",
           "color": "#10b981",
           "examRatio": 20,
+          "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "elective-physics-1",
+      "name": "📙 選修物理Ⅰ：力學（一）",
+      "tag": "選修",
+      "topics": [
+        {
+          "id": "measurement-uncertainty",
+          "file": "measurement-uncertainty.md",
+          "title": "測量與不確定度",
+          "titleEn": "Measurement & Uncertainty",
+          "icon": "📏",
+          "color": "#ef4444",
+          "examRatio": 3,
+          "questionCount": 8
+        },
+        {
+          "id": "linear-motion",
+          "file": "linear-motion.md",
+          "title": "直線運動",
+          "titleEn": "Linear Motion",
+          "icon": "➡️",
+          "color": "#ef4444",
+          "examRatio": 5,
+          "questionCount": 8
+        },
+        {
+          "id": "planar-motion",
+          "file": "planar-motion.md",
+          "title": "平面運動",
+          "titleEn": "Planar Motion",
+          "icon": "↗️",
+          "color": "#ef4444",
+          "examRatio": 5,
+          "questionCount": 8
+        },
+        {
+          "id": "statics",
+          "file": "statics.md",
+          "title": "靜力學",
+          "titleEn": "Statics",
+          "icon": "⚖️",
+          "color": "#ef4444",
+          "examRatio": 4,
+          "questionCount": 8
+        },
+        {
+          "id": "newton-laws-applications",
+          "file": "newton-laws-applications.md",
+          "title": "牛頓運動定律應用",
+          "titleEn": "Applications of Newton's Laws",
+          "icon": "🔄",
+          "color": "#ef4444",
+          "examRatio": 6,
+          "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "elective-physics-2",
+      "name": "📕 選修物理Ⅱ：力學（二）與熱學",
+      "tag": "選修",
+      "topics": [
+        {
+          "id": "momentum-angular-momentum",
+          "file": "momentum-angular-momentum.md",
+          "title": "動量與角動量",
+          "titleEn": "Momentum & Angular Momentum",
+          "icon": "💥",
+          "color": "#8b5cf6",
+          "examRatio": 5,
+          "questionCount": 8
+        },
+        {
+          "id": "work-energy",
+          "file": "work-energy.md",
+          "title": "功與能量",
+          "titleEn": "Work & Energy",
+          "icon": "🔋",
+          "color": "#8b5cf6",
+          "examRatio": 5,
+          "questionCount": 8
+        },
+        {
+          "id": "collision",
+          "file": "collision.md",
+          "title": "碰撞",
+          "titleEn": "Collisions",
+          "icon": "💫",
+          "color": "#8b5cf6",
+          "examRatio": 4,
+          "questionCount": 8
+        },
+        {
+          "id": "universal-gravitation",
+          "file": "universal-gravitation.md",
+          "title": "萬有引力",
+          "titleEn": "Universal Gravitation",
+          "icon": "🌍",
+          "color": "#8b5cf6",
+          "examRatio": 4,
+          "questionCount": 8
+        },
+        {
+          "id": "thermodynamics",
+          "file": "thermodynamics.md",
+          "title": "熱學",
+          "titleEn": "Thermodynamics",
+          "icon": "🌡️",
+          "color": "#8b5cf6",
+          "examRatio": 4,
+          "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "elective-physics-3",
+      "name": "📗 選修物理Ⅲ：波動、光及聲音",
+      "tag": "選修",
+      "topics": [
+        {
+          "id": "wave-motion",
+          "file": "wave-motion.md",
+          "title": "波動",
+          "titleEn": "Wave Motion",
+          "icon": "🌊",
+          "color": "#0891b2",
+          "examRatio": 4,
+          "questionCount": 8
+        },
+        {
+          "id": "sound-waves",
+          "file": "sound-waves.md",
+          "title": "聲波",
+          "titleEn": "Sound Waves",
+          "icon": "🔊",
+          "color": "#0891b2",
+          "examRatio": 3,
+          "questionCount": 8
+        },
+        {
+          "id": "geometric-optics",
+          "file": "geometric-optics.md",
+          "title": "幾何光學",
+          "titleEn": "Geometric Optics",
+          "icon": "🔍",
+          "color": "#0891b2",
+          "examRatio": 4,
+          "questionCount": 8
+        },
+        {
+          "id": "physical-optics",
+          "file": "physical-optics.md",
+          "title": "物理光學",
+          "titleEn": "Physical Optics",
+          "icon": "🌈",
+          "color": "#0891b2",
+          "examRatio": 3,
+          "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "elective-physics-4",
+      "name": "📙 選修物理Ⅳ：電磁學",
+      "tag": "選修",
+      "topics": [
+        {
+          "id": "electrostatics",
+          "file": "electrostatics.md",
+          "title": "靜電學",
+          "titleEn": "Electrostatics",
+          "icon": "⚡",
+          "color": "#6366f1",
+          "examRatio": 5,
+          "questionCount": 8
+        },
+        {
+          "id": "current-circuits",
+          "file": "current-circuits.md",
+          "title": "電流與電路",
+          "titleEn": "Current & Circuits",
+          "icon": "🔌",
+          "color": "#6366f1",
+          "examRatio": 5,
+          "questionCount": 8
+        },
+        {
+          "id": "magnetic-effects",
+          "file": "magnetic-effects.md",
+          "title": "電流的磁效應",
+          "titleEn": "Magnetic Effects of Current",
+          "icon": "🧲",
+          "color": "#6366f1",
+          "examRatio": 4,
+          "questionCount": 8
+        },
+        {
+          "id": "electromagnetic-induction",
+          "file": "electromagnetic-induction.md",
+          "title": "電磁感應",
+          "titleEn": "Electromagnetic Induction",
+          "icon": "🔁",
+          "color": "#6366f1",
+          "examRatio": 5,
+          "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "elective-physics-5",
+      "name": "📓 選修物理Ⅴ：近代物理",
+      "tag": "選修",
+      "topics": [
+        {
+          "id": "special-relativity",
+          "file": "special-relativity.md",
+          "title": "相對論簡介",
+          "titleEn": "Introduction to Relativity",
+          "icon": "🚀",
+          "color": "#d946ef",
+          "examRatio": 3,
+          "questionCount": 8
+        },
+        {
+          "id": "quantum-theory",
+          "file": "quantum-theory.md",
+          "title": "量子論",
+          "titleEn": "Quantum Theory",
+          "icon": "✨",
+          "color": "#d946ef",
+          "examRatio": 4,
+          "questionCount": 8
+        },
+        {
+          "id": "matter-waves-atomic-models",
+          "file": "matter-waves-atomic-models.md",
+          "title": "物質波與原子模型",
+          "titleEn": "Matter Waves & Atomic Models",
+          "icon": "🔬",
+          "color": "#d946ef",
+          "examRatio": 4,
+          "questionCount": 8
+        },
+        {
+          "id": "nuclear-physics",
+          "file": "nuclear-physics.md",
+          "title": "原子核物理",
+          "titleEn": "Nuclear Physics",
+          "icon": "☢️",
+          "color": "#d946ef",
+          "examRatio": 4,
           "questionCount": 8
         }
       ]

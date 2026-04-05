@@ -1,4 +1,4 @@
-# 🧬 Bio-Mindmap 高中生物心智圖
+# 高中心智圖
 
 互動式學習工具，專為台灣高中生物「人體生理」單元設計。透過 [Markmap](https://markmap.js.org/) 心智圖呈現知識架構，搭配歷屆學測試題練習。
 
@@ -28,8 +28,8 @@
 
 ```bash
 # 複製專案
-git clone https://github.com/<your-username>/bio-mindmap.git
-cd bio-mindmap
+git clone https://github.com/willbfliao/mindmap-highschool.git
+cd mindmap-highschool
 
 # 啟動本機伺服器（任選一種）
 python3 -m http.server 8000
@@ -42,7 +42,7 @@ npx http-server
 ## 專案架構
 
 ```
-bio-mindmap/
+高中心智圖/
 ├── index.html              # 首頁：主題卡片 + 學習進度
 ├── viewer.html             # 心智圖檢視器（Markmap）
 ├── quiz.html               # 題庫練習 + 計分

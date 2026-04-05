@@ -27,9 +27,9 @@
 - 預測電磁波: 光就是電磁波
 
 ## 波動基礎
-- 波長（wavelength, λ）: 一個完整波的長度
-- 頻率（frequency, f）: 每秒振動次數，單位 Hz
-- 波速（wave speed）: v = fλ
+- 波長（wavelength, $\lambda$）: 一個完整波的長度
+- 頻率（frequency, $f$）: 每秒振動次數，單位 $\text{Hz}$
+- 波速（wave speed）: $v = f\lambda$
 - 橫波與縱波
 
 ## 電磁波頻譜
@@ -39,16 +39,16 @@
 - 可見光（visible light）: 人眼可見，紅橙黃綠藍靛紫
 - 紫外線（ultraviolet）: 殺菌、曬傷
 - X射線（X-ray）: 醫學影像
-- γ射線（gamma ray）: 頻率最高、能量最大
+- $\gamma$ 射線（gamma ray）: 頻率最高、能量最大
 
 ## 波動現象
 ### 惠更斯原理與波前
 - 惠更斯原理（Huygens' principle）: 波前上每一點可視為新的波源
 - 波前（wavefront）: 同相位點連成的面
 ### 光線反射與折射
-- 反射定律: 入射角 = 反射角
+- 反射定律: 入射角 $=$ 反射角
 - 折射: 光進入不同介質時偏折
-- 司乃耳定律（Snell's law）: n₁sinθ₁ = n₂sinθ₂
+- 司乃耳定律（Snell's law）: $n_{1}\sin\theta_{1} = n_{2}\sin\theta_{2}$
 ### 繞射
 - 繞射（diffraction）: 波遇到障礙物或狹縫時繞過去
 - 波長越長，繞射越明顯
@@ -66,8 +66,8 @@
 - 黑體（black body）: 完全吸收所有電磁輻射的理想物體
 - 紫外乖離: 古典理論在短波長處失敗
 ### 量子論
-- 普朗克（Planck）: 能量量子化 E = hf
-- 普朗克常數 h = 6.63 × 10⁻³⁴ J·s
+- 普朗克（Planck）: 能量量子化 $E = hf$
+- 普朗克常數 $h = 6.63 \times 10^{-34} \; \text{J} \cdot \text{s}$
 ### 原子光譜與波耳氫原子模型
 - 原子光譜: 不連續的線光譜
 - 波耳模型: 電子只能在特定能階軌道運行
@@ -75,4 +75,4 @@
 ### 波粒二象性
 - 光的波粒二象性: 光同時具有波動性與粒子性
 - 光電效應（photoelectric effect）: 光的粒子性證據
-- 德布羅意波（de Broglie wave）: 物質也具有波動性，λ = h/mv
+- 德布羅意波（de Broglie wave）: 物質也具有波動性，$\lambda = \frac{h}{mv}$

@@ -214,6 +214,18 @@
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .formula-table td .katex { font-size: 0.95em; }
+
+    /* KaTeX in markmap nodes: inherit node text color so formulas are visible on dark bg */
+    .markmap-foreign .katex,
+    .markmap-foreign .katex .katex-html { color: inherit !important; }
+    /* KaTeX in sidebar */
+    .formula-katex .katex,
+    .formula-table .katex,
+    .detail-item .katex,
+    .detail-bullet .katex,
+    .detail-bullet-l2 .katex,
+    .detail-bullet-l3 .katex,
+    #sidebar-title .katex { color: var(--text) !important; }
     .formula-section-title {
       font-size: 0.85rem; font-weight: 600;
       margin: 0.75rem 0 0.4rem;
@@ -458,6 +470,10 @@
     </div>
   </aside>
 
+  <!-- KaTeX (must load BEFORE markmap-lib so its katex plugin can detect it) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+
   <!-- Programmatic Markmap CDN -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15/dist/browser/index.js"></script>
@@ -465,20 +481,7 @@
   <script src="js/app.js?v=2"></script>
   <script>
     (async function() {
-      /* ===== Load KaTeX dynamically ===== */
-      const katexReady = (async function loadKaTeX() {
-        if (typeof katex !== 'undefined') return;
-        try {
-          const link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';
-          document.head.appendChild(link);
-          const code = await fetch('https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js').then(r => r.text());
-          (0, eval)(code);
-        } catch (e) {
-          console.warn('KaTeX load failed:', e);
-        }
-      })();
+      /* ===== KaTeX loaded synchronously via <script> tag above ===== */
 
       const subjectId = getParam('subject');
       const subId = getParam('sub');
@@ -602,6 +605,7 @@
           node._nodeId = nodeId;
           node._depth = depth;
           node._plainText = text;
+          node._htmlContent = node.content || '';
         }
         if (node.children) {
           node.children.forEach(c => buildNodeMap(c, depth + 1, depth >= 1 && text ? pathParts.concat(text) : pathParts));
@@ -778,7 +782,7 @@
       }
 
       function openSidebar(entry) {
-        sidebarTitle.textContent = entry.text;
+        sidebarTitle.innerHTML = entry.node._htmlContent || escapeHtml(entry.text);
         const pathEl = document.getElementById('sidebar-path');
         const breadcrumb = entry.pathParts.slice(0, -1);
         pathEl.textContent = breadcrumb.length > 0 ? breadcrumb.join(' › ') : '';
@@ -814,10 +818,7 @@
         const nodeText = entry.text;
         const detailData = findDetailForNode(nodeText, entry.pathParts);
 
-        // Ensure KaTeX is loaded before rendering formulas
-        if (detailData && detailData.formulaDetails) {
-          await katexReady;
-        }
+        // KaTeX is loaded synchronously via <script> tag
 
         // --- Tab 1: 概念與應用 (concepts + associations inline) ---
         const conceptsPane = document.getElementById('tab-concepts');
@@ -921,13 +922,13 @@
         if (fd.symbols && fd.symbols.length > 0) {
           const secTitle = document.createElement('div');
           secTitle.className = 'formula-section-title';
-          secTitle.textContent = '📋 符號與單位解析';
+          secTitle.textContent = '📋 符號解析';
           card.appendChild(secTitle);
 
           const table = document.createElement('table');
           table.className = 'formula-table';
           const thead = document.createElement('thead');
-          thead.innerHTML = '<tr><th>符號</th><th>物理量名稱</th><th>SI 標準單位</th><th>純量 / 向量</th></tr>';
+          thead.innerHTML = '<tr><th>符號</th><th>物理量名稱</th><th>純量 / 向量</th></tr>';
           table.appendChild(thead);
           const tbody = document.createElement('tbody');
           fd.symbols.forEach(s => {
@@ -941,17 +942,10 @@
             }
             const tdName = document.createElement('td');
             tdName.textContent = s.name;
-            const tdUnit = document.createElement('td');
-            try {
-              katex.render(s.unit, tdUnit, { throwOnError: false });
-            } catch (e) {
-              tdUnit.textContent = s.unit;
-            }
             const tdType = document.createElement('td');
             tdType.textContent = s.type;
             tr.appendChild(tdSym);
             tr.appendChild(tdName);
-            tr.appendChild(tdUnit);
             tr.appendChild(tdType);
             tbody.appendChild(tr);
           });
@@ -1014,7 +1008,7 @@
               const div = document.createElement('div');
               div.className = 'detail-item';
               const span = document.createElement('span');
-              span.textContent = text;
+              span.innerHTML = child.content || escapeHtml(text);
               if (!hasFormulas) span.style.fontWeight = '600';
               div.appendChild(span);
               const searchQuery = (pathQuery + ' ' + text).trim();
@@ -1032,7 +1026,7 @@
               const cls = depth === 1 ? 'detail-bullet' : depth === 2 ? 'detail-bullet-l2' : 'detail-bullet-l3';
               const p = document.createElement('div');
               p.className = cls;
-              p.textContent = text;
+              p.innerHTML = child.content || escapeHtml(text);
               target.appendChild(p);
             }
             // Recurse if there are deeper children

@@ -636,20 +636,56 @@
         paddingX: 16,
       }, root);
 
+      /* ---------- Restore saved fold (expand/collapse) state ---------- */
+      function collectFoldState(node, path) {
+        const map = {};
+        const text = (node.content || '').replace(/<[^>]+>/g, '').trim();
+        const currentPath = text ? (path ? path + '/' + text : text) : path;
+        if (node.payload && typeof node.payload.fold === 'number' && currentPath) {
+          map[currentPath] = node.payload.fold;
+        }
+        if (node.children) {
+          node.children.forEach(c => Object.assign(map, collectFoldState(c, currentPath)));
+        }
+        return map;
+      }
+
+      function applyFoldState(node, foldMap, path) {
+        const text = (node.content || '').replace(/<[^>]+>/g, '').trim();
+        const currentPath = text ? (path ? path + '/' + text : text) : path;
+        if (currentPath && currentPath in foldMap) {
+          if (!node.payload) node.payload = {};
+          node.payload.fold = foldMap[currentPath];
+        }
+        if (node.children) {
+          node.children.forEach(c => applyFoldState(c, foldMap, currentPath));
+        }
+      }
+
+      const savedFold = getFoldState(subjectId, subId, topicId);
+      let foldRestored = false;
+      if (savedFold && Object.keys(savedFold).length > 0) {
+        applyFoldState(root, savedFold, '');
+        mm.renderData();
+        foldRestored = true;
+      }
+
       /* ---------- Restore saved zoom/pan position ---------- */
       const savedTransform = getViewTransform(subjectId, subId, topicId);
       if (savedTransform) {
-        // Wait for Markmap's initial fit() animation (duration: 300ms) to finish
+        // Delay must account for Markmap animation (300ms) + fold renderData
+        const delay = foldRestored ? 500 : 400;
         setTimeout(() => {
           const t = d3.zoomIdentity.translate(savedTransform.x, savedTransform.y).scale(savedTransform.k);
           mm.svg.call(mm.zoom.transform, t);
-        }, 400);
+        }, delay);
       }
 
-      /* ---------- Save zoom/pan position on leave ---------- */
+      /* ---------- Save zoom/pan + fold state on leave ---------- */
       window.addEventListener('beforeunload', () => {
-        const t = d3.zoomTransform(svg.node());
+        const t = d3.zoomTransform(svg);
         saveViewTransform(subjectId, subId, topicId, t);
+        saveFoldState(subjectId, subId, topicId, collectFoldState(root, ''));
       });
 
       /* ---------- Build node ID map for checkboxes & sidebar ---------- */

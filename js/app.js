@@ -134,6 +134,25 @@ function getViewTransform(subjectId, subId, topicId) {
   } catch { return null; }
 }
 
+/* ===== Node fold (expand/collapse) state per view ===== */
+
+function buildFoldKey(subjectId, subId, topicId) {
+  const parts = [subjectId];
+  if (subId) parts.push(subId);
+  if (topicId) parts.push(topicId);
+  return STORAGE_PREFIX + 'fold-' + parts.join('-');
+}
+
+function saveFoldState(subjectId, subId, topicId, foldMap) {
+  localStorage.setItem(buildFoldKey(subjectId, subId, topicId), JSON.stringify(foldMap));
+}
+
+function getFoldState(subjectId, subId, topicId) {
+  try {
+    return JSON.parse(localStorage.getItem(buildFoldKey(subjectId, subId, topicId)));
+  } catch { return null; }
+}
+
 function buildQuizUrl(subjectId, subId, topicId) {
   let url = 'quiz.html?subject=' + encodeURIComponent(subjectId);
   if (subId) url += '&sub=' + encodeURIComponent(subId);

@@ -534,6 +534,7 @@
       if (topicId) {
         const topic = allTopics.find(t => t.id === topicId);
         if (topic) {
+          saveSubjectLocation(subjectId, subId, topicId);
           // Update page title and nav title to show the specific topic
           const topicTitle = topic.icon + ' ' + topic.title;
           document.title = topic.title + ' - 心智圖';
@@ -549,7 +550,9 @@
         }
       }
 
-      if (!topicId) try {
+      if (!topicId) {
+        saveSubjectLocation(subjectId, subId, null);
+        try {
         const rootTitle = displayTitle.replace(/^[^\s]+\s/, ''); // strip emoji
         if (topicsData.groupByCategory) {
           /* Category-aware merge with optional group nesting:
@@ -598,10 +601,11 @@
             .map(md => md.replace(/^(#{1,5})\s/gm, (m, hashes) => '#' + hashes + ' '));
           mergedMd = '# ' + rootTitle + '\n\n' + parts.join('\n\n');
         }
-      } catch {
-        document.getElementById('markmap-wrap').innerHTML =
-          '<div class="loading" style="height:80vh">無法載入心智圖內容</div>';
-        return;
+        } catch {
+          document.getElementById('markmap-wrap').innerHTML =
+            '<div class="loading" style="height:80vh">無法載入心智圖內容</div>';
+          return;
+        }
       }
 
       if (!mergedMd.trim()) {
@@ -734,10 +738,13 @@
       }
 
       function attachNodeClickHandlers() {
-        // Build set of H2 section header texts (depth 1) for expand-on-click
-        const depth1Texts = new Set(Object.values(nodeMap).filter(e => e.depth === 1).map(e => e.text));
+        // Build depth-1 (H2 section headers) entry lookup for sidebar
+        const depth1Entries = {};
+        Object.values(nodeMap).filter(e => e.depth === 1).forEach(e => {
+          depth1Entries[e.text] = e;
+        });
 
-        // Build text→entries lookup to detect duplicates
+        // Build text→entries lookup to detect duplicates (depth >= 2)
         const textToEntries = {};
         Object.values(nodeMap).forEach(e => {
           if (e.depth < 2) return;
@@ -750,14 +757,13 @@
           if (!textEl) return;
           const rawText = textEl.textContent.trim();
 
-          // H2 section headers: clicking text toggles expand/collapse
-          if (depth1Texts.has(rawText) && !textEl.dataset.expand_bound) {
+          // H2 section headers: clicking text opens sidebar with all children
+          if (depth1Entries[rawText] && !textEl.dataset.expand_bound) {
             textEl.dataset.expand_bound = '1';
             textEl.style.cursor = 'pointer';
             textEl.addEventListener('click', (e) => {
               e.stopPropagation();
-              const circle = el.querySelector('circle');
-              if (circle) circle.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+              openSidebar(depth1Entries[rawText]);
             });
           }
 

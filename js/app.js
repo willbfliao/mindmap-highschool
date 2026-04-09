@@ -96,6 +96,23 @@ function toggleNodeCheck(nodeId) {
   }
 }
 
+/* ===== Per-subject last location ===== */
+
+function saveSubjectLocation(subjectId, sub, topic) {
+  localStorage.setItem(
+    STORAGE_PREFIX + 'last-' + subjectId,
+    JSON.stringify({ sub: sub || null, topic: topic || null })
+  );
+}
+
+function getSubjectLocation(subjectId) {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_PREFIX + 'last-' + subjectId));
+  } catch {
+    return null;
+  }
+}
+
 function buildQuizUrl(subjectId, subId, topicId) {
   let url = 'quiz.html?subject=' + encodeURIComponent(subjectId);
   if (subId) url += '&sub=' + encodeURIComponent(subId);
@@ -124,7 +141,12 @@ async function initHomepage() {
   for (const subject of data.subjects) {
     const card = document.createElement('a');
     // Subjects without sub-subjects go directly to viewer (merged mind map)
-    card.href = subject.hasSubjects ? buildSubjectUrl(subject.id) : ('viewer.html?subject=' + encodeURIComponent(subject.id));
+    const lastLoc = getSubjectLocation(subject.id);
+    card.href = lastLoc
+      ? buildViewerUrl(subject.id, lastLoc.sub, lastLoc.topic)
+      : (subject.hasSubjects
+          ? buildSubjectUrl(subject.id)
+          : ('viewer.html?subject=' + encodeURIComponent(subject.id)));
     card.className = 'subject-card';
     card.style.borderColor = subject.color;
 

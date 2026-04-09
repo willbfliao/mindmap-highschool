@@ -113,6 +113,27 @@ function getSubjectLocation(subjectId) {
   }
 }
 
+/* ===== Zoom/pan state per view ===== */
+
+function buildViewKey(subjectId, subId, topicId) {
+  const parts = [subjectId];
+  if (subId) parts.push(subId);
+  if (topicId) parts.push(topicId);
+  return STORAGE_PREFIX + 'view-' + parts.join('-');
+}
+
+function saveViewTransform(subjectId, subId, topicId, transform) {
+  localStorage.setItem(buildViewKey(subjectId, subId, topicId),
+    JSON.stringify({ k: transform.k, x: transform.x, y: transform.y })
+  );
+}
+
+function getViewTransform(subjectId, subId, topicId) {
+  try {
+    return JSON.parse(localStorage.getItem(buildViewKey(subjectId, subId, topicId)));
+  } catch { return null; }
+}
+
 function buildQuizUrl(subjectId, subId, topicId) {
   let url = 'quiz.html?subject=' + encodeURIComponent(subjectId);
   if (subId) url += '&sub=' + encodeURIComponent(subId);

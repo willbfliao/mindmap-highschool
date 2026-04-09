@@ -636,6 +636,22 @@
         paddingX: 16,
       }, root);
 
+      /* ---------- Restore saved zoom/pan position ---------- */
+      const savedTransform = getViewTransform(subjectId, subId, topicId);
+      if (savedTransform) {
+        // Wait for Markmap's initial fit() animation (duration: 300ms) to finish
+        setTimeout(() => {
+          const t = d3.zoomIdentity.translate(savedTransform.x, savedTransform.y).scale(savedTransform.k);
+          mm.svg.call(mm.zoom.transform, t);
+        }, 400);
+      }
+
+      /* ---------- Save zoom/pan position on leave ---------- */
+      window.addEventListener('beforeunload', () => {
+        const t = d3.zoomTransform(svg.node());
+        saveViewTransform(subjectId, subId, topicId, t);
+      });
+
       /* ---------- Build node ID map for checkboxes & sidebar ---------- */
       const nodeMap = {}; // nodeId → { node, depth, path }
       function buildNodeMap(node, depth, pathParts) {

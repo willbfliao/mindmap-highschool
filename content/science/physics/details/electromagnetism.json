@@ -80,7 +80,7 @@
     "波動現象": {
       "formulaDetails": [
         {
-          "title": "司乃耳定律（折射定律）",
+          "title": "司涅耳定律（折射定律）",
           "latex": "n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2",
           "symbols": [
             { "symbol": "n_1, n_2", "name": "介質折射率", "unit": "無", "type": "純量" },

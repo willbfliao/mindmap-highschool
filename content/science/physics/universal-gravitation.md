@@ -19,7 +19,7 @@
 ### 定律內容
 - $F = \frac{GMm}{r^{2}}$
 - $G$: 萬有引力常數 $= 6.67 \times 10^{-11} \text{ N} \cdot \text{m}^{2}/\text{kg}^{2}$
-- 卡文迪西實驗（Cavendish experiment）: 扭秤測量 $G$
+- 卡文迪許實驗（Cavendish experiment）: 扭秤測量 $G$
 ### 重力加速度
 - 地表: $g = \frac{GM}{R^{2}}$（$R$ 為地球半徑）
 - 高度 $h$ 處: $g' = \frac{GM}{(R+h)^{2}} \approx g\left(1 - \frac{2h}{R}\right)$（$h \ll R$ 時）

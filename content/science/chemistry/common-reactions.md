@@ -5,7 +5,7 @@
 - 阿瑞尼斯（Arrhenius）酸鹼
   - 酸: 溶於水產生 $\text{H}^+$ 的物質（如 $\text{HCl}$、$\text{H}_2\text{SO}_4$）
   - 鹼: 溶於水產生 $\text{OH}^-$ 的物質（如 $\text{NaOH}$、$\text{Ca(OH)}_2$）
-- 布洛-乃瑞（Brønsted-Lowry）酸鹼
+- 布忍斯特-洛瑞（Brønsted-Lowry）酸鹼
   - 酸: 質子（$\text{H}^+$）的給予者
   - 鹼: 質子（$\text{H}^+$）的接受者
   - 共軛酸鹼對: 酸失去 $\text{H}^+$ 後變成共軛鹼

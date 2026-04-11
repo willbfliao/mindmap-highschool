@@ -29,7 +29,7 @@
 
 ## 折射與全反射
 ### 折射定律
-- 司乃耳定律（Snell's law）: $n_{1} \sin\theta_{1} = n_{2} \sin\theta_{2}$
+- 司涅耳定律（Snell's law）: $n_{1} \sin\theta_{1} = n_{2} \sin\theta_{2}$
 - 折射率（index of refraction）: $n = \frac{c}{v}$
 - 光從疏介質進入密介質: 偏向法線（$\theta_{2} < \theta_{1}$）
 - 光從密介質進入疏介質: 偏離法線（$\theta_{2} > \theta_{1}$）

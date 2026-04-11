@@ -75,7 +75,7 @@
 - 逆滲透：施加大於滲透壓的壓力，使溶劑反向流動（海水淡化原理）
 ### 電解質的依數性修正
 - 電解質在溶液中解離產生更多粒子
-- 凡乎乎因子（van't Hoff factor, $i$）：實際粒子數 / 溶解分子數
+- 凡特荷夫因子（van't Hoff factor, $i$）：實際粒子數 / 溶解分子數
   - $\text{NaCl}$：$i \approx 2$（$\text{Na}^+ + \text{Cl}^-$）
   - $\text{CaCl}_2$：$i \approx 3$（$\text{Ca}^{2+} + 2\text{Cl}^-$）
 - 依數性公式需乘以 $i$：$\Delta T_b = i \times K_b \times m$

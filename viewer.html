@@ -51,7 +51,7 @@
       padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);
       flex-shrink: 0;
     }
-    .sidebar-header h3 { font-size: 1.1rem; font-weight: 600; margin: 0; }
+    .sidebar-header h3 { font-size: 1.15rem; font-weight: 600; margin: 0; }
     .sidebar-header-text { flex: 1; min-width: 0; }
     .sidebar-path {
       font-size: 0.7rem; color: var(--text-muted); opacity: 0.7;
@@ -84,10 +84,18 @@
 
     /* Sidebar body */
     .sidebar-body {
-      flex: 1; overflow-y: auto; padding: 1rem;
+      flex: 1; overflow-y: auto; padding: 1.25rem 1.5rem;
     }
     .sidebar-body .tab-pane { display: none; }
     .sidebar-body .tab-pane.active { display: block; }
+    .sidebar-body::-webkit-scrollbar { width: 4px; }
+    .sidebar-body::-webkit-scrollbar-track { background: transparent; }
+    .sidebar-body::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.15); border-radius: 2px;
+    }
+    .sidebar-body::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.25);
+    }
 
     /* Node checkbox in sidebar */
     .sidebar-check-row {
@@ -110,8 +118,11 @@
 
     /* Sidebar content items */
     .detail-item {
-      margin-bottom: 0.25rem; line-height: 1.7; font-size: 0.9rem;
-      padding-bottom: 0.15rem;
+      margin-bottom: 0.5rem; line-height: 1.75; font-size: 0.92rem;
+      padding: 0.55rem 0.75rem;
+      background: rgba(255,255,255,0.03);
+      border-radius: 6px;
+      border-left: 2px solid rgba(99,102,241,0.3);
     }
     .detail-item strong { color: var(--accent); }
     .detail-item .search-link {
@@ -122,53 +133,108 @@
     }
     .detail-item .search-link:hover { opacity: 1; color: var(--accent); }
     .detail-section-title {
-      font-size: 0.8rem; color: var(--text-muted);
-      text-transform: uppercase; letter-spacing: 0.05em;
-      margin: 1.25rem 0 0.5rem; padding-bottom: 0.25rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.85rem; color: var(--text-muted);
+      letter-spacing: 0.03em; font-weight: 600;
+      margin: 1.5rem 0 0.6rem; padding-bottom: 0.3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     /* Depth 1: sub-section headers (出處, 作者, etc.) */
     .detail-bullet {
-      padding-left: 0.75rem; margin-top: 0.85rem; margin-bottom: 0.3rem;
-      position: relative; font-weight: 600; font-size: 0.88rem;
-      line-height: 1.6;
+      padding-left: 0.85rem; margin-top: 1rem; margin-bottom: 0.35rem;
+      position: relative; font-weight: 600; font-size: 0.9rem;
+      line-height: 1.65;
     }
     .detail-bullet::before {
-      content: ''; position: absolute; left: 0; top: 0.55em;
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--accent, #6366f1); opacity: 0.7;
+      content: ''; position: absolute; left: 0; top: 0.5em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent, #6366f1); opacity: 0.8;
     }
     /* Depth 2: content bullets */
     .detail-bullet-l2 {
-      padding-left: 1.75rem; margin-bottom: 0.25rem;
-      position: relative; font-size: 0.85rem;
-      line-height: 1.65; color: var(--text);
+      padding-left: 1.85rem; margin-bottom: 0.35rem;
+      position: relative; font-size: 0.87rem;
+      line-height: 1.7; color: var(--text);
     }
     .detail-bullet-l2::before {
       content: '–'; position: absolute; left: 0.85rem;
-      color: var(--text-muted); opacity: 0.5;
+      color: var(--text-muted); opacity: 0.65;
     }
     /* Depth 3: nested detail bullets */
     .detail-bullet-l3 {
-      padding-left: 2.75rem; margin-bottom: 0.2rem;
-      position: relative; font-size: 0.8rem;
-      line-height: 1.6; color: var(--text-muted);
+      padding-left: 2.85rem; margin-bottom: 0.3rem;
+      position: relative; font-size: 0.82rem;
+      line-height: 1.65; color: var(--text-muted);
     }
     .detail-bullet-l3::before {
       content: '·'; position: absolute; left: 1.85rem;
-      color: var(--text-muted); opacity: 0.5;
+      color: var(--text-muted); opacity: 0.6;
+    }
+
+    /* ===== Card Containers ===== */
+    .sidebar-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--accent, #6366f1);
+    }
+    .sidebar-card--association {
+      border-left-color: var(--warning, #f59e0b);
+      background: rgba(245,158,11,0.04);
+    }
+    .sidebar-card--concept {
+      border-left-color: rgba(99,102,241,0.4);
+    }
+    .sidebar-card--concept .detail-item {
+      background: none; border-left: none;
+      padding: 0; margin-bottom: 0.35rem;
+    }
+    .sidebar-card--tips {
+      border-left-color: var(--accent, #6366f1);
+      background: rgba(99,102,241,0.04);
+    }
+    .sidebar-card .detail-section-title {
+      margin-top: 0; border-bottom: none; padding-bottom: 0;
+      margin-bottom: 0.5rem;
+    }
+    .association-item {
+      font-size: 0.87rem; line-height: 1.75;
+      color: var(--text); margin-bottom: 0.4rem;
+      padding-left: 1.5rem; position: relative;
+    }
+    .association-item::before {
+      content: '💡'; position: absolute; left: 0; top: 0;
+      font-size: 0.8rem;
+    }
+    .exam-tip-item {
+      font-size: 0.87rem; line-height: 1.75;
+      color: var(--text); margin-bottom: 0.4rem;
+      padding-left: 1.5rem; position: relative;
+    }
+    .exam-tip-item::before {
+      content: '✦'; position: absolute; left: 0.2rem; top: 0;
+      color: var(--accent, #6366f1); font-size: 0.7rem;
     }
 
     /* Quiz inside sidebar */
-    .sidebar-question { margin-bottom: 1.25rem; }
-    .sidebar-question .q-text { font-size: 0.85rem; margin-bottom: 0.5rem; line-height: 1.6; }
-    .sidebar-question .q-year { font-size: 0.7rem; color: var(--accent); margin-bottom: 0.3rem; }
+    .sidebar-question {
+      margin-bottom: 1.25rem;
+      background: rgba(255,255,255,0.03);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .sidebar-question .q-text { font-size: 0.88rem; margin-bottom: 0.5rem; line-height: 1.7; }
+    .sidebar-question .q-year {
+      font-size: 0.75rem; color: var(--accent); margin-bottom: 0.35rem;
+      font-weight: 500;
+    }
     .sidebar-question .sq-options { list-style: none; padding: 0; }
     .sidebar-question .sq-opt-btn {
       display: block; width: 100%; text-align: left;
-      padding: 0.5rem 0.75rem; margin-bottom: 0.3rem;
+      padding: 0.6rem 0.85rem; margin-bottom: 0.35rem;
       background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 6px; color: var(--text); font-size: 0.8rem;
+      border-radius: 6px; color: var(--text); font-size: 0.85rem;
       cursor: pointer; transition: border-color 0.2s, background 0.2s;
     }
     .sq-opt-btn:hover:not(.sq-disabled) { border-color: var(--accent); background: rgba(99,102,241,0.1); }
@@ -176,9 +242,9 @@
     .sq-opt-btn.sq-wrong { border-color: #ef4444; background: rgba(239,68,68,0.15); }
     .sq-opt-btn.sq-disabled { cursor: default; }
     .sidebar-question .sq-explanation {
-      margin-top: 0.5rem; padding: 0.5rem 0.75rem;
+      margin-top: 0.6rem; padding: 0.75rem 0.85rem;
       background: rgba(255,255,255,0.04); border-left: 3px solid var(--accent);
-      border-radius: 4px; font-size: 0.8rem; line-height: 1.5;
+      border-radius: 4px; font-size: 0.85rem; line-height: 1.65;
       display: none;
     }
     .sidebar-question .sq-explanation.show { display: block; }
@@ -985,16 +1051,19 @@
         examPane.innerHTML = '';
         // Exam tips first
         if (detailData && detailData.examTips && detailData.examTips.length > 0) {
+          const card = document.createElement('div');
+          card.className = 'sidebar-card sidebar-card--tips';
           const tipsTitle = document.createElement('div');
           tipsTitle.className = 'detail-section-title';
           tipsTitle.textContent = '🎯 考試重點';
-          examPane.appendChild(tipsTitle);
+          card.appendChild(tipsTitle);
           detailData.examTips.forEach(tip => {
             const div = document.createElement('div');
-            div.className = 'detail-bullet-l2';
+            div.className = 'exam-tip-item';
             div.textContent = tip;
-            examPane.appendChild(div);
+            card.appendChild(div);
           });
+          examPane.appendChild(card);
         }
         // Then questions
         const relatedQs = findQuestionsForNode(nodeText, entry.pathParts);
@@ -1129,6 +1198,11 @@
             const text = (child.content || '').replace(/<[^>]+>/g, '').trim();
             if (!text) return;
             if (depth === 0) {
+              const hasChildren = child.children && child.children.length > 0;
+              // Wrap in card if this top-level item has sub-items
+              const wrapper = hasChildren ? document.createElement('div') : null;
+              if (wrapper) wrapper.className = 'sidebar-card sidebar-card--concept';
+              const appendTo = wrapper || target;
               // Top-level children: bold header with search link
               const div = document.createElement('div');
               div.className = 'detail-item';
@@ -1145,7 +1219,12 @@
               searchLink.title = 'Google AI 搜尋 ' + searchQuery;
               searchLink.textContent = '🔍';
               div.appendChild(searchLink);
-              target.appendChild(div);
+              appendTo.appendChild(div);
+              // Recurse children into the card
+              if (hasChildren && depth < maxDepth) {
+                renderChildren(child, appendTo, depth + 1, maxDepth);
+              }
+              if (wrapper) target.appendChild(wrapper);
             } else {
               // Deeper children: bullets with increasing indent
               const cls = depth === 1 ? 'detail-bullet' : depth === 2 ? 'detail-bullet-l2' : 'detail-bullet-l3';
@@ -1153,10 +1232,10 @@
               p.className = cls;
               p.innerHTML = child.content || escapeHtml(text);
               target.appendChild(p);
-            }
-            // Recurse if there are deeper children
-            if (child.children && child.children.length > 0 && depth < maxDepth) {
-              renderChildren(child, target, depth + 1, maxDepth);
+              // Recurse if there are deeper children
+              if (child.children && child.children.length > 0 && depth < maxDepth) {
+                renderChildren(child, target, depth + 1, maxDepth);
+              }
             }
           });
         }
@@ -1164,16 +1243,19 @@
 
         // Append associations at the end of concepts
         if (associations.length > 0) {
+          const card = document.createElement('div');
+          card.className = 'sidebar-card sidebar-card--association';
           const title = document.createElement('div');
           title.className = 'detail-section-title';
           title.textContent = '💡 生活聯想與應用';
-          container.appendChild(title);
+          card.appendChild(title);
           associations.forEach(a => {
             const div = document.createElement('div');
-            div.className = 'detail-item';
-            div.innerHTML = '💡 ' + escapeHtml(a);
-            container.appendChild(div);
+            div.className = 'association-item';
+            div.textContent = a;
+            card.appendChild(div);
           });
+          container.appendChild(card);
         }
       }
 

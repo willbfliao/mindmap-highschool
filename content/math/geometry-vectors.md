@@ -57,12 +57,45 @@
   - $|\vec{a} \times \vec{b}| = |\vec{a}||\vec{b}|\sin\theta$
 - 外積行列式（determinant form）: $\vec{a} \times \vec{b} = (a_2 b_3 - a_3 b_2,\; a_3 b_1 - a_1 b_3,\; a_1 b_2 - a_2 b_1)$
 ### 平面方程式
-- 一般式（general form）: $ax + by + cz + d = 0$
-- 法向量（normal vector）: $\vec{n} = (a, b, c)$
-- 點到平面距離（point-to-plane distance）: $d = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$
+- 法向量（normal vector）: 凡是與平面垂直的非零向量，均稱為該平面的法向量，不唯一
+  - 若 $\vec{a}$、$\vec{b}$ 與平面平行且 $\vec{a} \not\parallel \vec{b}$，則 $\vec{a} \times \vec{b}$ 即為法向量
+- 推導: 平面 $E$ 過定點 $(p,q,r)$，法向量 $(a,b,c)$，則 $(x-p,y-q,z-r) \perp (a,b,c)$
+  - $a(x-p)+b(y-q)+c(z-r)=0$
+- 標準式（standard form）: $ax+by+cz=d$，係數向量 $(a,b,c)$ 即為法向量
+- 缺項的平面方程式: 缺 $x$ 項→平行 $x$ 軸，缺 $y$ 項→平行 $y$ 軸，缺 $z$ 項→平行 $z$ 軸
+- 截距式（intercept form）: $\frac{x}{p}+\frac{y}{q}+\frac{z}{r}=1$，與三軸交於 $(p,0,0)$、$(0,q,0)$、$(0,0,r)$
+### 兩平面的關係與點面距公式
+- 兩平面的關係: $E_1: a_1x+b_1y+c_1z=d_1$ 與 $E_2: a_2x+b_2y+c_2z=d_2$
+  - 兩面重合: $\frac{a_1}{a_2}=\frac{b_1}{b_2}=\frac{c_1}{c_2}=\frac{d_1}{d_2}$
+  - 兩面平行: $\frac{a_1}{a_2}=\frac{b_1}{b_2}=\frac{c_1}{c_2} \neq \frac{d_1}{d_2}$
+  - 兩面相交: $(a_1,b_1,c_1) \not\parallel (a_2,b_2,c_2)$
+- 兩平面的交角: $\cos\theta = \pm\frac{\vec{n_1} \cdot \vec{n_2}}{|\vec{n_1}| \times |\vec{n_2}|}$
+- 點面距（point-to-plane distance）: $d(K,E) = \frac{|ap+bq+cr-d|}{\sqrt{a^2+b^2+c^2}}$
+- 兩平行平面間距: $d(E_1,E_2) = \frac{|d_1-d_2|}{\sqrt{a^2+b^2+c^2}}$（需先確認係數對應相等）
+- 角平分面: $\frac{|a_1x+b_1y+c_1z-d_1|}{\sqrt{a_1^2+b_1^2+c_1^2}} = \frac{|a_2x+b_2y+c_2z-d_2|}{\sqrt{a_2^2+b_2^2+c_2^2}}$
+- 平面系方程式: $(a_1x+b_1y+c_1z-d_1)+k(a_2x+b_2y+c_2z-d_2)=0$，隨 $k$ 值繞交線旋轉
+  - $E_1+kE_2=0$ 無法消去 $E_1$ 表示 $E_2$；$kE_1+E_2=0$ 無法表示 $E_1$
 ### 空間直線
-- 參數式（parametric form）: $x = x_0 + at,\; y = y_0 + bt,\; z = z_0 + ct$
-- 方向向量（direction vector）: $\vec{d} = (a, b, c)$
+- 方向向量（direction vector）: 與直線 $L$ 平行的非零向量，記為 $\vec{d}$，不唯一
+- 參數式（parametric form）: $\begin{cases} x=x_0+at \\ y=y_0+bt \\ z=z_0+ct \end{cases}$，$t \in \mathbb{R}$
+  - 常數項為起點，$t$ 的係數為方向向量
+  - 同一直線參數式有無限多種，可改變起點或伸縮方向向量
+  - 控制 $t$ 範圍可變成線段或射線
+- 比例式（symmetric form）: $\frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}$（$a,b,c$ 均不為 0）
+  - 分子為 0 得起點，分母為方向向量
+  - 注意 $x,y,z$ 係數必須是 1，如 $\frac{2x-3}{4}=\frac{-y-1}{3}=\frac{z}{2}$ 方向向量是 $(2,-3,2)$ 不是 $(4,3,2)$
+- 兩面式: $\begin{cases} a_1x+b_1y+c_1z=d_1 \\ a_2x+b_2y+c_2z=d_2 \end{cases}$，兩平面法向量外積得方向向量
+  - 可用加減消去法化為參數式
+  - 若兩面平行則無解（無圖形）
+### 空間中直線與點、線、面的關係
+- 直線與平面的關係: $\vec{d}$ 為方向向量，$\vec{n}$ 為法向量
+  - $\vec{d}$ 與 $\vec{n}$ 不垂直 → $L$ 與 $E$ 交於一點（若 $\vec{d} \parallel \vec{n}$ 則 $L \perp E$）
+  - $\vec{d}$ 與 $\vec{n}$ 垂直 → 線面平行或線在平面上（取 $L$ 上一點代入 $E$ 判斷）
+- 點與直線的關係: 用「配方」求距離最小值，或「內積為 0」求最近距離與垂足點
+- 兩直線的關係:
+  - 平行: $\vec{d_1} \parallel \vec{d_2}$，可求間距
+  - 相交: 分別用參數 $t$、$k$，聯立 $x,y$ 坐標解出後確認 $z$ 也相等
+  - 歪斜: 設公垂線垂足點，利用內積為 0 解聯立；或求含 $L_1$ 且平行 $L_2$ 的平面 $E$，再求 $L_2$ 到 $E$ 的距離
 
 ## 圓錐曲線
 ### 拋物線

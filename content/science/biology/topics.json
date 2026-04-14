@@ -1,16 +1,273 @@
 {
   "title": "高中生物心智圖",
-  "subtitle": "互動式學習 · 人體生理",
+  "subtitle": "互動式學習 · 必修＋選修 I~IV · 細胞 · 遺傳 · 演化 · 人體 · 植物 · 生態",
+  "groupByCategory": true,
   "categories": [
     {
-      "id": "human-physiology",
-      "name": "人體生理",
+      "id": "required-cell-organism",
+      "name": "📘 必修生物：細胞與生物體",
+      "tag": "必修",
       "topics": [
+        {
+          "id": "cell-theory",
+          "file": "cell-theory.md",
+          "title": "生命現象與細胞學說",
+          "titleEn": "Cell Theory",
+          "icon": "🔬",
+          "color": "#10b981",
+          "examRatio": 5,
+          "questionCount": 0
+        },
+        {
+          "id": "cell-structure",
+          "file": "cell-structure.md",
+          "title": "細胞的構造與功能",
+          "titleEn": "Cell Structure & Function",
+          "icon": "🧫",
+          "color": "#10b981",
+          "examRatio": 8,
+          "questionCount": 0
+        },
+        {
+          "id": "cell-energy-basics",
+          "file": "cell-energy-basics.md",
+          "title": "細胞的能量來源",
+          "titleEn": "Cell Energy Basics",
+          "icon": "⚡",
+          "color": "#10b981",
+          "examRatio": 7,
+          "questionCount": 0
+        },
+        {
+          "id": "cell-division-basics",
+          "file": "cell-division-basics.md",
+          "title": "細胞分裂",
+          "titleEn": "Cell Division",
+          "icon": "🔄",
+          "color": "#10b981",
+          "examRatio": 5,
+          "questionCount": 0
+        }
+      ]
+    },
+    {
+      "id": "required-genetics",
+      "name": "📘 必修生物：遺傳與基因",
+      "tag": "必修",
+      "topics": [
+        {
+          "id": "mendelian-genetics",
+          "file": "mendelian-genetics.md",
+          "title": "孟德爾遺傳法則與染色體學說",
+          "titleEn": "Mendelian Genetics",
+          "icon": "🌱",
+          "color": "#22c55e",
+          "examRatio": 8,
+          "questionCount": 0
+        },
+        {
+          "id": "dna-gene-expression",
+          "file": "dna-gene-expression.md",
+          "title": "遺傳物質 DNA 與基因表現",
+          "titleEn": "DNA & Gene Expression",
+          "icon": "🧬",
+          "color": "#22c55e",
+          "examRatio": 7,
+          "questionCount": 0
+        },
+        {
+          "id": "biotech-applications",
+          "file": "biotech-applications.md",
+          "title": "生物技術的應用",
+          "titleEn": "Biotech Applications",
+          "icon": "🔧",
+          "color": "#22c55e",
+          "examRatio": 5,
+          "questionCount": 0
+        }
+      ]
+    },
+    {
+      "id": "required-evolution",
+      "name": "📘 必修生物：演化與生物多樣性",
+      "tag": "必修",
+      "topics": [
+        {
+          "id": "evolution-theory",
+          "file": "evolution-theory.md",
+          "title": "演化的學說與證據",
+          "titleEn": "Evolution Theory & Evidence",
+          "icon": "🦕",
+          "color": "#14b8a6",
+          "examRatio": 6,
+          "questionCount": 0
+        },
+        {
+          "id": "biodiversity-conservation",
+          "file": "biodiversity-conservation.md",
+          "title": "生物多樣性的層次與保育",
+          "titleEn": "Biodiversity & Conservation",
+          "icon": "🌍",
+          "color": "#14b8a6",
+          "examRatio": 5,
+          "questionCount": 0
+        }
+      ]
+    },
+    {
+      "id": "elective-biology-1",
+      "name": "📙 選修生物Ⅰ：細胞與遺傳",
+      "tag": "選修",
+      "topics": [
+        {
+          "id": "cell-chemistry",
+          "file": "cell-chemistry.md",
+          "title": "細胞的化學組成",
+          "titleEn": "Cell Chemistry",
+          "icon": "⚗️",
+          "color": "#f59e0b",
+          "examRatio": 5,
+          "questionCount": 0
+        },
+        {
+          "id": "cell-physiology",
+          "file": "cell-physiology.md",
+          "title": "細胞生理",
+          "titleEn": "Cell Physiology",
+          "icon": "🧪",
+          "color": "#f59e0b",
+          "examRatio": 6,
+          "questionCount": 0
+        },
+        {
+          "id": "cell-cycle-detail",
+          "file": "cell-cycle-detail.md",
+          "title": "細胞週期與分裂",
+          "titleEn": "Cell Cycle & Division",
+          "icon": "🔄",
+          "color": "#f59e0b",
+          "examRatio": 5,
+          "questionCount": 0
+        },
+        {
+          "id": "advanced-genetics",
+          "file": "advanced-genetics.md",
+          "title": "進階遺傳學",
+          "titleEn": "Advanced Genetics",
+          "icon": "🧬",
+          "color": "#f59e0b",
+          "examRatio": 5,
+          "questionCount": 0
+        },
+        {
+          "id": "molecular-biology",
+          "file": "molecular-biology.md",
+          "title": "分子生物學與技術",
+          "titleEn": "Molecular Biology & Technology",
+          "icon": "🔬",
+          "color": "#f59e0b",
+          "examRatio": 5,
+          "questionCount": 0
+        }
+      ]
+    },
+    {
+      "id": "elective-biology-2",
+      "name": "📙 選修生物Ⅱ：演化與多樣性",
+      "tag": "選修",
+      "topics": [
+        {
+          "id": "origin-evolution-mechanisms",
+          "file": "origin-evolution-mechanisms.md",
+          "title": "生命的起源與演化機制",
+          "titleEn": "Origin of Life & Evolution Mechanisms",
+          "icon": "🌋",
+          "color": "#f97316",
+          "examRatio": 5,
+          "questionCount": 0
+        },
+        {
+          "id": "viruses-prokaryotes",
+          "file": "viruses-prokaryotes.md",
+          "title": "病毒與無核生物",
+          "titleEn": "Viruses & Prokaryotes",
+          "icon": "🦠",
+          "color": "#f97316",
+          "examRatio": 4,
+          "questionCount": 0
+        },
+        {
+          "id": "eukaryote-diversity",
+          "file": "eukaryote-diversity.md",
+          "title": "真核生物多樣性",
+          "titleEn": "Eukaryote Diversity",
+          "icon": "🍄",
+          "color": "#f97316",
+          "examRatio": 4,
+          "questionCount": 0
+        },
+        {
+          "id": "plant-animal-diversity",
+          "file": "plant-animal-diversity.md",
+          "title": "植物界與動物界的多樣性",
+          "titleEn": "Plant & Animal Diversity",
+          "icon": "🌿",
+          "color": "#f97316",
+          "examRatio": 4,
+          "questionCount": 0
+        }
+      ]
+    },
+    {
+      "id": "elective-biology-3",
+      "name": "📙 選修生物Ⅲ：動物體的構造與功能",
+      "tag": "選修",
+      "topics": [
+        {
+          "id": "circulatory",
+          "file": "circulatory.md",
+          "title": "循環系統",
+          "titleEn": "Circulatory System",
+          "icon": "❤️",
+          "color": "#ef4444",
+          "examRatio": 10,
+          "questionCount": 8
+        },
+        {
+          "id": "immune",
+          "file": "immune.md",
+          "title": "防禦與免疫系統",
+          "titleEn": "Defense & Immune System",
+          "icon": "🛡️",
+          "color": "#10b981",
+          "examRatio": 11,
+          "questionCount": 8
+        },
+        {
+          "id": "digestive",
+          "file": "digestive.md",
+          "title": "消化與吸收系統",
+          "titleEn": "Digestive & Absorption System",
+          "icon": "🍽️",
+          "color": "#f59e0b",
+          "examRatio": 8,
+          "questionCount": 8
+        },
+        {
+          "id": "respiratory-excretory",
+          "file": "respiratory-excretory.md",
+          "title": "呼吸與排泄系統",
+          "titleEn": "Respiratory & Excretory System",
+          "icon": "🫁",
+          "color": "#06b6d4",
+          "examRatio": 13,
+          "questionCount": 0
+        },
         {
           "id": "nervous-system",
           "file": "nervous-system.md",
-          "title": "神經系統",
-          "titleEn": "Nervous System",
+          "title": "神經系統與感覺器官",
+          "titleEn": "Nervous System & Sensory Organs",
           "icon": "🧠",
           "color": "#6366f1",
           "examRatio": 14,
@@ -27,64 +284,81 @@
           "questionCount": 8
         },
         {
-          "id": "circulatory",
-          "file": "circulatory.md",
-          "title": "循環系統",
-          "titleEn": "Circulatory System",
-          "icon": "❤️",
-          "color": "#ef4444",
-          "examRatio": 10,
-          "questionCount": 8
-        },
-        {
-          "id": "immune",
-          "file": "immune.md",
-          "title": "免疫系統",
-          "titleEn": "Immune System",
-          "icon": "🛡️",
-          "color": "#10b981",
-          "examRatio": 11,
-          "questionCount": 8
-        },
-        {
-          "id": "digestive",
-          "file": "digestive.md",
-          "title": "消化系統",
-          "titleEn": "Digestive System",
-          "icon": "🍽️",
-          "color": "#f59e0b",
-          "examRatio": 8,
-          "questionCount": 8
-        },
-        {
-          "id": "respiratory",
-          "file": "respiratory.md",
-          "title": "呼吸系統",
-          "titleEn": "Respiratory System",
-          "icon": "🫁",
-          "color": "#06b6d4",
-          "examRatio": 7,
-          "questionCount": 8
-        },
-        {
-          "id": "urinary",
-          "file": "urinary.md",
-          "title": "泌尿系統",
-          "titleEn": "Urinary System",
-          "icon": "💧",
-          "color": "#3b82f6",
-          "examRatio": 6,
-          "questionCount": 8
-        },
-        {
           "id": "reproductive",
           "file": "reproductive.md",
-          "title": "生殖系統",
-          "titleEn": "Reproductive System",
+          "title": "生殖系統與胚胎發育",
+          "titleEn": "Reproductive System & Embryonic Development",
           "icon": "🧬",
           "color": "#8b5cf6",
           "examRatio": 8,
           "questionCount": 8
+        }
+      ]
+    },
+    {
+      "id": "elective-biology-4",
+      "name": "📙 選修生物Ⅳ：植物體的構造與生態",
+      "tag": "選修",
+      "topics": [
+        {
+          "id": "plant-organs",
+          "file": "plant-organs.md",
+          "title": "植物的營養器官",
+          "titleEn": "Plant Organs",
+          "icon": "🌳",
+          "color": "#65a30d",
+          "examRatio": 4,
+          "questionCount": 0
+        },
+        {
+          "id": "plant-transport",
+          "file": "plant-transport.md",
+          "title": "植物體內的物質運輸",
+          "titleEn": "Plant Transport",
+          "icon": "💧",
+          "color": "#65a30d",
+          "examRatio": 3,
+          "questionCount": 0
+        },
+        {
+          "id": "plant-reproduction",
+          "file": "plant-reproduction.md",
+          "title": "植物的生殖與發育",
+          "titleEn": "Plant Reproduction & Development",
+          "icon": "🌸",
+          "color": "#65a30d",
+          "examRatio": 3,
+          "questionCount": 0
+        },
+        {
+          "id": "plant-responses",
+          "file": "plant-responses.md",
+          "title": "植物對環境的感應",
+          "titleEn": "Plant Responses to Environment",
+          "icon": "🌻",
+          "color": "#65a30d",
+          "examRatio": 3,
+          "questionCount": 0
+        },
+        {
+          "id": "ecology-principles",
+          "file": "ecology-principles.md",
+          "title": "生態學原理",
+          "titleEn": "Ecology Principles",
+          "icon": "🌐",
+          "color": "#65a30d",
+          "examRatio": 4,
+          "questionCount": 0
+        },
+        {
+          "id": "ecosystems-sustainability",
+          "file": "ecosystems-sustainability.md",
+          "title": "生態系與環境",
+          "titleEn": "Ecosystems & Sustainability",
+          "icon": "♻️",
+          "color": "#65a30d",
+          "examRatio": 3,
+          "questionCount": 0
         }
       ]
     }

@@ -18,7 +18,21 @@
 - 多項式加減乘（polynomial arithmetic）: 合併同類項
 - 多項式除法（polynomial division）: 長除法，商式與餘式
 - 因式分解（factoring）: 提公因式、十字交乘、公式法
+- 餘式定理（remainder theorem）: $f(x)$ 除以 $(x - a)$ 的餘式為 $f(a)$
+- 因式定理（factor theorem）: $(x - a)$ 為 $f(x)$ 的因式 $\iff f(a) = 0$
 - 分式運算（rational expressions）: 通分、約分
+### 不等式
+- 一元一次不等式（linear inequality）: $ax + b > 0$ → $x > -\frac{b}{a}$（$a > 0$ 時）
+  - 注意: 乘除負數要**變號**
+- 一元二次不等式（quadratic inequality）: $ax^2 + bx + c > 0$
+  - 解法: 先求根 $\alpha, \beta$（$\alpha \leq \beta$），再看開口方向
+  - $a > 0$ 且 $D > 0$: $x < \alpha$ 或 $x > \beta$（大於取兩邊）
+  - $a > 0$ 且 $D = 0$: 除 $x = -\frac{b}{2a}$ 外皆成立
+  - $a > 0$ 且 $D < 0$: 所有實數皆成立
+- 二元一次不等式（two-variable linear inequality）: $ax + by + c > 0$ 為直線一側的半平面
+- 💡 聯想：不等式就像考試門檻——分數 $\geq 60$ 才及格，畫在數線上就是一個半線
+- 💡 聯想：溫度零下 5 度是 $-5$，「零下」就是絕對值和負數的生活例子
+- 💡 聯想：因式分解就像拆积木——把一個複雜的式子拆成簡單零件的乘積
 
 ## 數列與級數
 ### 等差數列
@@ -41,6 +55,8 @@
 - 常用求和公式（summation formulas）:
   - $\sum k = \frac{n(n+1)}{2}$
   - $\sum k^2 = \frac{n(n+1)(2n+1)}{6}$
+- 💡 聯想：銀行存款複利就是等比數列，本金 $\times 1.02^n$ 就是 $n$ 年後的金額
+- 💡 聯想：老師常說「高斯小時候的故事」，$1+2+\cdots+100 = \frac{100 \times 101}{2} = 5050$ 就是等差級數
 
 ## 矩陣
 ### 矩陣基本概念
@@ -71,3 +87,5 @@
   - $\det(A) \neq 0$: 唯一解
   - $\det(A) = 0$: 無解或無窮多解
 - 高斯消去法（Gaussian elimination）: 列運算化為階梯形矩陣
+- 💡 聯想：Excel 試算表就是矩陣，每個儲存格 $a_{ij}$ 就是第 $i$ 列第 $j$ 行
+- 💡 聯想：行列式為 0 代表系統「有冗餘」——就像兩條方程式其實是同一條，算不出唯一解

@@ -22,6 +22,8 @@
 - 餘式定理（remainder theorem）: $f(x)$ 除以 $(x - a)$ 的餘式為 $f(a)$
 - 因式定理（factor theorem）: $f(a) = 0$ 則 $(x - a)$ 為 $f(x)$ 的因式
 - 勘根定理（intermediate value theorem）: 連續函數若 $f(a) \cdot f(b) < 0$，則 $(a, b)$ 間至少有一根
+- 💡 聯想：二次函數曲線就像投籃的拋物線，頂點是球飛到最高的瞬間
+- 💡 聯想：判別式 $D$ 就像考試成績，$D > 0$ 過關有根、$D = 0$ 壓線擦過、$D < 0$ 不及格沒根
 
 ## 指數與對數函數
 ### 指數函數
@@ -42,6 +44,16 @@
 - 指數方程式（exponential equations）: 同底比較指數
 - 對數方程式（logarithmic equations）: 化為指數形式求解
 - 定義域限制（domain restriction）: 對數的真數必須 $> 0$
+- 💡 聯想：地震規模用對數，規模每增加 1 能量增 30 倍——這就是對數壓縮大數的威力
+- 💡 聯想：細菌每小時分裂一次就是 $2^t$ 指數成長，從 1 個到 10 億個只需要 30 小時
+### 指數成長與衰退模型
+- 指數成長（exponential growth）: $N(t) = N_0 \cdot a^t$（$a > 1$）
+  - 人口成長、細菌繁殖、複利計算
+- 指數衰退（exponential decay）: $N(t) = N_0 \cdot a^t$（$0 < a < 1$）
+  - 放射性衰變、藥物代謝
+- 半衰期（half-life）: 衰退至 $\frac{1}{2}$ 所需時間 $t_{1/2}$，$N_0 \cdot a^{t_{1/2}} = \frac{N_0}{2}$
+- 倍增時間（doubling time）: 成長至 $2$ 倍所需時間
+- 💡 聯想：COVID-19 初期感染人數每 3 天翻倍，就是指數成長的真實案例
 
 ## 三角函數
 ### 三角比
@@ -70,6 +82,8 @@
 - 倍角公式（double angle）: $\sin 2\theta = 2\sin\theta\cos\theta$，$\cos 2\theta = \cos^2\theta - \sin^2\theta$
 - 正弦定理（law of sines）: $\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R$
 - 餘弦定理（law of cosines）: $c^2 = a^2 + b^2 - 2ab\cos C$
+- 💡 聯想：摩天輪的座艙高度隨時間變化就是正弦函數，一圈就是一個週期
+- 💡 聯想：手機的聲音訊號就是多個三角函數疊加在一起的波形
 
 ## 極限與微積分初步
 ### 極限概念
@@ -94,3 +108,5 @@
 - 定積分（definite integral）: $\int_a^b f(x) \, dx = F(b) - F(a)$
 - 面積計算（area calculation）: 曲線與 $x$ 軸圍成的面積
 - 微積分基本定理（fundamental theorem）: 微分與積分互為逆運算
+- 💡 聯想：瞬時速度是「位移的導數」，開車看時速表就是在讀導數
+- 💡 聯想：走路的總距離就是「速度的積分」，把每秒的速度加起來就是你走了多遠

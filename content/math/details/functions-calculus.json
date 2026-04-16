@@ -6,9 +6,24 @@
           "title": "二次函數標準式",
           "latex": "y = ax^2 + bx + c",
           "symbols": [
-            { "symbol": "a", "name": "二次項係數 (Leading Coefficient)", "unit": "無", "type": "純量" },
-            { "symbol": "b", "name": "一次項係數", "unit": "無", "type": "純量" },
-            { "symbol": "c", "name": "常數項 (y 截距)", "unit": "無", "type": "純量" }
+            {
+              "symbol": "a",
+              "name": "二次項係數 (Leading Coefficient)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "b",
+              "name": "一次項係數",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "c",
+              "name": "常數項 (y 截距)",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "拋物線圖形，a > 0 開口向上，a < 0 開口向下；|a| 越大開口越窄",
           "examTips": [
@@ -20,8 +35,18 @@
           "title": "頂點式（配方法）",
           "latex": "y = a(x - h)^2 + k",
           "symbols": [
-            { "symbol": "h", "name": "頂點 x 座標", "unit": "無", "type": "純量" },
-            { "symbol": "k", "name": "頂點 y 座標（最大或最小值）", "unit": "無", "type": "純量" }
+            {
+              "symbol": "h",
+              "name": "頂點 x 座標",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "k",
+              "name": "頂點 y 座標（最大或最小值）",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "頂點 (h, k) 為拋物線的最高點（a<0）或最低點（a>0），對稱軸為 x = h",
           "examTips": [
@@ -33,8 +58,18 @@
           "title": "餘式定理",
           "latex": "f(x) \\div (x - a) \\text{ 的餘式} = f(a)",
           "symbols": [
-            { "symbol": "f(x)", "name": "被除多項式", "unit": "無", "type": "函數" },
-            { "symbol": "a", "name": "代入值", "unit": "無", "type": "純量" }
+            {
+              "symbol": "f(x)",
+              "name": "被除多項式",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "a",
+              "name": "代入值",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "f(a) = 0 時，(x-a) 整除 f(x)，即因式定理",
           "examTips": [
@@ -59,8 +94,18 @@
           "title": "對數乘法律",
           "latex": "\\log_a(xy) = \\log_a x + \\log_a y",
           "symbols": [
-            { "symbol": "a", "name": "底數 (Base)", "unit": "無", "type": "純量" },
-            { "symbol": "x, y", "name": "真數 (Argument)", "unit": "無", "type": "純量" }
+            {
+              "symbol": "a",
+              "name": "底數 (Base)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "x, y",
+              "name": "真數 (Argument)",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "對數將乘法運算轉化為加法運算，這是對數發明的核心意義",
           "examTips": [
@@ -72,8 +117,18 @@
           "title": "換底公式",
           "latex": "\\log_a b = \\frac{\\log b}{\\log a} = \\frac{\\ln b}{\\ln a}",
           "symbols": [
-            { "symbol": "\\log", "name": "常用對數 (Common Log)", "unit": "無", "type": "函數" },
-            { "symbol": "\\ln", "name": "自然對數 (Natural Log)", "unit": "無", "type": "函數" }
+            {
+              "symbol": "\\log",
+              "name": "常用對數 (Common Log)",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "\\ln",
+              "name": "自然對數 (Natural Log)",
+              "unit": "無",
+              "type": "函數"
+            }
           ],
           "geometricMeaning": "任何底的對數都可以用常用對數或自然對數來表示",
           "examTips": [
@@ -98,7 +153,12 @@
           "title": "畢氏恆等式",
           "latex": "\\sin^2\\theta + \\cos^2\\theta = 1",
           "symbols": [
-            { "symbol": "\\theta", "name": "角度 (Angle)", "unit": "^\\circ \\text{ 或 rad}", "type": "純量" }
+            {
+              "symbol": "\\theta",
+              "name": "角度 (Angle)",
+              "unit": "^\\circ \\text{ 或 rad}",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "單位圓上的點 (cosθ, sinθ) 滿足 x² + y² = 1",
           "examTips": [
@@ -110,9 +170,24 @@
           "title": "正弦定理",
           "latex": "\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C} = 2R",
           "symbols": [
-            { "symbol": "a, b, c", "name": "三角形三邊長", "unit": "無", "type": "純量" },
-            { "symbol": "A, B, C", "name": "三邊對應的角", "unit": "^\\circ", "type": "純量" },
-            { "symbol": "R", "name": "外接圓半徑", "unit": "無", "type": "純量" }
+            {
+              "symbol": "a, b, c",
+              "name": "三角形三邊長",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "A, B, C",
+              "name": "三邊對應的角",
+              "unit": "^\\circ",
+              "type": "純量"
+            },
+            {
+              "symbol": "R",
+              "name": "外接圓半徑",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "三角形的邊長與其對角的正弦值之比為常數，等於外接圓直徑",
           "examTips": [
@@ -124,8 +199,18 @@
           "title": "餘弦定理",
           "latex": "c^2 = a^2 + b^2 - 2ab\\cos C",
           "symbols": [
-            { "symbol": "a, b, c", "name": "三角形三邊長", "unit": "無", "type": "純量" },
-            { "symbol": "C", "name": "c 邊的對角", "unit": "^\\circ", "type": "純量" }
+            {
+              "symbol": "a, b, c",
+              "name": "三角形三邊長",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "C",
+              "name": "c 邊的對角",
+              "unit": "^\\circ",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "勾股定理的推廣——當 C = 90° 時退化為 a² + b² = c²",
           "examTips": [
@@ -137,7 +222,12 @@
           "title": "和角公式（正弦）",
           "latex": "\\sin(\\alpha \\pm \\beta) = \\sin\\alpha\\cos\\beta \\pm \\cos\\alpha\\sin\\beta",
           "symbols": [
-            { "symbol": "\\alpha, \\beta", "name": "兩個角", "unit": "^\\circ \\text{ 或 rad}", "type": "純量" }
+            {
+              "symbol": "\\alpha, \\beta",
+              "name": "兩個角",
+              "unit": "^\\circ \\text{ 或 rad}",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "兩角和（或差）的正弦值可由個別角的三角比組合而成",
           "examTips": [
@@ -162,8 +252,18 @@
           "title": "導數定義",
           "latex": "f'(x) = \\lim_{\\Delta x \\to 0} \\frac{f(x + \\Delta x) - f(x)}{\\Delta x}",
           "symbols": [
-            { "symbol": "f'(x)", "name": "導函數 (Derivative)", "unit": "無", "type": "函數" },
-            { "symbol": "\\Delta x", "name": "自變數增量", "unit": "無", "type": "純量" }
+            {
+              "symbol": "f'(x)",
+              "name": "導函數 (Derivative)",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "\\Delta x",
+              "name": "自變數增量",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "f'(a) 是曲線 y = f(x) 在 x = a 處切線的斜率",
           "examTips": [
@@ -175,7 +275,12 @@
           "title": "冪函數微分法則",
           "latex": "\\frac{d}{dx}(x^n) = nx^{n-1}",
           "symbols": [
-            { "symbol": "n", "name": "冪次", "unit": "無", "type": "純量" }
+            {
+              "symbol": "n",
+              "name": "冪次",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "xⁿ 圖形在任一點的切線斜率為 nxⁿ⁻¹",
           "examTips": [
@@ -187,8 +292,18 @@
           "title": "微積分基本定理",
           "latex": "\\int_a^b f(x)\\,dx = F(b) - F(a), \\quad F'(x) = f(x)",
           "symbols": [
-            { "symbol": "F(x)", "name": "反導函數 (Antiderivative)", "unit": "無", "type": "函數" },
-            { "symbol": "a, b", "name": "積分上下限", "unit": "無", "type": "純量" }
+            {
+              "symbol": "F(x)",
+              "name": "反導函數 (Antiderivative)",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "a, b",
+              "name": "積分上下限",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "定積分 = 曲線 y = f(x) 與 x 軸之間的有號面積",
           "examTips": [
@@ -205,6 +320,138 @@
         "極限計算：代入法 → 化簡法 → 羅必達法",
         "微分應用：f'(x) > 0 遞增，f'(x) < 0 遞減，f'(x) = 0 可能是極值",
         "積分就是微分的逆運算，求面積是最常見的應用"
+      ]
+    },
+    "指數成長與衰退模型": {
+      "formulaDetails": [
+        {
+          "title": "指數成長模型",
+          "latex": "N(t) = N_0 \\cdot a^t \\quad (a > 1)",
+          "symbols": [
+            {
+              "symbol": "N_0",
+              "name": "初始量",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "a",
+              "name": "成長倍率（每單位時間乘以 a）",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "t",
+              "name": "時間",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "數量隨時間呈指數增長的曲線，越後面增長越快",
+          "examTips": [
+            "常見應用：人口成長、細菌繁殖、複利計算",
+            "注意區分「倍增時間」和「成長率」"
+          ]
+        },
+        {
+          "title": "半衰期公式",
+          "latex": "N_0 \\cdot a^{t_{1/2}} = \\frac{N_0}{2}",
+          "symbols": [
+            {
+              "symbol": "t_{1/2}",
+              "name": "半衰期",
+              "unit": "時間單位",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "物質衰減至一半所需的時間，與初始量無關",
+          "examTips": [
+            "放射性衰變、藥物代謝都是指數衰退",
+            "半衰期 = ln2 / |ln a| 或用對數直接求"
+          ]
+        }
+      ],
+      "associations": [
+        "COVID-19 疫情初期的感染人數翻倍就是指數成長",
+        "碳-14 定年法利用半衰期推算文物年代"
+      ],
+      "examTips": [
+        "指數成長與衰退是近年素養題熱門主題",
+        "解題關鍵：找出初始值 N₀ 和成長/衰退倍率 a"
+      ]
+    },
+    "二次函數圖形分析": {
+      "formulaDetails": [
+        {
+          "title": "頂點與軸對稱",
+          "latex": "\\text{頂點} = \\left(-\\frac{b}{2a},\\; \\frac{4ac-b^2}{4a}\\right)",
+          "symbols": [
+            {
+              "symbol": "a",
+              "name": "開口方向與寬窄",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "-b/(2a)",
+              "name": "對稱軸 x 座標",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "頂點是拋物線的最高或最低點，對稱軸通過頂點",
+          "examTips": [
+            "a>0 凹口向上有最小值，a<0 凹口向下有最大值",
+            "配方法求頂點：y = a(x-h)² + k"
+          ]
+        }
+      ],
+      "associations": [
+        "噴水池的水柱軌跡就是拋物線，頂點就是最高點"
+      ],
+      "examTips": [
+        "學測常考：給二次函數圖形判斷 a, b, c 的正負號",
+        "開口方向看 a 的符號，y 截距看 c 的值"
+      ]
+    },
+    "三角比與單位圓": {
+      "formulaDetails": [
+        {
+          "title": "特殊角三角比",
+          "latex": "\\sin 30° = \\frac{1}{2},\\; \\cos 45° = \\frac{\\sqrt{2}}{2},\\; \\tan 60° = \\sqrt{3}",
+          "symbols": [
+            {
+              "symbol": "\\sin",
+              "name": "正弦（對邊/斜邊）",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "\\cos",
+              "name": "餘弦（鄰邊/斜邊）",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "\\tan",
+              "name": "正切（對邊/鄰邊）",
+              "unit": "無",
+              "type": "函數"
+            }
+          ],
+          "geometricMeaning": "單位圓上角度 θ 對應的點座標為 (cosθ, sinθ)",
+          "examTips": [
+            "30-45-60 度的三角比必須背熟",
+            "廣義角用 ASTC 法則判斷正負：All-Sin-Tan-Cos"
+          ]
+        }
+      ],
+      "associations": [
+        "單位圓就是半徑為 1 的圓，圓上每個點的座標就是 (cosθ, sinθ)"
+      ],
+      "examTips": [
+        "ASTC 口訣：一全正、二正弦、三正切、四餘弦",
+        "弧度與角度換算：π rad = 180°"
       ]
     }
   }

@@ -6,9 +6,24 @@
           "title": "兩點距離公式",
           "latex": "d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}",
           "symbols": [
-            { "symbol": "d", "name": "兩點距離 (Distance)", "unit": "無", "type": "純量" },
-            { "symbol": "(x_1, y_1)", "name": "第一點座標", "unit": "無", "type": "座標" },
-            { "symbol": "(x_2, y_2)", "name": "第二點座標", "unit": "無", "type": "座標" }
+            {
+              "symbol": "d",
+              "name": "兩點距離 (Distance)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "(x_1, y_1)",
+              "name": "第一點座標",
+              "unit": "無",
+              "type": "座標"
+            },
+            {
+              "symbol": "(x_2, y_2)",
+              "name": "第二點座標",
+              "unit": "無",
+              "type": "座標"
+            }
           ],
           "geometricMeaning": "由勾股定理推導，水平距離與垂直距離構成直角三角形的兩股",
           "examTips": [
@@ -20,8 +35,18 @@
           "title": "點到直線距離公式",
           "latex": "d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}",
           "symbols": [
-            { "symbol": "(x_0, y_0)", "name": "點的座標", "unit": "無", "type": "座標" },
-            { "symbol": "ax + by + c = 0", "name": "直線方程式", "unit": "無", "type": "方程式" }
+            {
+              "symbol": "(x_0, y_0)",
+              "name": "點的座標",
+              "unit": "無",
+              "type": "座標"
+            },
+            {
+              "symbol": "ax + by + c = 0",
+              "name": "直線方程式",
+              "unit": "無",
+              "type": "方程式"
+            }
           ],
           "geometricMeaning": "點到直線的最短距離，即垂直距離",
           "examTips": [
@@ -33,8 +58,18 @@
           "title": "圓的標準式",
           "latex": "(x - h)^2 + (y - k)^2 = r^2",
           "symbols": [
-            { "symbol": "(h, k)", "name": "圓心座標 (Center)", "unit": "無", "type": "座標" },
-            { "symbol": "r", "name": "半徑 (Radius)", "unit": "無", "type": "純量" }
+            {
+              "symbol": "(h, k)",
+              "name": "圓心座標 (Center)",
+              "unit": "無",
+              "type": "座標"
+            },
+            {
+              "symbol": "r",
+              "name": "半徑 (Radius)",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "以 (h, k) 為圓心、r 為半徑的圓上所有點的軌跡方程式",
           "examTips": [
@@ -59,8 +94,18 @@
           "title": "向量內積（座標形式）",
           "latex": "\\vec{a} \\cdot \\vec{b} = a_1 b_1 + a_2 b_2",
           "symbols": [
-            { "symbol": "\\vec{a} = (a_1, a_2)", "name": "向量 a", "unit": "無", "type": "向量" },
-            { "symbol": "\\vec{b} = (b_1, b_2)", "name": "向量 b", "unit": "無", "type": "向量" }
+            {
+              "symbol": "\\vec{a} = (a_1, a_2)",
+              "name": "向量 a",
+              "unit": "無",
+              "type": "向量"
+            },
+            {
+              "symbol": "\\vec{b} = (b_1, b_2)",
+              "name": "向量 b",
+              "unit": "無",
+              "type": "向量"
+            }
           ],
           "geometricMeaning": "內積 = 兩向量長度之積乘以夾角餘弦值",
           "examTips": [
@@ -72,8 +117,18 @@
           "title": "向量內積（角度形式）",
           "latex": "\\vec{a} \\cdot \\vec{b} = |\\vec{a}||\\vec{b}|\\cos\\theta",
           "symbols": [
-            { "symbol": "|\\vec{a}|", "name": "向量 a 的長度", "unit": "無", "type": "純量" },
-            { "symbol": "\\theta", "name": "兩向量夾角", "unit": "^\\circ", "type": "純量" }
+            {
+              "symbol": "|\\vec{a}|",
+              "name": "向量 a 的長度",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "\\theta",
+              "name": "兩向量夾角",
+              "unit": "^\\circ",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "幾何上等於 a 在 b 方向投影長乘以 b 的長度",
           "examTips": [
@@ -85,8 +140,18 @@
           "title": "三角形面積（向量法）",
           "latex": "\\text{面積} = \\frac{1}{2}|a_1 b_2 - a_2 b_1|",
           "symbols": [
-            { "symbol": "\\vec{a} = (a_1, a_2)", "name": "三角形的一邊向量", "unit": "無", "type": "向量" },
-            { "symbol": "\\vec{b} = (b_1, b_2)", "name": "三角形的另一邊向量", "unit": "無", "type": "向量" }
+            {
+              "symbol": "\\vec{a} = (a_1, a_2)",
+              "name": "三角形的一邊向量",
+              "unit": "無",
+              "type": "向量"
+            },
+            {
+              "symbol": "\\vec{b} = (b_1, b_2)",
+              "name": "三角形的另一邊向量",
+              "unit": "無",
+              "type": "向量"
+            }
           ],
           "geometricMeaning": "|a₁b₂ - a₂b₁| 為兩向量張成的平行四邊形面積，除以 2 得三角形面積",
           "examTips": [
@@ -111,8 +176,18 @@
           "title": "空間兩點距離",
           "latex": "d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}",
           "symbols": [
-            { "symbol": "(x_1, y_1, z_1)", "name": "第一點座標", "unit": "無", "type": "座標" },
-            { "symbol": "(x_2, y_2, z_2)", "name": "第二點座標", "unit": "無", "type": "座標" }
+            {
+              "symbol": "(x_1, y_1, z_1)",
+              "name": "第一點座標",
+              "unit": "無",
+              "type": "座標"
+            },
+            {
+              "symbol": "(x_2, y_2, z_2)",
+              "name": "第二點座標",
+              "unit": "無",
+              "type": "座標"
+            }
           ],
           "geometricMeaning": "平面距離公式的三維推廣",
           "examTips": [
@@ -123,8 +198,18 @@
           "title": "點到平面距離",
           "latex": "d = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}",
           "symbols": [
-            { "symbol": "(x_0, y_0, z_0)", "name": "空間中的點", "unit": "無", "type": "座標" },
-            { "symbol": "ax + by + cz + d = 0", "name": "平面方程式", "unit": "無", "type": "方程式" }
+            {
+              "symbol": "(x_0, y_0, z_0)",
+              "name": "空間中的點",
+              "unit": "無",
+              "type": "座標"
+            },
+            {
+              "symbol": "ax + by + cz + d = 0",
+              "name": "平面方程式",
+              "unit": "無",
+              "type": "方程式"
+            }
           ],
           "geometricMeaning": "點到平面的垂直距離，公式結構與點到直線距離相似",
           "examTips": [
@@ -149,9 +234,24 @@
           "title": "橢圓標準式",
           "latex": "\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1 \\quad (a > b > 0)",
           "symbols": [
-            { "symbol": "a", "name": "半長軸 (Semi-major Axis)", "unit": "無", "type": "純量" },
-            { "symbol": "b", "name": "半短軸 (Semi-minor Axis)", "unit": "無", "type": "純量" },
-            { "symbol": "c", "name": "焦點到中心距離", "unit": "無", "type": "純量" }
+            {
+              "symbol": "a",
+              "name": "半長軸 (Semi-major Axis)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "b",
+              "name": "半短軸 (Semi-minor Axis)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "c",
+              "name": "焦點到中心距離",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "橢圓上任一點到兩焦點的距離和 = 2a（常數）",
           "examTips": [
@@ -163,8 +263,18 @@
           "title": "雙曲線標準式",
           "latex": "\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1",
           "symbols": [
-            { "symbol": "a", "name": "實軸半長 (Semi-transverse Axis)", "unit": "無", "type": "純量" },
-            { "symbol": "b", "name": "虛軸半長 (Semi-conjugate Axis)", "unit": "無", "type": "純量" }
+            {
+              "symbol": "a",
+              "name": "實軸半長 (Semi-transverse Axis)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "b",
+              "name": "虛軸半長 (Semi-conjugate Axis)",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "雙曲線上任一點到兩焦點的距離差的絕對值 = 2a（常數）",
           "examTips": [
@@ -176,7 +286,12 @@
           "title": "拋物線標準式",
           "latex": "y^2 = 4px",
           "symbols": [
-            { "symbol": "p", "name": "焦點到頂點距離 (Focus Distance)", "unit": "無", "type": "純量" }
+            {
+              "symbol": "p",
+              "name": "焦點到頂點距離 (Focus Distance)",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "拋物線上任一點到焦點與準線等距",
           "examTips": [
@@ -193,6 +308,104 @@
         "三種圓錐曲線的定義（等距條件）要清楚區分",
         "橢圓 c² = a² - b²，雙曲線 c² = a² + b²，不要搞混",
         "拋物線看 4p 的值：焦點在正方向 p 處，準線在負方向 -p 處"
+      ]
+    },
+    "線性規劃": {
+      "formulaDetails": [
+        {
+          "title": "目標函數最佳化",
+          "latex": "f(x,y) = ax + by \\text{ 在可行解區域頂點取最佳值}",
+          "symbols": [
+            {
+              "symbol": "f(x,y)",
+              "name": "目標函數",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "(x,y)",
+              "name": "決策變數",
+              "unit": "無",
+              "type": "座標"
+            }
+          ],
+          "geometricMeaning": "目標函數等值線（ax+by=k）平移到可行解區域的邊界頂點時取得最佳值",
+          "examTips": [
+            "解法：畫出可行解區域 → 找頂點 → 代入目標函數比較",
+            "可行解區域是由多個二元一次不等式的交集構成的凸多邊形"
+          ]
+        }
+      ],
+      "associations": [
+        "工廠用有限資源生產兩種產品，求最大利潤就是線性規劃",
+        "營養午餐搭配菜色在預算內讓營養最大化"
+      ],
+      "examTips": [
+        "線性規劃是近年學測高頻考點，常以素養題出現",
+        "注意隱含條件：x≥0, y≥0（數量不能為負）"
+      ]
+    },
+    "向量內積應用": {
+      "formulaDetails": [
+        {
+          "title": "柯西-施瓦茲不等式",
+          "latex": "|\\vec{a} \\cdot \\vec{b}| \\leq |\\vec{a}||\\vec{b}|",
+          "symbols": [
+            {
+              "symbol": "\\vec{a} \\cdot \\vec{b}",
+              "name": "兩向量的內積",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "內積的絕對值不超過兩向量長度之積，等號在兩向量平行時成立",
+          "examTips": [
+            "此不等式可用來求某些代數式的最大最小值",
+            "配合 cosθ 的範圍 [-1,1] 理解"
+          ]
+        }
+      ],
+      "associations": [
+        "做功 W=F·d·cosθ 就是力與位移的內積",
+        "下坡推車輕鬆因為力與位移夾角小，cosθ 接近 1"
+      ],
+      "examTips": [
+        "內積 = 0 判垂直，是最常用的判定方法",
+        "內積正→銳角、負→鈍角、零→直角"
+      ]
+    },
+    "平面方程式": {
+      "formulaDetails": [
+        {
+          "title": "平面的法向量式",
+          "latex": "a(x-x_0)+b(y-y_0)+c(z-z_0)=0",
+          "symbols": [
+            {
+              "symbol": "(a,b,c)",
+              "name": "平面的法向量",
+              "unit": "無",
+              "type": "向量"
+            },
+            {
+              "symbol": "(x_0,y_0,z_0)",
+              "name": "平面上的已知點",
+              "unit": "無",
+              "type": "座標"
+            }
+          ],
+          "geometricMeaning": "過一定點且垂直於法向量的平面",
+          "examTips": [
+            "法向量可由平面上兩不平行向量的外積求得",
+            "缺項表示平行某軸，如缺 z 項則平行 z 軸"
+          ]
+        }
+      ],
+      "associations": [
+        "桌面是一個平面，桌子上立的筆就是法向量方向"
+      ],
+      "examTips": [
+        "點面距公式和點到直線距離結構完全相同",
+        "截距式 x/p + y/q + z/r = 1 可快速判斷截距"
       ]
     }
   }

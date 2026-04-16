@@ -6,8 +6,18 @@
           "title": "絕對值不等式（小於型）",
           "latex": "|x| < a \\iff -a < x < a \\quad (a > 0)",
           "symbols": [
-            { "symbol": "|x|", "name": "x 的絕對值", "unit": "無", "type": "純量" },
-            { "symbol": "a", "name": "正實數", "unit": "無", "type": "純量" }
+            {
+              "symbol": "|x|",
+              "name": "x 的絕對值",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "a",
+              "name": "正實數",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "在數線上，x 到原點的距離小於 a，即 x 在 -a 到 a 之間",
           "examTips": [
@@ -19,7 +29,12 @@
           "title": "三角不等式",
           "latex": "|a + b| \\leq |a| + |b|",
           "symbols": [
-            { "symbol": "a, b", "name": "實數", "unit": "無", "type": "純量" }
+            {
+              "symbol": "a, b",
+              "name": "實數",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "三角形任一邊長 ≤ 另外兩邊之和",
           "examTips": [
@@ -44,9 +59,24 @@
           "title": "等差數列一般項",
           "latex": "a_n = a_1 + (n-1)d",
           "symbols": [
-            { "symbol": "a_n", "name": "第 n 項", "unit": "無", "type": "純量" },
-            { "symbol": "a_1", "name": "首項 (First Term)", "unit": "無", "type": "純量" },
-            { "symbol": "d", "name": "公差 (Common Difference)", "unit": "無", "type": "純量" }
+            {
+              "symbol": "a_n",
+              "name": "第 n 項",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "a_1",
+              "name": "首項 (First Term)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "d",
+              "name": "公差 (Common Difference)",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "等差數列的點在座標平面上排成一條直線，斜率 = 公差 d",
           "examTips": [
@@ -58,8 +88,18 @@
           "title": "等差級數求和",
           "latex": "S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n[2a_1 + (n-1)d]}{2}",
           "symbols": [
-            { "symbol": "S_n", "name": "前 n 項之和", "unit": "無", "type": "純量" },
-            { "symbol": "n", "name": "項數", "unit": "無", "type": "純量" }
+            {
+              "symbol": "S_n",
+              "name": "前 n 項之和",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "n",
+              "name": "項數",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "等差級數和 = 項數 × (首項+末項) / 2，相當於梯形面積",
           "examTips": [
@@ -71,9 +111,24 @@
           "title": "等比級數求和",
           "latex": "S_n = \\frac{a_1(1 - r^n)}{1 - r} \\quad (r \\neq 1)",
           "symbols": [
-            { "symbol": "S_n", "name": "前 n 項之和", "unit": "無", "type": "純量" },
-            { "symbol": "a_1", "name": "首項", "unit": "無", "type": "純量" },
-            { "symbol": "r", "name": "公比 (Common Ratio)", "unit": "無", "type": "純量" }
+            {
+              "symbol": "S_n",
+              "name": "前 n 項之和",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "a_1",
+              "name": "首項",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "r",
+              "name": "公比 (Common Ratio)",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "等比級數的和隨 n 增大，當 |r| < 1 時收斂至 a₁/(1-r)",
           "examTips": [
@@ -85,8 +140,18 @@
           "title": "無窮等比級數",
           "latex": "S = \\frac{a_1}{1 - r} \\quad (|r| < 1)",
           "symbols": [
-            { "symbol": "S", "name": "無窮級數和", "unit": "無", "type": "純量" },
-            { "symbol": "r", "name": "公比（|r| < 1 收斂）", "unit": "無", "type": "純量" }
+            {
+              "symbol": "S",
+              "name": "無窮級數和",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "r",
+              "name": "公比（|r| < 1 收斂）",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "當 |r| < 1，後面的項越來越小趨近於 0，總和收斂到有限值",
           "examTips": [
@@ -111,7 +176,12 @@
           "title": "二階行列式",
           "latex": "\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc",
           "symbols": [
-            { "symbol": "a, b, c, d", "name": "矩陣元素", "unit": "無", "type": "純量" }
+            {
+              "symbol": "a, b, c, d",
+              "name": "矩陣元素",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "行列式的絕對值 = 以兩列向量為邊的平行四邊形面積",
           "examTips": [
@@ -123,8 +193,18 @@
           "title": "二階反矩陣",
           "latex": "A^{-1} = \\frac{1}{ad-bc}\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}",
           "symbols": [
-            { "symbol": "A^{-1}", "name": "A 的反矩陣 (Inverse)", "unit": "無", "type": "矩陣" },
-            { "symbol": "ad-bc", "name": "行列式（det(A)）", "unit": "無", "type": "純量" }
+            {
+              "symbol": "A^{-1}",
+              "name": "A 的反矩陣 (Inverse)",
+              "unit": "無",
+              "type": "矩陣"
+            },
+            {
+              "symbol": "ad-bc",
+              "name": "行列式（det(A)）",
+              "unit": "無",
+              "type": "純量"
+            }
           ],
           "geometricMeaning": "反矩陣是原矩陣的「逆運算」，AA⁻¹ = I 單位矩陣",
           "examTips": [
@@ -136,9 +216,24 @@
           "title": "克乃美公式",
           "latex": "x = \\frac{\\det(A_x)}{\\det(A)}, \\quad y = \\frac{\\det(A_y)}{\\det(A)}",
           "symbols": [
-            { "symbol": "A", "name": "係數矩陣", "unit": "無", "type": "矩陣" },
-            { "symbol": "A_x", "name": "將常數行替換 x 行的矩陣", "unit": "無", "type": "矩陣" },
-            { "symbol": "A_y", "name": "將常數行替換 y 行的矩陣", "unit": "無", "type": "矩陣" }
+            {
+              "symbol": "A",
+              "name": "係數矩陣",
+              "unit": "無",
+              "type": "矩陣"
+            },
+            {
+              "symbol": "A_x",
+              "name": "將常數行替換 x 行的矩陣",
+              "unit": "無",
+              "type": "矩陣"
+            },
+            {
+              "symbol": "A_y",
+              "name": "將常數行替換 y 行的矩陣",
+              "unit": "無",
+              "type": "矩陣"
+            }
           ],
           "geometricMeaning": "利用行列式直接求出聯立方程組的解",
           "examTips": [
@@ -155,6 +250,122 @@
         "矩陣乘法：(m×n) × (n×p) = (m×p)，中間維度必須相同",
         "矩陣乘法不滿足交換律 AB ≠ BA（除非特殊情況）",
         "聯立方程組三種方法：代入消去法、加減消去法、克乃美公式"
+      ]
+    },
+    "不等式": {
+      "formulaDetails": [
+        {
+          "title": "一元二次不等式解法",
+          "latex": "ax^2 + bx + c > 0 \\;(a > 0)",
+          "symbols": [
+            {
+              "symbol": "\\alpha, \\beta",
+              "name": "方程式 ax²+bx+c=0 的兩根",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "D",
+              "name": "判別式 b²-4ac",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "二次函數圖形在 x 軸上方的 x 範圍",
+          "examTips": [
+            "D>0 兩根間取或兩邊取，看不等式方向",
+            "D<0 且 a>0：恆正，不等式恆成立",
+            "D=0：除頂點外全部成立"
+          ]
+        },
+        {
+          "title": "絕對值不等式",
+          "latex": "|x - a| < r \\iff a - r < x < a + r",
+          "symbols": [
+            {
+              "symbol": "a",
+              "name": "中心",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "r",
+              "name": "半徑（距離限制）",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "距離 a 不超過 r 的範圍，數線上以 a 為中心、長度 2r 的開區間",
+          "examTips": [
+            "|x-a| < r 是「靠近 a」，|x-a| > r 是「遠離 a」",
+            "多重絕對值用分段討論法"
+          ]
+        }
+      ],
+      "associations": [
+        "成績要 ≥60 分才及格，就是最簡單的一元一次不等式",
+        "品管中「誤差在 ±0.5mm 以內」就是絕對值不等式 |x-μ| ≤ 0.5"
+      ],
+      "examTips": [
+        "二次不等式：先求根 → 畫圖 → 看在軸上方或下方",
+        "絕對值不等式轉化為「距離問題」更直覺"
+      ]
+    },
+    "數學歸納法": {
+      "formulaDetails": [
+        {
+          "title": "數學歸納法步驟",
+          "latex": "P(1) \\text{ 成立} \\wedge [P(k) \\Rightarrow P(k+1)] \\implies P(n) \\text{ 對所有正整數成立}",
+          "symbols": [
+            {
+              "symbol": "P(n)",
+              "name": "待證命題",
+              "unit": "無",
+              "type": "命題"
+            }
+          ],
+          "geometricMeaning": "像推骨牌：第一張倒下 + 每張倒了下一張一定倒 = 全部倒下",
+          "examTips": [
+            "步驟一（基底）：驗證 n=1 成立",
+            "步驟二（歸納）：假設 P(k) 成立，證明 P(k+1) 也成立",
+            "最常考的是求和公式的證明"
+          ]
+        }
+      ],
+      "associations": [
+        "骨牌效應就是數學歸納法的生活版——第一張倒了，後面全部倒"
+      ],
+      "examTips": [
+        "歸納步驟中，關鍵是「如何用 P(k) 推出 P(k+1)」",
+        "常見技巧：在 S(k+1) = S(k) + a(k+1) 中代入假設"
+      ]
+    },
+    "線性方程組應用": {
+      "formulaDetails": [
+        {
+          "title": "高斯消去法",
+          "latex": "\\text{增廣矩陣} [A|B] \\xrightarrow{\\text{列運算}} \\text{階梯形}",
+          "symbols": [
+            {
+              "symbol": "[A|B]",
+              "name": "增廣矩陣",
+              "unit": "無",
+              "type": "矩陣"
+            }
+          ],
+          "geometricMeaning": "逐步消去變數，化簡至可回代求解的形式",
+          "examTips": [
+            "列運算三種：交換兩列、某列乘 k 倍、某列加上另一列的 k 倍",
+            "最後一列若出現 [0 0 | c]（c≠0）則無解"
+          ]
+        }
+      ],
+      "associations": [
+        "解聯立方程式的「加減消去法」就是高斯消去法的簡化版"
+      ],
+      "examTips": [
+        "克乃美公式只適用於方程式數=未知數數的情況",
+        "行列式為 0 → 無唯一解（可能無解或無窮多解，需進一步討論）"
       ]
     }
   }

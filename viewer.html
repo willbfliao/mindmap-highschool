@@ -1291,15 +1291,10 @@
       }
 
       function findDetailForNode(nodeText, pathParts) {
-        // Try scoped lookup first (avoid cross-topic collision)
+        // Scoped lookup only (avoid cross-topic collision)
         const scopedId = resolveTopicIdFromPath(pathParts);
         if (scopedId && detailsCache[scopedId]) {
           const d = detailsCache[scopedId];
-          if (d.nodes && d.nodes[nodeText]) return d.nodes[nodeText];
-        }
-        // Fallback: search all cached topics
-        for (const topicId in detailsCache) {
-          const d = detailsCache[topicId];
           if (d.nodes && d.nodes[nodeText]) return d.nodes[nodeText];
         }
         return null;
@@ -1307,7 +1302,7 @@
 
       function findQuestionsForNode(nodeText, pathParts) {
         const results = [];
-        // Try scoped lookup first
+        // Scoped lookup only (avoid cross-topic collision)
         const scopedId = resolveTopicIdFromPath(pathParts);
         if (scopedId && questionsCache[scopedId]) {
           const qd = questionsCache[scopedId];
@@ -1316,15 +1311,6 @@
               if (q.tags && q.tags.includes(nodeText)) results.push(q);
             });
           }
-          if (results.length > 0) return results;
-        }
-        // Fallback: search all cached topics
-        for (const topicId in questionsCache) {
-          const qd = questionsCache[topicId];
-          if (!qd.questions) continue;
-          qd.questions.forEach(q => {
-            if (q.tags && q.tags.includes(nodeText)) results.push(q);
-          });
         }
         return results;
       }

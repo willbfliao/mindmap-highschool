@@ -16,10 +16,10 @@ const TOPICS = [
   ['science', 'biology', 'reproductive'],
   // Chemistry (5)
   ['science', 'chemistry', 'composition-of-matter'],
-  ['science', 'chemistry', 'structure-and-bonding'],
-  ['science', 'chemistry', 'states-and-reactions'],
+  ['science', 'chemistry', 'structure-of-matter'],
+  ['science', 'chemistry', 'states-and-phase-changes'],
   ['science', 'chemistry', 'common-reactions'],
-  ['science', 'chemistry', 'chemistry-in-life'],
+  ['science', 'chemistry', 'life-chemistry'],
 ];
 
 function extractH2Headings(mdContent) {

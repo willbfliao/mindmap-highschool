@@ -1,5 +1,64 @@
 {
-  "title": "地球科學心智圖",
-  "subtitle": "即將推出",
-  "categories": []
+  "title": "高中地球科學心智圖",
+  "subtitle": "互動式學習 · 地質 · 大氣 · 海洋 · 天文 · 環境變遷",
+  "groupByCategory": true,
+  "categories": [
+    {
+      "id": "required-earth",
+      "name": "📘 必修地球科學",
+      "tag": "必修",
+      "topics": [
+        {
+          "id": "plate-tectonics",
+          "file": "plate-tectonics.md",
+          "title": "板塊構造與地質作用",
+          "titleEn": "Plate Tectonics",
+          "icon": "🌋",
+          "color": "#06b6d4",
+          "examRatio": 20,
+          "questionCount": 8
+        },
+        {
+          "id": "atmosphere-weather",
+          "file": "atmosphere-weather.md",
+          "title": "大氣與天氣系統",
+          "titleEn": "Atmosphere & Weather",
+          "icon": "🌦️",
+          "color": "#06b6d4",
+          "examRatio": 20,
+          "questionCount": 8
+        },
+        {
+          "id": "ocean-currents",
+          "file": "ocean-currents.md",
+          "title": "海洋與洋流",
+          "titleEn": "Ocean & Currents",
+          "icon": "🌊",
+          "color": "#06b6d4",
+          "examRatio": 15,
+          "questionCount": 8
+        },
+        {
+          "id": "solar-system-astronomy",
+          "file": "solar-system-astronomy.md",
+          "title": "太陽系與天文觀測",
+          "titleEn": "Solar System & Astronomy",
+          "icon": "🪐",
+          "color": "#06b6d4",
+          "examRatio": 15,
+          "questionCount": 8
+        },
+        {
+          "id": "environmental-change",
+          "file": "environmental-change.md",
+          "title": "環境變遷與永續發展",
+          "titleEn": "Environmental Change",
+          "icon": "♻️",
+          "color": "#06b6d4",
+          "examRatio": 10,
+          "questionCount": 8
+        }
+      ]
+    }
+  ]
 }

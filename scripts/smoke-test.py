@@ -4,15 +4,15 @@ base = "http://localhost:8001"
 files = [
     "content/science/chemistry/topics.json",
     "content/science/chemistry/composition-of-matter.md",
-    "content/science/chemistry/structure-and-bonding.md",
-    "content/science/chemistry/states-and-reactions.md",
+    "content/science/chemistry/structure-of-matter.md",
+    "content/science/chemistry/states-and-phase-changes.md",
     "content/science/chemistry/common-reactions.md",
-    "content/science/chemistry/chemistry-in-life.md",
+    "content/science/chemistry/life-chemistry.md",
     "questions/science/chemistry/composition-of-matter.json",
-    "questions/science/chemistry/structure-and-bonding.json",
-    "questions/science/chemistry/states-and-reactions.json",
+    "questions/science/chemistry/structure-of-matter.json",
+    "questions/science/chemistry/states-and-phase-changes.json",
     "questions/science/chemistry/common-reactions.json",
-    "questions/science/chemistry/chemistry-in-life.json",
+    "questions/science/chemistry/life-chemistry.json",
 ]
 passed = 0
 for f in files:

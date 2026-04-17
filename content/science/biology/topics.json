@@ -26,7 +26,7 @@
           "icon": "🧫",
           "color": "#10b981",
           "examRatio": 8,
-          "questionCount": 0
+          "questionCount": 8
         },
         {
           "id": "cell-energy-basics",
@@ -36,7 +36,7 @@
           "icon": "⚡",
           "color": "#10b981",
           "examRatio": 7,
-          "questionCount": 0
+          "questionCount": 8
         },
         {
           "id": "cell-division-basics",
@@ -63,7 +63,7 @@
           "icon": "🌱",
           "color": "#22c55e",
           "examRatio": 8,
-          "questionCount": 0
+          "questionCount": 8
         },
         {
           "id": "dna-gene-expression",
@@ -73,7 +73,7 @@
           "icon": "🧬",
           "color": "#22c55e",
           "examRatio": 7,
-          "questionCount": 0
+          "questionCount": 8
         },
         {
           "id": "biotech-applications",
@@ -100,7 +100,7 @@
           "icon": "🦕",
           "color": "#14b8a6",
           "examRatio": 6,
-          "questionCount": 0
+          "questionCount": 8
         },
         {
           "id": "biodiversity-conservation",
@@ -254,14 +254,24 @@
           "questionCount": 8
         },
         {
-          "id": "respiratory-excretory",
-          "file": "respiratory-excretory.md",
-          "title": "呼吸與排泄系統",
-          "titleEn": "Respiratory & Excretory System",
+          "id": "respiratory",
+          "file": "respiratory.md",
+          "title": "呼吸系統",
+          "titleEn": "Respiratory System",
           "icon": "🫁",
           "color": "#06b6d4",
-          "examRatio": 13,
-          "questionCount": 0
+          "examRatio": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "urinary",
+          "file": "urinary.md",
+          "title": "泌尿系統",
+          "titleEn": "Urinary System",
+          "icon": "💧",
+          "color": "#0ea5e9",
+          "examRatio": 6,
+          "questionCount": 8
         },
         {
           "id": "nervous-system",

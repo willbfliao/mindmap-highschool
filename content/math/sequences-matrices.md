@@ -32,7 +32,37 @@
 - 二元一次不等式（two-variable linear inequality）: $ax + by + c > 0$ 為直線一側的半平面
 - 💡 聯想：不等式就像考試門檻——分數 $\geq 60$ 才及格，畫在數線上就是一個半線
 - 💡 聯想：溫度零下 5 度是 $-5$，「零下」就是絕對值和負數的生活例子
-- 💡 聯想：因式分解就像拆积木——把一個複雜的式子拆成簡單零件的乘積
+- 💡 聯想：因式分解就像拆積木——把一個複雜的式子拆成簡單零件的乘積
+
+## 集合與邏輯
+### 集合
+- 集合（set）: 由明確定義的元素所組成的整體，記作大寫字母 $A$、$B$
+- 元素（element）: $x \in A$ 表示 $x$ 屬於集合 $A$
+- 表示法（notation）:
+  - 列舉法: $A = \{1, 2, 3\}$
+  - 描述法: $A = \{x \mid x \text{ 為正偶數}\}$
+- 空集合（empty set）: $\varnothing$ 或 $\{\}$，不含任何元素
+- 子集（subset）: $A \subseteq B$ 表示 $A$ 的每個元素都在 $B$ 中
+### 集合運算
+- 交集（intersection）: $A \cap B = \{x \mid x \in A \text{ 且 } x \in B\}$
+- 聯集（union）: $A \cup B = \{x \mid x \in A \text{ 或 } x \in B\}$
+- 差集（difference）: $A - B = \{x \mid x \in A \text{ 且 } x \notin B\}$
+- 補集（complement）: $A' = U - A$，$U$ 為宇集
+- 德摩根定律（De Morgan's laws）:
+  - $(A \cap B)' = A' \cup B'$
+  - $(A \cup B)' = A' \cap B'$
+- 元素個數（cardinality）: $|A \cup B| = |A| + |B| - |A \cap B|$
+### 命題與條件
+- 命題（proposition）: 可以判斷真假的敘述
+- 條件命題（conditional）: 若 $p$ 則 $q$，記作 $p \Rightarrow q$
+- 逆命題（converse）: 若 $q$ 則 $p$
+- 否命題（inverse）: 若 $\neg p$ 則 $\neg q$
+- 逆否命題（contrapositive）: 若 $\neg q$ 則 $\neg p$（與原命題同真假）
+- 充分條件（sufficient condition）: $p \Rightarrow q$，$p$ 是 $q$ 的充分條件
+- 必要條件（necessary condition）: $p \Rightarrow q$，$q$ 是 $p$ 的必要條件
+- 充要條件（iff）: $p \Leftrightarrow q$，$p$ 與 $q$ 互為充要條件
+- 💡 聯想：「若下雨則地濕」——下雨是充分條件（下雨一定地濕），地濕是必要條件（不濕就沒下雨）
+- 💡 聯想：文氏圖就像兩個圈圈的重疊——交集是共同好友，聯集是全部認識的人
 
 ## 數列與級數
 ### 等差數列

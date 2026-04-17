@@ -311,7 +311,66 @@
         "絕對值不等式轉化為「距離問題」更直覺"
       ]
     },
-    "數學歸納法": {
+    "集合與邏輯": {
+      "formulaDetails": [
+        {
+          "title": "集合元素個數（排容原理）",
+          "latex": "|A \\cup B| = |A| + |B| - |A \\cap B|",
+          "symbols": [
+            {
+              "symbol": "|A|",
+              "name": "A 的元素個數",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "A \\cap B",
+              "name": "A 與 B 的交集",
+              "unit": "無",
+              "type": "集合"
+            },
+            {
+              "symbol": "A \\cup B",
+              "name": "A 與 B 的聯集",
+              "unit": "無",
+              "type": "集合"
+            }
+          ],
+          "geometricMeaning": "文氏圖中兩圓覆蓋的總面積 = 各自面積之和 − 重疊部分",
+          "examTips": [
+            "三集合排容：|A∪B∪C| = |A|+|B|+|C|−|A∩B|−|A∩C|−|B∩C|+|A∩B∩C|",
+            "常搭配表格或文氏圖整理已知條件"
+          ]
+        },
+        {
+          "title": "德摩根定律",
+          "latex": "(A \\cap B)' = A' \\cup B', \\quad (A \\cup B)' = A' \\cap B'",
+          "symbols": [
+            {
+              "symbol": "A'",
+              "name": "A 的補集",
+              "unit": "無",
+              "type": "集合"
+            }
+          ],
+          "geometricMeaning": "交集的補集 = 各自補集的聯集，聯集的補集 = 各自補集的交集",
+          "examTips": [
+            "口訣：「補交變聯，補聯變交」",
+            "常用於化簡複雜的集合運算"
+          ]
+        }
+      ],
+      "associations": [
+        "文氏圖就像兩個圈圈的重疊——交集是共同好友，聯集是全部認識的人",
+        "充分條件像門票——有門票一定能進場（充分），但進場不一定需要門票（不必要）"
+      ],
+      "examTips": [
+        "條件命題與逆否命題同真假，是證明的常用技巧",
+        "充分/必要條件判斷：先寫出 p⇒q，再看箭頭方向",
+        "集合問題常搭配排列組合，先用集合運算分類再計算"
+      ]
+    },
+    "其他數列": {
       "formulaDetails": [
         {
           "title": "數學歸納法步驟",
@@ -340,7 +399,7 @@
         "常見技巧：在 S(k+1) = S(k) + a(k+1) 中代入假設"
       ]
     },
-    "線性方程組應用": {
+    "線性方程組": {
       "formulaDetails": [
         {
           "title": "高斯消去法",
@@ -366,6 +425,364 @@
       "examTips": [
         "克乃美公式只適用於方程式數=未知數數的情況",
         "行列式為 0 → 無唯一解（可能無解或無窮多解，需進一步討論）"
+      ]
+    },
+    "實數系統": {
+      "formulaDetails": [
+        {
+          "title": "實數分類",
+          "latex": "\\mathbb{R} = \\mathbb{Q} \\cup \\mathbb{Q}^c",
+          "symbols": [
+            {
+              "symbol": "\\mathbb{Q}",
+              "name": "有理數（可表為 p/q）",
+              "unit": "無",
+              "type": "集合"
+            },
+            {
+              "symbol": "\\mathbb{Q}^c",
+              "name": "無理數（不循環無限小數）",
+              "unit": "無",
+              "type": "集合"
+            }
+          ],
+          "geometricMeaning": "實數與數線上的點一一對應，無理數填滿有理數之間的「空隙」",
+          "examTips": [
+            "√2, π, e 都是無理數",
+            "有理數 = 可表示為分數 = 有限小數或循環小數"
+          ]
+        }
+      ],
+      "associations": [
+        "數線就像一把無限精確的尺——每個點都對應一個實數"
+      ],
+      "examTips": [
+        "判斷有理/無理數是選擇題基本題"
+      ]
+    },
+    "絕對值": {
+      "formulaDetails": [
+        {
+          "title": "絕對值不等式",
+          "latex": "|x| < a \\iff -a < x < a \\quad (a > 0)",
+          "symbols": [
+            {
+              "symbol": "|x|",
+              "name": "x 到原點的距離",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "|x| < a 表示 x 在 -a 到 a 之間（以原點為中心的區間）",
+          "examTips": [
+            "|x-c| < a → c-a < x < c+a（以 c 為中心）",
+            "|x| > a → x > a 或 x < -a（取兩邊）"
+          ]
+        }
+      ],
+      "associations": [
+        "絕對值就像距離——不管方向，只看離多遠"
+      ],
+      "examTips": [
+        "絕對值方程式：分類討論去絕對值"
+      ]
+    },
+    "多項式運算": {
+      "formulaDetails": [
+        {
+          "title": "因式分解常用方法",
+          "latex": "a^2 - b^2 = (a+b)(a-b), \\quad a^3 \\pm b^3 = (a \\pm b)(a^2 \\mp ab + b^2)",
+          "symbols": [
+            {
+              "symbol": "a, b",
+              "name": "多項式因式",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "將複雜多項式拆成簡單因式的乘積",
+          "examTips": [
+            "提公因式 → 分組 → 十字交乘 → 公式法",
+            "餘式定理：f(a) 即為 f(x)÷(x-a) 的餘式"
+          ]
+        }
+      ],
+      "associations": [
+        "因式分解就像拆積木——把複雜式子拆成簡單零件"
+      ],
+      "examTips": [
+        "因式分解是解方程式和化簡的基本功"
+      ]
+    },
+    "等差數列": {
+      "formulaDetails": [
+        {
+          "title": "等差數列公式",
+          "latex": "a_n = a_1 + (n-1)d, \\quad S_n = \\frac{n(a_1+a_n)}{2}",
+          "symbols": [
+            {
+              "symbol": "a_1",
+              "name": "首項",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "d",
+              "name": "公差",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "S_n",
+              "name": "前 n 項和",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "等差數列的點在座標上排成一直線，斜率 = 公差",
+          "examTips": [
+            "等差中項：中間項 = 前後兩項的平均",
+            "S_n 是 n 的二次函數（d≠0 時）"
+          ]
+        }
+      ],
+      "associations": [
+        "每天多跑 100 公尺，跑步距離就是等差數列"
+      ],
+      "examTips": [
+        "高斯求和：1+2+...+100 = 100×101/2 = 5050"
+      ]
+    },
+    "等比數列": {
+      "formulaDetails": [
+        {
+          "title": "等比數列公式",
+          "latex": "a_n = a_1 \\cdot r^{n-1}, \\quad S_n = \\frac{a_1(1-r^n)}{1-r}",
+          "symbols": [
+            {
+              "symbol": "r",
+              "name": "公比",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "S",
+              "name": "無窮級數和 = a₁/(1-r)，|r|<1",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "等比數列的增長呈指數型，|r|<1 時級數收斂",
+          "examTips": [
+            "等比中項：aₙ² = aₙ₋₁·aₙ₊₁",
+            "無窮等比級數 |r|<1 才收斂"
+          ]
+        }
+      ],
+      "associations": [
+        "銀行複利就是等比數列——本金 × 1.02ⁿ"
+      ],
+      "examTips": [
+        "等比級數 r=1 時為 na₁，不能用公式（分母為0）"
+      ]
+    },
+    "矩陣基本概念": {
+      "formulaDetails": [
+        {
+          "title": "矩陣表示",
+          "latex": "A = [a_{ij}]_{m \\times n}",
+          "symbols": [
+            {
+              "symbol": "a_{ij}",
+              "name": "第 i 列第 j 行的元素",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "m \\times n",
+              "name": "矩陣的列數 × 行數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "矩陣是將數字排成矩形陣列的工具",
+          "examTips": [
+            "零矩陣：所有元素為 0",
+            "單位矩陣 I：對角線為 1，其餘為 0"
+          ]
+        }
+      ],
+      "associations": [
+        "Excel 試算表就是矩陣——每個儲存格就是 aᵢⱼ"
+      ],
+      "examTips": [
+        "方陣 = 列數等於行數的矩陣"
+      ]
+    },
+    "矩陣運算": {
+      "formulaDetails": [
+        {
+          "title": "矩陣乘法",
+          "latex": "(AB)_{ij} = \\sum_k a_{ik} b_{kj}",
+          "symbols": [
+            {
+              "symbol": "A_{m×n}",
+              "name": "左矩陣",
+              "unit": "無",
+              "type": "矩陣"
+            },
+            {
+              "symbol": "B_{n×p}",
+              "name": "右矩陣（左的行數 = 右的列數）",
+              "unit": "無",
+              "type": "矩陣"
+            }
+          ],
+          "geometricMeaning": "矩陣乘法 = 線性變換的合成",
+          "examTips": [
+            "AB ≠ BA（不滿足交換律）",
+            "A(m×n) × B(n×p) = C(m×p)——內維度須相等"
+          ]
+        }
+      ],
+      "associations": [
+        "矩陣乘法像是流水線加工——每一步的輸出變成下一步的輸入"
+      ],
+      "examTips": [
+        "2×2 矩陣乘法要練到能心算"
+      ]
+    },
+    "行列式與反矩陣": {
+      "formulaDetails": [
+        {
+          "title": "二階行列式與反矩陣",
+          "latex": "\\det(A) = ad-bc, \\quad A^{-1} = \\frac{1}{ad-bc}\\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix}",
+          "symbols": [
+            {
+              "symbol": "\\det(A)",
+              "name": "行列式",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "A^{-1}",
+              "name": "反矩陣",
+              "unit": "無",
+              "type": "矩陣"
+            }
+          ],
+          "geometricMeaning": "行列式 = 面積的縮放倍率；det=0 表示「壓扁」成低維",
+          "examTips": [
+            "det ≠ 0 才有反矩陣",
+            "反矩陣口訣：主對角互換、副對角變號、除以 det"
+          ]
+        }
+      ],
+      "associations": [
+        "行列式為 0 就像把 3D 物體壓成平面——資訊丟失，無法復原"
+      ],
+      "examTips": [
+        "克乃美公式：用行列式解聯立方程式"
+      ]
+    },
+    "集合": {
+      "formulaDetails": [
+        {
+          "title": "集合表示與子集",
+          "latex": "A \\subseteq B \\iff \\forall x \\in A, x \\in B",
+          "symbols": [
+            {
+              "symbol": "\\in",
+              "name": "屬於",
+              "unit": "無",
+              "type": "關係"
+            },
+            {
+              "symbol": "\\subseteq",
+              "name": "子集",
+              "unit": "無",
+              "type": "關係"
+            }
+          ],
+          "geometricMeaning": "子集就像「包含關係」——A 的每個元素都在 B 裡面",
+          "examTips": [
+            "空集合 ∅ 是任何集合的子集",
+            "列舉法 {1,2,3} vs 描述法 {x|x為正整數且x≤3}"
+          ]
+        }
+      ],
+      "associations": [
+        "「台北市⊆台灣」——台北市是台灣的子集"
+      ],
+      "examTips": [
+        "n 個元素的集合有 2ⁿ 個子集"
+      ]
+    },
+    "集合運算": {
+      "formulaDetails": [
+        {
+          "title": "排容原理",
+          "latex": "|A \\cup B| = |A| + |B| - |A \\cap B|",
+          "symbols": [
+            {
+              "symbol": "A \\cap B",
+              "name": "交集",
+              "unit": "無",
+              "type": "集合"
+            },
+            {
+              "symbol": "A \\cup B",
+              "name": "聯集",
+              "unit": "無",
+              "type": "集合"
+            }
+          ],
+          "geometricMeaning": "文氏圖中兩圓的覆蓋面積 = 各自面積 - 重疊面積",
+          "examTips": [
+            "德摩根定律：(A∩B)' = A'∪B'",
+            "差集 A-B = A∩B'"
+          ]
+        }
+      ],
+      "associations": [
+        "文氏圖兩個圈：交集是共同好友，聯集是全部認識的人"
+      ],
+      "examTips": [
+        "排容原理是計數和機率的基礎工具"
+      ]
+    },
+    "命題與條件": {
+      "formulaDetails": [
+        {
+          "title": "條件命題與逆否命題",
+          "latex": "p \\Rightarrow q \\iff \\neg q \\Rightarrow \\neg p",
+          "symbols": [
+            {
+              "symbol": "p \\Rightarrow q",
+              "name": "若 p 則 q",
+              "unit": "無",
+              "type": "命題"
+            },
+            {
+              "symbol": "\\neg",
+              "name": "否定",
+              "unit": "無",
+              "type": "運算"
+            }
+          ],
+          "geometricMeaning": "原命題與逆否命題永遠同真假，是間接證法的基礎",
+          "examTips": [
+            "充分條件：p⇒q，p 是 q 的充分條件",
+            "必要條件：p⇒q，q 是 p 的必要條件",
+            "充要條件：p⇔q，互為充要"
+          ]
+        }
+      ],
+      "associations": [
+        "若下雨則地濕——下雨是充分條件（下雨→地濕），地濕是必要條件（不濕→沒下雨）"
+      ],
+      "examTips": [
+        "逆命題不一定成立，但逆否命題一定與原命題同真假"
       ]
     }
   }

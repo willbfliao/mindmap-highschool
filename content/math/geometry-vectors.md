@@ -130,3 +130,17 @@
 - 離心率（eccentricity）: $e = \frac{c}{a}$（$e > 1$）
 - 💡 聯想：衛星繞地球的軌道是橢圓，地球在焦點上——克卜勒定律
 - 💡 聯想：手電筒照牆壁，光圈的形狀就是圓錐曲線——正對是圓、斜照是橢圓、平行側面是拋物線
+### 二次曲線的平移
+- 配方法（completing the square）: 將一般式化為標準式以判斷圖形類型
+- 平移公式（translation）: 令 $X = x - h$、$Y = y - k$，將圖形中心移至原點
+  - 拋物線: $y^2 + Dx + Ey + F = 0$ → 配方後得頂點與焦點
+  - 橢圓/雙曲線: $Ax^2 + Cy^2 + Dx + Ey + F = 0$ → 配方後判斷類型
+- 頂點/中心判定（center identification）: 平移後新座標原點即為頂點或中心
+### 圓錐曲線綜合判別
+- 一般二次方程式（general second-degree equation）: $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$
+- 判別式（discriminant）: $\Delta = B^2 - 4AC$
+  - $\Delta < 0$: 橢圓（$A = C$ 且 $B = 0$ 時為圓）
+  - $\Delta = 0$: 拋物線
+  - $\Delta > 0$: 雙曲線
+- 退化情形（degenerate cases）: 可能退化為點、直線或兩相交直線
+- 💡 聯想：判別式就像分類帽——$\Delta$ 的正負零決定曲線是橢圓、拋物線還是雙曲線

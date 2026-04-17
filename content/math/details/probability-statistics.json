@@ -370,7 +370,42 @@
         "展開後求特定項：用一般項 C(n,k)·aⁿ⁻ᵏ·bᵏ 令指數等於目標"
       ]
     },
-    "獨立事件與條件機率": {
+    "期望值": {
+      "formulaDetails": [
+        {
+          "title": "期望值的線性性質",
+          "latex": "E(aX+b) = aE(X) + b",
+          "symbols": [
+            {
+              "symbol": "a",
+              "name": "乘數",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "b",
+              "name": "常數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "期望值的平移和縮放",
+          "examTips": [
+            "變異數 Var(aX+b) = a²Var(X)，注意 b 不影響變異數",
+            "標準差 σ(aX+b) = |a|σ(X)"
+          ]
+        }
+      ],
+      "associations": [
+        "保險公司靠期望值賺錢——保費 > 平均理賠金額",
+        "彩券期望值通常為負，但大家還是買因為存在極端獎金"
+      ],
+      "examTips": [
+        "二項分配 B(n,p) 的期望值 np 和標準差 √(np(1-p)) 是直接結論",
+        "解題時先判斷是否為二項分配：n 次獨立伯努利試驗"
+      ]
+    },
+    "獨立事件": {
       "formulaDetails": [
         {
           "title": "乘法法則",
@@ -399,7 +434,7 @@
         "全機率公式先分類再加總，常用於篩檢問題"
       ]
     },
-    "相關與迴歸": {
+    "相關分析": {
       "formulaDetails": [
         {
           "title": "迴歸直線",
@@ -434,39 +469,383 @@
         "r² 稱為決定係數，代表迴歸模型的解釋力"
       ]
     },
-    "期望值與變異數": {
+    "計數原理": {
       "formulaDetails": [
         {
-          "title": "期望值的線性性質",
-          "latex": "E(aX+b) = aE(X) + b",
+          "title": "加法與乘法原理",
+          "latex": "\\text{加法: } m + n, \\quad \\text{乘法: } m \\times n",
           "symbols": [
             {
-              "symbol": "a",
-              "name": "乘數",
-              "unit": "無",
-              "type": "純量"
-            },
-            {
-              "symbol": "b",
-              "name": "常數",
+              "symbol": "m, n",
+              "name": "各步驟/類別的方法數",
               "unit": "無",
               "type": "純量"
             }
           ],
-          "geometricMeaning": "期望值的平移和縮放",
+          "geometricMeaning": "加法用於「或」的情況（分類），乘法用於「且」的情況（分步）",
           "examTips": [
-            "變異數 Var(aX+b) = a²Var(X)，注意 b 不影響變異數",
-            "標準差 σ(aX+b) = |a|σ(X)"
+            "分類用加法、分步用乘法——關鍵在判斷「或」還是「且」",
+            "樹狀圖可幫助理解分步計數"
           ]
         }
       ],
       "associations": [
-        "保險公司靠期望值賺錢——保費 > 平均理賠金額",
-        "彩券期望值通常為負，但大家還是買因為存在極端獎金"
+        "早餐選漢堡或三明治是加法原理，選漢堡再選飲料是乘法原理"
       ],
       "examTips": [
-        "二項分配 B(n,p) 的期望值 np 和標準差 √(np(1-p)) 是直接結論",
-        "解題時先判斷是否為二項分配：n 次獨立伯努利試驗"
+        "計數原理是排列組合的基礎，先搞清楚再學公式"
+      ]
+    },
+    "排列": {
+      "formulaDetails": [
+        {
+          "title": "排列數",
+          "latex": "P^n_r = \\frac{n!}{(n-r)!}",
+          "symbols": [
+            {
+              "symbol": "n",
+              "name": "總物件數",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "r",
+              "name": "取出個數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "從 n 個物件中取 r 個排成一列，考慮順序",
+          "examTips": [
+            "0! = 1 是規定",
+            "相同物排列：n! / (n₁!n₂!...nₖ!)",
+            "環狀排列：(n-1)!"
+          ]
+        }
+      ],
+      "associations": [
+        "班級幹部選舉（班長、副班長順序不同）就是排列"
+      ],
+      "examTips": [
+        "排列 vs 組合的關鍵：有沒有順序"
+      ]
+    },
+    "組合": {
+      "formulaDetails": [
+        {
+          "title": "組合數",
+          "latex": "C^n_r = \\frac{n!}{r!(n-r)!}",
+          "symbols": [
+            {
+              "symbol": "C^n_r",
+              "name": "從 n 取 r 的組合數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "從 n 個物件中取 r 個，不考慮順序",
+          "examTips": [
+            "C(n,r) = C(n,n-r) 是常用化簡技巧",
+            "巴斯卡定理：C(n,r) = C(n-1,r-1) + C(n-1,r)"
+          ]
+        }
+      ],
+      "associations": [
+        "從 52 張牌抽 5 張，不管順序就是 C(52,5)"
+      ],
+      "examTips": [
+        "組合是排列除以 r!——消除順序的影響"
+      ]
+    },
+    "樣本空間": {
+      "formulaDetails": [
+        {
+          "title": "樣本空間與事件",
+          "latex": "S = \\{\\text{所有可能結果}\\}, \\quad P(S) = 1",
+          "symbols": [
+            {
+              "symbol": "S",
+              "name": "樣本空間",
+              "unit": "無",
+              "type": "集合"
+            },
+            {
+              "symbol": "A",
+              "name": "事件（S 的子集）",
+              "unit": "無",
+              "type": "集合"
+            }
+          ],
+          "geometricMeaning": "樣本空間包含所有可能結果，事件是其中感興趣的部分",
+          "examTips": [
+            "列舉法適用於簡單情況",
+            "n(S) 是計算古典機率的分母"
+          ]
+        }
+      ],
+      "associations": [
+        "擲骰子的樣本空間 = {1,2,3,4,5,6}，出偶數的事件 = {2,4,6}"
+      ],
+      "examTips": [
+        "搞清楚樣本空間是解機率題的第一步"
+      ]
+    },
+    "古典機率定義": {
+      "formulaDetails": [
+        {
+          "title": "古典機率公式",
+          "latex": "P(A) = \\frac{n(A)}{n(S)}",
+          "symbols": [
+            {
+              "symbol": "n(A)",
+              "name": "事件 A 的樣本點數",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "n(S)",
+              "name": "樣本空間的樣本點數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "每個基本事件等機率時，事件機率 = 有利結果數 / 總結果數",
+          "examTips": [
+            "0 ≤ P(A) ≤ 1",
+            "P(必然事件) = 1，P(不可能事件) = 0"
+          ]
+        }
+      ],
+      "associations": [
+        "抽籤決定掃地區域，每人機率相等就是古典機率"
+      ],
+      "examTips": [
+        "分子分母都要用排列組合正確計算"
+      ]
+    },
+    "機率運算": {
+      "formulaDetails": [
+        {
+          "title": "排容原理（機率版）",
+          "latex": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)",
+          "symbols": [
+            {
+              "symbol": "P(A')",
+              "name": "餘事件機率 = 1 - P(A)",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "兩事件聯集的機率 = 各自機率之和 - 交集機率",
+          "examTips": [
+            "互斥事件：P(A∩B) = 0，聯集直接相加",
+            "「至少一個」用餘事件：1 - P(都沒有)"
+          ]
+        }
+      ],
+      "associations": [
+        "至少中一筆發票的機率 = 1 - 全部沒中的機率"
+      ],
+      "examTips": [
+        "餘事件法是「至少」問題的秒殺技巧"
+      ]
+    },
+    "條件機率": {
+      "formulaDetails": [
+        {
+          "title": "條件機率公式",
+          "latex": "P(A|B) = \\frac{P(A \\cap B)}{P(B)}",
+          "symbols": [
+            {
+              "symbol": "P(A|B)",
+              "name": "在 B 發生下 A 的機率",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "將樣本空間縮小到 B，在 B 內看 A 佔多少比例",
+          "examTips": [
+            "P(A|B) ≠ P(B|A)，順序很重要",
+            "乘法公式：P(A∩B) = P(B)·P(A|B)"
+          ]
+        }
+      ],
+      "associations": [
+        "下雨天帶傘的比例 ≠ 帶傘時下雨的比例——條件反過來不同"
+      ],
+      "examTips": [
+        "條件機率是貝氏定理的基礎"
+      ]
+    },
+    "貝氏定理": {
+      "formulaDetails": [
+        {
+          "title": "貝氏定理",
+          "latex": "P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}",
+          "symbols": [
+            {
+              "symbol": "P(A)",
+              "name": "事前機率 (Prior)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "P(A|B)",
+              "name": "事後機率 (Posterior)",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "觀察到新證據 B 後，更新對 A 的信念",
+          "examTips": [
+            "分母用全機率公式展開：P(B) = P(B|A)P(A) + P(B|A')P(A')",
+            "應用：疾病篩檢、垃圾郵件過濾"
+          ]
+        }
+      ],
+      "associations": [
+        "快篩陽性不等於確診——「陽性時真正生病的機率」就是貝氏定理"
+      ],
+      "examTips": [
+        "畫樹狀圖最直觀，分支機率相乘再比較"
+      ]
+    },
+    "隨機變數": {
+      "formulaDetails": [
+        {
+          "title": "機率分配",
+          "latex": "\\sum P(X = x_i) = 1",
+          "symbols": [
+            {
+              "symbol": "X",
+              "name": "隨機變數",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "x_i",
+              "name": "可能取值",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "隨機變數將每個結果對應到數值，機率分配描述各值出現的可能性",
+          "examTips": [
+            "機率分配表：列出所有可能值及機率，總和必為 1",
+            "離散型 vs 連續型，學測考離散型"
+          ]
+        }
+      ],
+      "associations": [
+        "擲兩顆骰子的點數和就是隨機變數——結果是 2 到 12 的數字"
+      ],
+      "examTips": [
+        "建立機率分配表是求期望值的前置步驟"
+      ]
+    },
+    "二項分配": {
+      "formulaDetails": [
+        {
+          "title": "二項分配",
+          "latex": "P(X=k) = C^n_k \\, p^k (1-p)^{n-k}, \\quad X \\sim B(n,p)",
+          "symbols": [
+            {
+              "symbol": "n",
+              "name": "試驗次數",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "p",
+              "name": "每次成功機率",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "k",
+              "name": "成功次數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "獨立重複 n 次伯努利試驗，成功 k 次的機率",
+          "examTips": [
+            "期望值 E(X) = np，標準差 σ = √(np(1-p))",
+            "投籃命中率 70% 投 10 球 → B(10, 0.7)"
+          ]
+        }
+      ],
+      "associations": [
+        "投籃命中率 70% 投 10 球，進球數就是二項分配"
+      ],
+      "examTips": [
+        "二項分配 = 組合 × 成功機率 × 失敗機率"
+      ]
+    },
+    "集中趨勢": {
+      "formulaDetails": [
+        {
+          "title": "平均數、中位數、眾數",
+          "latex": "\\bar{x} = \\frac{\\sum x_i}{n}",
+          "symbols": [
+            {
+              "symbol": "\\bar{x}",
+              "name": "算術平均數",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "n",
+              "name": "資料筆數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "平均數是資料的重心，中位數是排序後的中間值",
+          "examTips": [
+            "極端值影響平均數但不影響中位數",
+            "眾數 = 出現次數最多的值"
+          ]
+        }
+      ],
+      "associations": [
+        "全班平均分數受一兩個滿分或零分影響很大——這時中位數更能代表典型水準"
+      ],
+      "examTips": [
+        "學測常考：判斷用平均數還是中位數更合適"
+      ]
+    },
+    "離散程度": {
+      "formulaDetails": [
+        {
+          "title": "變異數與標準差",
+          "latex": "\\sigma^2 = \\frac{\\sum(x_i - \\bar{x})^2}{n}, \\quad \\sigma = \\sqrt{\\sigma^2}",
+          "symbols": [
+            {
+              "symbol": "\\sigma^2",
+              "name": "變異數 (Variance)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "\\sigma",
+              "name": "標準差 (Std Dev)",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "標準差衡量資料離散的程度，越大表示越分散",
+          "examTips": [
+            "z-score = (x - x̄) / σ，標準化後可跨組比較",
+            "全距 = 最大值 - 最小值，是最簡單的離散指標"
+          ]
+        }
+      ],
+      "associations": [
+        "兩班平均分一樣但標準差不同，表示成績分散程度不同"
+      ],
+      "examTips": [
+        "資料全部加常數 c → 平均數加 c、標準差不變；全部乘 k → 標準差乘 |k|"
       ]
     }
   }

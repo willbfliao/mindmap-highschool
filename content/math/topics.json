@@ -30,7 +30,7 @@
           "icon": "📐",
           "color": "#3b82f6",
           "examRatio": 25,
-          "questionCount": 16
+          "questionCount": 18
         }
       ]
     },
@@ -62,7 +62,7 @@
           "icon": "🔢",
           "color": "#f59e0b",
           "examRatio": 20,
-          "questionCount": 16
+          "questionCount": 19
         }
       ]
     }

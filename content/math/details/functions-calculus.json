@@ -380,7 +380,7 @@
         "解題關鍵：找出初始值 N₀ 和成長/衰退倍率 a"
       ]
     },
-    "二次函數圖形分析": {
+    "二次函數": {
       "formulaDetails": [
         {
           "title": "頂點與軸對稱",
@@ -414,7 +414,7 @@
         "開口方向看 a 的符號，y 截距看 c 的值"
       ]
     },
-    "三角比與單位圓": {
+    "三角比": {
       "formulaDetails": [
         {
           "title": "特殊角三角比",
@@ -452,6 +452,413 @@
       "examTips": [
         "ASTC 口訣：一全正、二正弦、三正切、四餘弦",
         "弧度與角度換算：π rad = 180°"
+      ]
+    },
+    "一次函數": {
+      "formulaDetails": [
+        {
+          "title": "一次函數",
+          "latex": "y = ax + b",
+          "symbols": [
+            {
+              "symbol": "a",
+              "name": "斜率 (Slope)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "b",
+              "name": "y 截距 (y-intercept)",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "圖形為直線，斜率 a 決定傾斜方向與程度",
+          "examTips": [
+            "a > 0 向右上升，a < 0 向右下降",
+            "零點 x = -b/a，即直線與 x 軸的交點"
+          ]
+        }
+      ],
+      "associations": [
+        "手扶梯的傾斜度就是斜率——越陡 |a| 越大"
+      ],
+      "examTips": [
+        "一次函數是最基本的函數，也是線性規劃的基礎"
+      ]
+    },
+    "高次多項式": {
+      "formulaDetails": [
+        {
+          "title": "餘式定理與因式定理",
+          "latex": "f(x) \\div (x-a) \\text{ 的餘式} = f(a)",
+          "symbols": [
+            {
+              "symbol": "f(a)",
+              "name": "代入 a 的函數值",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "f(a) = 0 代表 x = a 是 f(x) 的根，(x-a) 是因式",
+          "examTips": [
+            "先用因式定理猜根（常試 ±1, ±2, ...），再綜合除法降次",
+            "勘根定理：f(a)·f(b) < 0 則 (a,b) 間至少有一根"
+          ]
+        }
+      ],
+      "associations": [
+        "勘根定理就像過河——水面上下各站一人，中間一定有個踩水點（根）"
+      ],
+      "examTips": [
+        "學測常考：給多項式求因式或餘式，餘式定理是秒殺工具"
+      ]
+    },
+    "指數函數": {
+      "formulaDetails": [
+        {
+          "title": "指數律",
+          "latex": "a^m \\times a^n = a^{m+n}, \\quad (a^m)^n = a^{mn}",
+          "symbols": [
+            {
+              "symbol": "a",
+              "name": "底數",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "m, n",
+              "name": "指數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "指數函數 y = aˣ 恆過 (0,1)，a > 1 遞增，0 < a < 1 遞減",
+          "examTips": [
+            "指數律是化簡指數方程式的基礎",
+            "同底比較指數：a > 1 時底同取指數大小"
+          ]
+        }
+      ],
+      "associations": [
+        "細菌每小時分裂一次就是 2^t 指數成長"
+      ],
+      "examTips": [
+        "指數函數圖形的恆過定點 (0,1) 是選擇題常考點"
+      ]
+    },
+    "對數函數": {
+      "formulaDetails": [
+        {
+          "title": "對數定義",
+          "latex": "y = \\log_a x \\iff a^y = x",
+          "symbols": [
+            {
+              "symbol": "a",
+              "name": "底數 (a > 0, a ≠ 1)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "x",
+              "name": "真數 (x > 0)",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "對數是指數的逆運算，圖形與指數函數對稱於 y = x",
+          "examTips": [
+            "對數三律：乘法→加法、除法→減法、次方→乘法",
+            "定義域限制：真數 > 0 是解題必檢查項"
+          ]
+        }
+      ],
+      "associations": [
+        "pH 值就是氫離子濃度的負對數——對數壓縮大數的威力"
+      ],
+      "examTips": [
+        "對數方程式解完務必回代，確認真數 > 0"
+      ]
+    },
+    "指數與對數方程式": {
+      "formulaDetails": [
+        {
+          "title": "換底公式",
+          "latex": "\\log_a b = \\frac{\\log b}{\\log a}",
+          "symbols": [
+            {
+              "symbol": "\\log",
+              "name": "常用對數 (底10)",
+              "unit": "無",
+              "type": "函數"
+            }
+          ],
+          "geometricMeaning": "將不同底的對數統一為同底，方便比較與計算",
+          "examTips": [
+            "指數方程式：同底比較指數",
+            "對數方程式：化為指數形式求解"
+          ]
+        }
+      ],
+      "associations": [
+        "計算機只有 log 和 ln 按鍵，其他底數都要用換底公式"
+      ],
+      "examTips": [
+        "注意定義域：對數的真數必須 > 0"
+      ]
+    },
+    "廣義角與弧度": {
+      "formulaDetails": [
+        {
+          "title": "弧度與弧長",
+          "latex": "s = r\\theta, \\quad A = \\frac{1}{2}r^2\\theta",
+          "symbols": [
+            {
+              "symbol": "s",
+              "name": "弧長 (Arc Length)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "r",
+              "name": "半徑",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "\\theta",
+              "name": "弧度 (Radian)",
+              "unit": "rad",
+              "type": "純量"
+            },
+            {
+              "symbol": "A",
+              "name": "扇形面積",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "弧度是用弧長與半徑的比值來量度角的大小",
+          "examTips": [
+            "π rad = 180°，1 rad ≈ 57.3°",
+            "扇形面積 = ½r²θ，與圓面積 πr² 的比例 = θ/(2π)"
+          ]
+        }
+      ],
+      "associations": [
+        "時鐘分針走一圈 = 2π rad = 360°"
+      ],
+      "examTips": [
+        "學測常考弧度與角度互換，π/6 = 30°、π/4 = 45°、π/3 = 60°"
+      ]
+    },
+    "三角函數圖形": {
+      "formulaDetails": [
+        {
+          "title": "正弦函數的振幅與週期",
+          "latex": "y = A\\sin(Bx + C), \\quad \\text{振幅}=|A|, \\quad T=\\frac{2\\pi}{|B|}",
+          "symbols": [
+            {
+              "symbol": "A",
+              "name": "振幅 (Amplitude)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "B",
+              "name": "角頻率",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "C",
+              "name": "相位 (Phase)",
+              "unit": "rad",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "振幅決定波的高度，週期決定波的寬度，相位決定左右平移",
+          "examTips": [
+            "sinx 週期 2π，tanx 週期 π",
+            "相位移 = -C/B，正值左移、負值右移"
+          ]
+        }
+      ],
+      "associations": [
+        "心電圖就是類似正弦函數的週期波形"
+      ],
+      "examTips": [
+        "學測常考：看圖讀出振幅、週期、相位移"
+      ]
+    },
+    "三角恆等式": {
+      "formulaDetails": [
+        {
+          "title": "畢氏恆等式",
+          "latex": "\\sin^2\\theta + \\cos^2\\theta = 1",
+          "symbols": [
+            {
+              "symbol": "\\theta",
+              "name": "角度",
+              "unit": "rad",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "單位圓上的點 (cosθ, sinθ) 到原點距離恆為 1",
+          "examTips": [
+            "變形常用：sin²θ = 1-cos²θ",
+            "已知一個三角比可求另一個（注意象限）"
+          ]
+        },
+        {
+          "title": "和角公式",
+          "latex": "\\sin(\\alpha \\pm \\beta) = \\sin\\alpha\\cos\\beta \\pm \\cos\\alpha\\sin\\beta",
+          "symbols": [
+            {
+              "symbol": "\\alpha, \\beta",
+              "name": "兩個角",
+              "unit": "rad",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "兩角和或差的三角值，可由各角的三角比組合",
+          "examTips": [
+            "倍角公式是 α=β 的特例：sin2θ=2sinθcosθ"
+          ]
+        }
+      ],
+      "associations": [
+        "和角公式就像食譜——知道兩個食材（角）的比例，就能算出混合後的味道（三角值）"
+      ],
+      "examTips": [
+        "正弦定理解 AAS/ASA 問題，餘弦定理解 SAS/SSS 問題",
+        "和角→倍角→半角是推導鏈，理解一個就能推出其他"
+      ]
+    },
+    "極限概念": {
+      "formulaDetails": [
+        {
+          "title": "函數極限",
+          "latex": "\\lim_{x \\to a} f(x) = L",
+          "symbols": [
+            {
+              "symbol": "L",
+              "name": "極限值",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "a",
+              "name": "趨近點",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "x 趨近 a 時，f(x) 無限接近 L（不需要 f(a)=L）",
+          "examTips": [
+            "連續函數：直接代入即可",
+            "0/0 不定型：先因式分解或有理化再代入"
+          ]
+        }
+      ],
+      "associations": [
+        "排隊越來越接近櫃台但永遠差一步——這就是極限的直覺"
+      ],
+      "examTips": [
+        "左極限 = 右極限 → 極限存在；不等則不存在"
+      ]
+    },
+    "導數": {
+      "formulaDetails": [
+        {
+          "title": "導數定義（極限形式）",
+          "latex": "f'(x) = \\lim_{\\Delta x \\to 0} \\frac{f(x+\\Delta x)-f(x)}{\\Delta x}",
+          "symbols": [
+            {
+              "symbol": "f'(x)",
+              "name": "導函數",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "\\Delta x",
+              "name": "增量",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "f'(a) = 曲線在 x=a 處切線斜率",
+          "examTips": [
+            "多項式微分：(xⁿ)' = nxⁿ⁻¹",
+            "常數微分為 0，線性組合可逐項微分"
+          ]
+        }
+      ],
+      "associations": [
+        "瞬時速度就是位移的導數——從平均速度取極限得到"
+      ],
+      "examTips": [
+        "切線方程式：y - f(a) = f'(a)(x - a)"
+      ]
+    },
+    "微分應用": {
+      "formulaDetails": [
+        {
+          "title": "極值判定",
+          "latex": "f'(x) = 0 \\text{ 且導數變號} \\Rightarrow \\text{極值}",
+          "symbols": [
+            {
+              "symbol": "f'(x)",
+              "name": "導函數",
+              "unit": "無",
+              "type": "函數"
+            }
+          ],
+          "geometricMeaning": "導數從正變負 → 極大值，從負變正 → 極小值",
+          "examTips": [
+            "f'(x) > 0 遞增，f'(x) < 0 遞減",
+            "最佳化問題：建立函數 → 微分 → 令導數=0 → 驗證"
+          ]
+        }
+      ],
+      "associations": [
+        "爬山到山頂的瞬間，坡度（導數）從正變負——那就是極大值"
+      ],
+      "examTips": [
+        "最佳化問題是學測常見的應用題型"
+      ]
+    },
+    "積分初步": {
+      "formulaDetails": [
+        {
+          "title": "定積分與面積",
+          "latex": "\\int_a^b f(x)\\,dx = F(b) - F(a)",
+          "symbols": [
+            {
+              "symbol": "F(x)",
+              "name": "反導函數",
+              "unit": "無",
+              "type": "函數"
+            },
+            {
+              "symbol": "a, b",
+              "name": "積分上下限",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "定積分 = 曲線與 x 軸之間的有號面積",
+          "examTips": [
+            "不定積分：∫xⁿ dx = xⁿ⁺¹/(n+1) + C",
+            "面積計算：x 軸下方部分要取絕對值"
+          ]
+        }
+      ],
+      "associations": [
+        "走路的總距離 = 把每秒速度加起來 = 速度函數的積分"
+      ],
+      "examTips": [
+        "微積分基本定理：微分與積分互為逆運算"
       ]
     }
   }

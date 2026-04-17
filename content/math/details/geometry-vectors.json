@@ -298,6 +298,29 @@
             "4p 的值決定焦點和準線的位置",
             "拋物線只有一個焦點，橢圓和雙曲線有兩個"
           ]
+        },
+        {
+          "title": "二次曲線綜合判別式",
+          "latex": "\\Delta = B^2 - 4AC",
+          "symbols": [
+            {
+              "symbol": "A, B, C",
+              "name": "Ax²+Bxy+Cy²+Dx+Ey+F=0 的二次項係數",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "\\Delta",
+              "name": "判別式",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "Δ<0 橢圓（A=C 且 B=0 為圓）、Δ=0 拋物線、Δ>0 雙曲線",
+          "examTips": [
+            "學測常考：給一般二次方程式，判斷圖形類型",
+            "注意退化情形：可能退化為點、直線或兩相交直線"
+          ]
         }
       ],
       "associations": [
@@ -307,7 +330,9 @@
       "examTips": [
         "三種圓錐曲線的定義（等距條件）要清楚區分",
         "橢圓 c² = a² - b²，雙曲線 c² = a² + b²，不要搞混",
-        "拋物線看 4p 的值：焦點在正方向 p 處，準線在負方向 -p 處"
+        "拋物線看 4p 的值：焦點在正方向 p 處，準線在負方向 -p 處",
+        "配方法平移：先將 x、y 各自配方，再令 X=x-h、Y=y-k 化為標準式",
+        "判別式 Δ=B²-4AC 快速判斷曲線類型，是選擇題的秒殺技巧"
       ]
     },
     "線性規劃": {
@@ -345,35 +370,6 @@
         "注意隱含條件：x≥0, y≥0（數量不能為負）"
       ]
     },
-    "向量內積應用": {
-      "formulaDetails": [
-        {
-          "title": "柯西-施瓦茲不等式",
-          "latex": "|\\vec{a} \\cdot \\vec{b}| \\leq |\\vec{a}||\\vec{b}|",
-          "symbols": [
-            {
-              "symbol": "\\vec{a} \\cdot \\vec{b}",
-              "name": "兩向量的內積",
-              "unit": "無",
-              "type": "純量"
-            }
-          ],
-          "geometricMeaning": "內積的絕對值不超過兩向量長度之積，等號在兩向量平行時成立",
-          "examTips": [
-            "此不等式可用來求某些代數式的最大最小值",
-            "配合 cosθ 的範圍 [-1,1] 理解"
-          ]
-        }
-      ],
-      "associations": [
-        "做功 W=F·d·cosθ 就是力與位移的內積",
-        "下坡推車輕鬆因為力與位移夾角小，cosθ 接近 1"
-      ],
-      "examTips": [
-        "內積 = 0 判垂直，是最常用的判定方法",
-        "內積正→銳角、負→鈍角、零→直角"
-      ]
-    },
     "平面方程式": {
       "formulaDetails": [
         {
@@ -406,6 +402,554 @@
       "examTips": [
         "點面距公式和點到直線距離結構完全相同",
         "截距式 x/p + y/q + z/r = 1 可快速判斷截距"
+      ]
+    },
+    "內積": {
+      "formulaDetails": [
+        {
+          "title": "柯西-施瓦茲不等式",
+          "latex": "|\\vec{a} \\cdot \\vec{b}| \\leq |\\vec{a}||\\vec{b}|",
+          "symbols": [
+            {
+              "symbol": "\\vec{a} \\cdot \\vec{b}",
+              "name": "兩向量的內積",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "內積的絕對值不超過兩向量長度之積，等號在兩向量平行時成立",
+          "examTips": [
+            "此不等式可用來求某些代數式的最大最小值",
+            "配合 cosθ 的範圍 [-1,1] 理解"
+          ]
+        }
+      ],
+      "associations": [
+        "做功 W=F·d·cosθ 就是力與位移的內積",
+        "下坡推車輕鬆因為力與位移夾角小，cosθ 接近 1"
+      ],
+      "examTips": [
+        "內積 = 0 判垂直，是最常用的判定方法",
+        "內積正→銳角、負→鈍角、零→直角"
+      ]
+    },
+    "直線方程式": {
+      "formulaDetails": [
+        {
+          "title": "直線方程式的四種形式",
+          "latex": "y = mx + b, \\quad y - y_1 = m(x - x_1), \\quad ax + by + c = 0",
+          "symbols": [
+            {
+              "symbol": "m",
+              "name": "斜率 (Slope)",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "b",
+              "name": "y 截距",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "不同形式適用於不同已知條件，描述的都是同一條直線",
+          "examTips": [
+            "斜截式看圖最快，一般式算距離最方便",
+            "截距式 x/a + y/b = 1 適用於已知兩截距"
+          ]
+        }
+      ],
+      "associations": [
+        "導航 App 畫路線就是把一段段直線方程式串起來"
+      ],
+      "examTips": [
+        "兩點求斜率：m = (y₂-y₁)/(x₂-x₁)"
+      ]
+    },
+    "距離公式": {
+      "formulaDetails": [
+        {
+          "title": "點到直線距離",
+          "latex": "d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}",
+          "symbols": [
+            {
+              "symbol": "(x_0, y_0)",
+              "name": "點座標",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "ax+by+c=0",
+              "name": "直線方程式",
+              "unit": "無",
+              "type": "方程式"
+            }
+          ],
+          "geometricMeaning": "點到直線的最短距離（垂直距離）",
+          "examTips": [
+            "兩點距離用畢氏定理",
+            "中點公式：各座標取平均"
+          ]
+        }
+      ],
+      "associations": [
+        "量你家到馬路的最短距離——一定是垂直的那段"
+      ],
+      "examTips": [
+        "點到直線距離公式分子取絕對值，分母開根號"
+      ]
+    },
+    "直線關係": {
+      "formulaDetails": [
+        {
+          "title": "平行與垂直",
+          "latex": "\\text{平行: } m_1 = m_2, \\quad \\text{垂直: } m_1 \\times m_2 = -1",
+          "symbols": [
+            {
+              "symbol": "m_1, m_2",
+              "name": "兩直線斜率",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "平行：方向相同不相交；垂直：夾 90° 角",
+          "examTips": [
+            "垂直條件 m₁m₂ = -1 是求垂直線的關鍵",
+            "兩平行線距離公式需先統一一般式係數"
+          ]
+        }
+      ],
+      "associations": [
+        "鐵軌是平行線，十字路口是垂直線"
+      ],
+      "examTips": [
+        "平行同斜率，垂直斜率互為負倒數"
+      ]
+    },
+    "圓方程式": {
+      "formulaDetails": [
+        {
+          "title": "圓的標準式與一般式",
+          "latex": "(x-h)^2 + (y-k)^2 = r^2",
+          "symbols": [
+            {
+              "symbol": "(h,k)",
+              "name": "圓心",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "r",
+              "name": "半徑",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "圓心到圓上任一點的距離恆等於半徑 r",
+          "examTips": [
+            "一般式配方可得標準式：圓心 (-D/2, -E/2)",
+            "圓與直線：圓心到直線距離 d 與 r 比較判斷相交/相切/相離"
+          ]
+        }
+      ],
+      "associations": [
+        "GPS 定位 = 三個圓的交點，每顆衛星畫一個圓"
+      ],
+      "examTips": [
+        "判斷圓與直線關係：d < r 相交、d = r 相切、d > r 相離"
+      ]
+    },
+    "向量基本概念": {
+      "formulaDetails": [
+        {
+          "title": "向量表示",
+          "latex": "\\vec{a} = a_1\\vec{i} + a_2\\vec{j} = (a_1, a_2)",
+          "symbols": [
+            {
+              "symbol": "\\vec{a}",
+              "name": "向量",
+              "unit": "無",
+              "type": "向量"
+            },
+            {
+              "symbol": "a_1, a_2",
+              "name": "分量",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "向量具有大小（長度）與方向，可分解為水平與垂直分量",
+          "examTips": [
+            "零向量大小為 0，方向不定",
+            "位置向量：從原點到點 P 的向量"
+          ]
+        }
+      ],
+      "associations": [
+        "風速「北風 3 級」就是向量——既有大小也有方向"
+      ],
+      "examTips": [
+        "向量相等 = 大小相同且方向相同（與起點無關）"
+      ]
+    },
+    "向量運算": {
+      "formulaDetails": [
+        {
+          "title": "向量加法與純量乘法",
+          "latex": "\\vec{a} + \\vec{b} = (a_1+b_1, a_2+b_2), \\quad k\\vec{a} = (ka_1, ka_2)",
+          "symbols": [
+            {
+              "symbol": "k",
+              "name": "純量",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "加法：平行四邊形法則；純量乘法：伸縮方向",
+          "examTips": [
+            "減法 = 加上反向向量",
+            "k > 0 同向、k < 0 反向、|k| 決定倍率"
+          ]
+        }
+      ],
+      "associations": [
+        "拔河兩隊的拉力合成就是向量加法"
+      ],
+      "examTips": [
+        "向量分解是物理分力的數學基礎"
+      ]
+    },
+    "投影": {
+      "formulaDetails": [
+        {
+          "title": "正射影公式",
+          "latex": "\\text{proj}_{\\vec{b}}\\vec{a} = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|^2}\\vec{b}",
+          "symbols": [
+            {
+              "symbol": "\\vec{a} \\cdot \\vec{b}",
+              "name": "內積",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "向量 a 在 b 方向上的分量（投影），投影長 = |a|cosθ",
+          "examTips": [
+            "投影長 = a⃗·b⃗ / |b⃗|",
+            "三角形面積 = ½|a₁b₂ - a₂b₁|"
+          ]
+        }
+      ],
+      "associations": [
+        "影子的長度就是身高向量在地面方向的投影"
+      ],
+      "examTips": [
+        "投影是內積的幾何應用，常與面積公式搭配出題"
+      ]
+    },
+    "空間座標": {
+      "formulaDetails": [
+        {
+          "title": "空間兩點距離",
+          "latex": "d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}",
+          "symbols": [
+            {
+              "symbol": "(x,y,z)",
+              "name": "三維座標",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "畢氏定理在三維的推廣",
+          "examTips": [
+            "空間中點：各座標取平均",
+            "平面距離公式是 z=0 的特例"
+          ]
+        }
+      ],
+      "associations": [
+        "遊戲裡的 3D 座標 (x,y,z) 就是空間座標系統"
+      ],
+      "examTips": [
+        "空間距離公式 = 平面版多加一個 z 分量"
+      ]
+    },
+    "空間向量運算": {
+      "formulaDetails": [
+        {
+          "title": "空間內積與外積",
+          "latex": "\\vec{a} \\cdot \\vec{b} = a_1b_1 + a_2b_2 + a_3b_3",
+          "symbols": [
+            {
+              "symbol": "\\vec{a} \\times \\vec{b}",
+              "name": "外積（結果為向量）",
+              "unit": "無",
+              "type": "向量"
+            }
+          ],
+          "geometricMeaning": "內積得純量判斷夾角；外積得垂直向量，大小 = 平行四邊形面積",
+          "examTips": [
+            "|a⃗×b⃗| = |a⃗||b⃗|sinθ",
+            "外積用行列式展開計算"
+          ]
+        }
+      ],
+      "associations": [
+        "螺絲釘的扭力方向就是外積——垂直於施力面"
+      ],
+      "examTips": [
+        "內積判垂直（=0）、外積求法向量和面積"
+      ]
+    },
+    "兩平面的關係與點面距公式": {
+      "formulaDetails": [
+        {
+          "title": "點到平面距離",
+          "latex": "d = \\frac{|ap+bq+cr-d|}{\\sqrt{a^2+b^2+c^2}}",
+          "symbols": [
+            {
+              "symbol": "(p,q,r)",
+              "name": "點座標",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "ax+by+cz=d",
+              "name": "平面方程式",
+              "unit": "無",
+              "type": "方程式"
+            }
+          ],
+          "geometricMeaning": "點到平面的垂直距離，公式形式與點到直線距離類似",
+          "examTips": [
+            "兩平行平面距離：取一面上任一點到另一面的距離",
+            "兩面交角用法向量內積求 cosθ"
+          ]
+        }
+      ],
+      "associations": [
+        "飛機到地面的高度就是點到平面的距離"
+      ],
+      "examTips": [
+        "公式結構與2D的點到直線距離完全類似，分子取絕對值、分母開根號"
+      ]
+    },
+    "空間直線": {
+      "formulaDetails": [
+        {
+          "title": "參數式與比例式",
+          "latex": "\\begin{cases} x=x_0+at \\\\ y=y_0+bt \\\\ z=z_0+ct \\end{cases}",
+          "symbols": [
+            {
+              "symbol": "(a,b,c)",
+              "name": "方向向量",
+              "unit": "無",
+              "type": "向量"
+            },
+            {
+              "symbol": "t",
+              "name": "參數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "直線由一個起點加上方向向量的倍數所描述",
+          "examTips": [
+            "比例式分母即方向向量",
+            "兩面式：兩平面交線，方向向量 = 兩法向量外積"
+          ]
+        }
+      ],
+      "associations": [
+        "雷射光束就是一條空間直線——有起點和方向"
+      ],
+      "examTips": [
+        "注意比例式中 x,y,z 係數必須為 1，否則需先化簡"
+      ]
+    },
+    "空間中直線與點、線、面的關係": {
+      "formulaDetails": [
+        {
+          "title": "線面關係判定",
+          "latex": "\\vec{d} \\cdot \\vec{n} \\neq 0 \\Rightarrow \\text{交於一點}",
+          "symbols": [
+            {
+              "symbol": "\\vec{d}",
+              "name": "直線方向向量",
+              "unit": "無",
+              "type": "向量"
+            },
+            {
+              "symbol": "\\vec{n}",
+              "name": "平面法向量",
+              "unit": "無",
+              "type": "向量"
+            }
+          ],
+          "geometricMeaning": "方向向量與法向量不垂直 → 線面相交；垂直 → 平行或在面上",
+          "examTips": [
+            "d⃗·n⃗ = 0 時需代入一點判斷線在面上或平行",
+            "兩歪斜線距離：找公垂線或用平面法"
+          ]
+        }
+      ],
+      "associations": [
+        "雨滴（直線）落在雨傘（平面）上就是線面相交"
+      ],
+      "examTips": [
+        "歪斜線距離是空間幾何的難題，可用公垂線或輔助平面法"
+      ]
+    },
+    "拋物線": {
+      "formulaDetails": [
+        {
+          "title": "拋物線標準式",
+          "latex": "y^2 = 4px",
+          "symbols": [
+            {
+              "symbol": "p",
+              "name": "焦點到頂點距離",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "到焦點與準線等距的點之軌跡",
+          "examTips": [
+            "焦點 F(p,0)，準線 x = -p",
+            "4p 的值決定開口大小和方向"
+          ]
+        }
+      ],
+      "associations": [
+        "衛星天線的碟面就是拋物面——訊號從焦點反射後平行射出"
+      ],
+      "examTips": [
+        "拋物線只有一個焦點，與橢圓雙曲線的兩個焦點不同"
+      ]
+    },
+    "橢圓": {
+      "formulaDetails": [
+        {
+          "title": "橢圓標準式",
+          "latex": "\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1 \\quad (a > b > 0)",
+          "symbols": [
+            {
+              "symbol": "a",
+              "name": "半長軸",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "b",
+              "name": "半短軸",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "c",
+              "name": "焦點到中心距離，c²=a²-b²",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "到兩焦點距離和 = 2a 的點之軌跡",
+          "examTips": [
+            "a 在 x² 下 → 長軸沿 x 軸；a 在 y² 下 → 長軸沿 y 軸",
+            "離心率 e = c/a，越接近 0 越圓、越接近 1 越扁"
+          ]
+        }
+      ],
+      "associations": [
+        "行星繞太陽的軌道是橢圓，太陽在焦點上——克卜勒第一定律"
+      ],
+      "examTips": [
+        "c² = a² - b² 是橢圓，c² = a² + b² 是雙曲線，不要混淆"
+      ]
+    },
+    "雙曲線": {
+      "formulaDetails": [
+        {
+          "title": "雙曲線標準式",
+          "latex": "\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1",
+          "symbols": [
+            {
+              "symbol": "a",
+              "name": "實軸半長",
+              "unit": "無",
+              "type": "純量"
+            },
+            {
+              "symbol": "b",
+              "name": "虛軸半長",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "到兩焦點距離差的絕對值 = 2a 的點之軌跡",
+          "examTips": [
+            "漸近線 y = ±(b/a)x 是常考重點",
+            "c² = a² + b²（與橢圓相反）"
+          ]
+        }
+      ],
+      "associations": [
+        "超音速飛機的音爆波形就是雙曲線"
+      ],
+      "examTips": [
+        "漸近線方程式：將 1 換成 0 → x²/a² - y²/b² = 0 → y = ±(b/a)x"
+      ]
+    },
+    "二次曲線的平移": {
+      "formulaDetails": [
+        {
+          "title": "配方法平移",
+          "latex": "X = x - h, \\quad Y = y - k",
+          "symbols": [
+            {
+              "symbol": "(h,k)",
+              "name": "平移後的新原點（圓錐曲線中心或頂點）",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "將曲線中心移至原點，化為標準式以辨認圖形",
+          "examTips": [
+            "Ax²+Cy²+Dx+Ey+F=0 先對 x、y 各自配方",
+            "配方後即可讀出中心/頂點和長短軸"
+          ]
+        }
+      ],
+      "associations": [
+        "平移就像把照片的中心對準畫框中央——圖形不變，只是位置挪了"
+      ],
+      "examTips": [
+        "學測常考：一般式 → 配方 → 判斷圖形類型與中心"
+      ]
+    },
+    "圓錐曲線綜合判別": {
+      "formulaDetails": [
+        {
+          "title": "二次曲線判別式",
+          "latex": "\\Delta = B^2 - 4AC",
+          "symbols": [
+            {
+              "symbol": "A, B, C",
+              "name": "Ax²+Bxy+Cy² 的係數",
+              "unit": "無",
+              "type": "純量"
+            }
+          ],
+          "geometricMeaning": "Δ<0 橢圓（A=C,B=0 為圓），Δ=0 拋物線，Δ>0 雙曲線",
+          "examTips": [
+            "選擇題秒殺技巧：直接算 B²-4AC 判斷",
+            "注意退化情形：可能退化為點、直線或兩交線"
+          ]
+        }
+      ],
+      "associations": [
+        "判別式像分類帽——一個數字決定曲線的命運"
+      ],
+      "examTips": [
+        "B=0 時簡化為看 A 和 C 的關係：同號橢圓、異號雙曲線、一個為0拋物線"
       ]
     }
   }

@@ -1,5 +1,22 @@
 {
   "title": "英文心智圖",
-  "subtitle": "即將推出",
-  "categories": []
+  "subtitle": "互動式學習 · 文法 · 句型 · 詞彙",
+  "categories": [
+    {
+      "id": "grammar",
+      "name": "核心文法",
+      "topics": [
+        {
+          "id": "grammar-core",
+          "file": "grammar-core.md",
+          "title": "學測英文核心文法",
+          "titleEn": "Core Grammar for GSAT",
+          "icon": "📝",
+          "color": "#3b82f6",
+          "examRatio": 40,
+          "questionCount": 20
+        }
+      ]
+    }
+  ]
 }

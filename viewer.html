@@ -139,6 +139,45 @@
       transition: opacity 0.2s, color 0.2s;
     }
     .detail-item .search-link:hover { opacity: 1; color: var(--accent); }
+    /* Example sentence: italic, softer color, quote feel */
+    .detail-item--example {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      background: rgba(16,185,129,0.06);
+      border-left-color: rgba(16,185,129,0.45);
+    }
+    .detail-item--example::before {
+      content: '“'; margin-right: 0.25rem;
+      color: rgba(16,185,129,0.7); font-size: 1.1rem; font-style: normal;
+    }
+    /* Formula / structural pattern: monospace, subtle purple */
+    .detail-item--formula {
+      font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+      font-size: 0.86rem;
+      letter-spacing: 0.01em;
+      background: rgba(139,92,246,0.07);
+      border-left-color: rgba(139,92,246,0.5);
+      color: var(--text);
+    }
+    /* Meta tags (搭配, 常見於, 作主詞): smaller muted text */
+    .detail-item--meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      background: transparent;
+      border-left-color: transparent;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 0.2rem;
+    }
+    .sidebar-card--concept .detail-item--example,
+    .sidebar-card--concept .detail-item--formula {
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid;
+      padding: 0.45rem 0.7rem;
+      margin-bottom: 0.35rem;
+    }
+    .sidebar-card--concept .detail-item--example { border-left-color: rgba(16,185,129,0.45); }
+    .sidebar-card--concept .detail-item--formula { border-left-color: rgba(139,92,246,0.5); }
     .detail-section-title {
       font-size: 0.85rem; color: var(--text-muted);
       letter-spacing: 0.03em; font-weight: 600;
@@ -175,6 +214,49 @@
     .detail-bullet-l3::before {
       content: '·'; position: absolute; left: 1.85rem;
       color: var(--text-muted); opacity: 0.6;
+    }
+    /* Example sentences inside bullets: italic, emerald-tinted card */
+    .detail-bullet--example,
+    .detail-bullet-l2--example,
+    .detail-bullet-l3--example {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--text);
+      background: rgba(16,185,129,0.07);
+      border-left: 2px solid rgba(16,185,129,0.5);
+      border-radius: 4px;
+      padding: 0.4rem 0.7rem 0.4rem 1.6rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.35rem;
+    }
+    .detail-bullet--example::before,
+    .detail-bullet-l2--example::before,
+    .detail-bullet-l3--example::before {
+      content: '“'; left: 0.55rem; top: 0.25rem;
+      color: rgba(16,185,129,0.75); font-size: 1.1rem;
+      font-style: normal; background: none; width: auto; height: auto;
+      border-radius: 0; opacity: 1;
+    }
+    /* Structural patterns / formulas inside bullets: monospace */
+    .detail-bullet--formula,
+    .detail-bullet-l2--formula,
+    .detail-bullet-l3--formula {
+      font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+      font-size: 0.83rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      background: rgba(139,92,246,0.07);
+      border-left: 2px solid rgba(139,92,246,0.5);
+      border-radius: 4px;
+      padding: 0.35rem 0.7rem 0.35rem 1.6rem;
+      margin-bottom: 0.3rem;
+    }
+    .detail-bullet--formula::before,
+    .detail-bullet-l2--formula::before,
+    .detail-bullet-l3--formula::before {
+      content: ''; background: none;
+      width: auto; height: auto;
     }
 
     /* ===== Card Containers ===== */
@@ -1201,6 +1283,20 @@
           detailData.formulaDetails.forEach(fd => renderFormulaCard(fd, container));
         }
 
+        // Classify a bullet's content so we can style examples / formulas / meta tags differently
+        function classifyDetailItem(raw) {
+          const s = (raw || '').trim();
+          if (!s) return '';
+          // Meta tag: starts with 搭配 / 常見於, or 作X詞／作X語 + colon (X as subject/object/complement)
+          if (/^(搭配|常見於)\s/.test(s)) return 'meta';
+          if (/^作(主詞|受詞|補語|目的副詞|目的|表語)[：:]/.test(s)) return 'meta';
+          // Formula / structural pattern: contains S+/V+/p.p./V-ing/Be +/原形
+          if (/(^|\s)(S|V|O|N|Be|be)\s*[＋+]/.test(s) || /\bp\.p\.|V-ing|V-ed|V\(s\/es\)|原形/.test(s)) return 'formula';
+          // English example sentence: starts with capital Latin letter, ends with sentence punctuation (optional Chinese parenthetical)
+          if (/^[A-Z]/.test(s) && /[.!?][”"'’]?(（[^）]*）)?$/.test(s)) return 'example';
+          return '';
+        }
+
         // Recursive child renderer (supports arbitrary depth)
         function renderChildren(node, target, depth, maxDepth) {
           (node.children || []).forEach(child => {
@@ -1214,10 +1310,11 @@
               const appendTo = wrapper || target;
               // Top-level children: bold header with search link
               const div = document.createElement('div');
-              div.className = 'detail-item';
+              const itemKind = classifyDetailItem(text);
+              div.className = 'detail-item' + (itemKind ? ' detail-item--' + itemKind : '');
               const span = document.createElement('span');
               span.innerHTML = sanitizeHtml(child.content) || escapeHtml(text);
-              if (!hasFormulas) span.style.fontWeight = '600';
+              if (!hasFormulas && !itemKind) span.style.fontWeight = '600';
               div.appendChild(span);
               const searchQuery = (pathQuery + ' ' + text).trim();
               const searchLink = document.createElement('a');
@@ -1238,7 +1335,8 @@
               // Deeper children: bullets with increasing indent
               const cls = depth === 1 ? 'detail-bullet' : depth === 2 ? 'detail-bullet-l2' : 'detail-bullet-l3';
               const p = document.createElement('div');
-              p.className = cls;
+              const itemKind = classifyDetailItem(text);
+              p.className = cls + (itemKind ? ' ' + cls + '--' + itemKind : '');
               p.innerHTML = sanitizeHtml(child.content) || escapeHtml(text);
               target.appendChild(p);
               // Recurse if there are deeper children

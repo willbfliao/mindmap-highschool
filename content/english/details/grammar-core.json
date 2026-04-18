@@ -1,0 +1,161 @@
+{
+  "nodes": {
+    "動詞與時態": {
+      "associations": [
+        "時態像時間軸上的標記——現在式是站在原地看，過去式是回頭看，完成式是畫了一條線從過去連到現在",
+        "英文動詞有五種變化形：原形、三單、過去式、過去分詞、現在分詞，掌握這五形就掌握時態",
+        "想像相機：現在進行式是按快門瞬間、過去式是看舊照片、現在完成式是把舊照片放進現在的相簿"
+      ],
+      "examTips": [
+        "現在完成式 vs. 過去簡單式：有 since / for / already / yet / just → 選完成式；有明確過去時間點（yesterday, last year, in 2020）→ 選過去式",
+        "使役動詞後的受詞補語：make/have/let + O + 原形；get + O + to-V；被動時原形換 p.p.",
+        "感官動詞辨義：+ 原形（整個動作完成）vs. + V-ing（動作進行中），兩者意思不同"
+      ]
+    },
+    "基本時態": {
+      "associations": [
+        "現在簡單式描述習慣、真理、排定時程，不是「現在正在做」",
+        "The sun rises in the east. 這是事實，不是「太陽現在正在升起」"
+      ],
+      "examTips": [
+        "時間副詞是線索：always/usually/often → 現在簡單式；now/at the moment → 現在進行式；yesterday/ago → 過去簡單式",
+        "狀態動詞（know, love, believe, own）不用進行式，這是常見陷阱"
+      ]
+    },
+    "完成式": {
+      "associations": [
+        "現在完成式 = 過去的事對現在有影響，like 'I have lost my key'（現在找不到）",
+        "過去完成式用在 when 或 before 的故事裡，說明「那個過去」之前更早的事"
+      ],
+      "examTips": [
+        "since + 時間點、for + 時間段 → 現在完成式，強調持續到現在",
+        "過去完成式常見搭配：By the time he arrived, she had already left. 注意時間先後"
+      ]
+    },
+    "三大子句": {
+      "associations": [
+        "三大子句像積木：名詞子句填名詞位置、形容詞子句貼在名詞後面、副詞子句修飾整個句子",
+        "每個子句都有自己的主詞和動詞，這是子句和片語最大的差別",
+        "名詞子句可以替換成 'something'、形容詞子句替換成 'which/who'、副詞子句替換成 'when/because'"
+      ],
+      "examTips": [
+        "間接問句語序必考：Do you know where he lives?（不是 where does he live）",
+        "限定用法 vs. 非限定用法：有逗號 = 補充說明 = 不可用 that；無逗號 = 指定特定對象",
+        "副詞子句連接詞辨義：although 讓步（但後面不加 but）、because 強因果（since/as 為已知原因）"
+      ]
+    },
+    "名詞子句": {
+      "associations": [
+        "that 引導的名詞子句像一個大名詞放在句子裡，可以說 'I know that.' = 我知道這件事",
+        "wh- 引導的名詞子句是把疑問句變成陳述語序塞進句子裡"
+      ],
+      "examTips": [
+        "作主詞時 that 不能省略：That she passed surprised me.（不可省 that）",
+        "作受詞時 that 可省略：I know (that) she passed.",
+        "whether vs. if：whether 可作主詞和介系詞後，if 只能作受詞"
+      ]
+    },
+    "形容詞子句（關係子句）": {
+      "associations": [
+        "關係代名詞是「連接詞＋代名詞」的合體，who 代替人、which 代替物",
+        "where = in which / at which，when = at which / on which，理解這個換算就不會混淆"
+      ],
+      "examTips": [
+        "that 不能用於非限定用法（有逗號），且不能接在介系詞後（in which 可以、in that 不行）",
+        "whose 考法：The girl whose mother is a doctor... → 所有格關係",
+        "關係副詞可換寫：the place where = the place at which，換寫題必考"
+      ]
+    },
+    "副詞子句": {
+      "associations": [
+        "副詞子句像括號備注，說明動作發生的時間、原因、條件或讓步",
+        "although 和 but 都表轉折，但不能同時出現在同一句：Although it rained, we went out.（不加 but）"
+      ],
+      "examTips": [
+        "although / though / even though 後不加 but，because 後不加 so，是最常見錯誤",
+        "unless = if...not，條件句常考替換",
+        "時間副詞子句中，未來用現在式代替：When he comes（不是 will come）, I will tell him."
+      ]
+    },
+    "句型與修飾": {
+      "associations": [
+        "分詞構句是把副詞子句「濃縮」，去掉連接詞和重複的主詞，動詞變分詞",
+        "假設語氣像平行宇宙：用過去式描述現在不存在的狀況，用過去完成式描述過去沒發生的事",
+        "倒裝句把否定或強調副詞推到句首，語氣更強烈，語序變成疑問句的樣子"
+      ],
+      "examTips": [
+        "分詞構句主詞必須與主句主詞一致，不一致時要保留分詞構句的主詞（獨立分詞構句）",
+        "假設語氣的 be 動詞一律用 were（不論人稱）：If I were you...",
+        "suggest / insist / demand + that + S + (should) + 原形動詞，原形不隨人稱變化"
+      ]
+    },
+    "分詞與分詞構句": {
+      "associations": [
+        "V-ing 修飾名詞 = 主動或正在進行；p.p. 修飾名詞 = 被動或已完成",
+        "with 附帶狀況像是描述一幅畫的細節：With tears in her eyes, she smiled."
+      ],
+      "examTips": [
+        "分詞構句化簡步驟：連接詞刪除 → 主詞相同則刪除 → 動詞改為 V-ing（主動）或 Being p.p.（被動）",
+        "having + p.p. 表示比主句動作更早發生：Having finished the work, he left.",
+        "懸垂分詞（dangling modifier）是常見錯誤：Walking down the street, the trees looked beautiful.（樹不會走路）"
+      ]
+    },
+    "假設語氣": {
+      "associations": [
+        "與現在相反用過去式，與過去相反用過去完成式，記這個規律就不會混",
+        "I wish 也用假設語氣：I wish I were taller.（與現在相反）/ I wish I had studied.（與過去相反）"
+      ],
+      "examTips": [
+        "If I were you（現在）vs. If I had been you（過去）——主要子句動詞形式對應判斷",
+        "意志動詞（suggest/insist/demand/require）後的 that 子句用原形，不管時態",
+        "省略 if 的倒裝假設：Were I you... / Had I known... / Should you need help..."
+      ]
+    },
+    "倒裝句型": {
+      "associations": [
+        "倒裝 = 強調 = 把重要的東西放最前面，就像中文把『連…都…』放句首加強語氣",
+        "倒裝後語序和疑問句一樣：助動詞 + 主詞 + 動詞原形"
+      ],
+      "examTips": [
+        "否定副詞倒裝：Never / Seldom / Rarely / Not until / No sooner + 助動詞倒裝",
+        "Only 放句首倒裝：Only then did I realize... / Only by working hard can you succeed.",
+        "So + 形容詞 / 副詞 + that 也倒裝：So tired was he that he fell asleep immediately."
+      ]
+    },
+    "詞性與連接": {
+      "associations": [
+        "動名詞 V-ing 像名詞，不定詞 to-V 也像名詞，但搭配的動詞不同——要死記常見動詞清單",
+        "連接詞接子句、介系詞接名詞，這個區別是 although vs. despite 考題的核心",
+        "轉折詞是路標，告訴讀者下一句是繼續走（承接）、轉彎（轉折）還是爬坡（遞進）"
+      ],
+      "examTips": [
+        "動名詞 vs. 不定詞辨義：stop to V（停下來去做）vs. stop V-ing（停止做）；remember to V vs. remember V-ing",
+        "although / though 接子句；despite / in spite of 接名詞或 V-ing，不可混用",
+        "轉折詞後加逗號（However, ...）、連接詞直接連接（but...），是常見標點考題"
+      ]
+    },
+    "動詞轉名詞": {
+      "associations": [
+        "enjoy / avoid / finish / mind / consider / keep → 後接 V-ing",
+        "want / plan / decide / hope / agree / refuse → 後接 to-V",
+        "like / love / hate / prefer 兩者皆可，但意義略有差異"
+      ],
+      "examTips": [
+        "特殊動詞記憶：forget / remember / try / stop / regret + V-ing 或 to-V 意義不同，必考",
+        "動名詞作主詞視為單數：Swimming is good for health. → 動詞用單數",
+        "介系詞後只接名詞或 V-ing：I'm tired of waiting.（不是 to wait）"
+      ]
+    },
+    "語意轉折詞": {
+      "associations": [
+        "轉折詞是作文和閱讀測驗的橋樑，看懂轉折詞就能猜出空格填什麼",
+        "承接類讓你『繼續走』，轉折類讓你『轉彎』，遞進類讓你『加碼』"
+      ],
+      "examTips": [
+        "閱讀測驗常考推論：看到 however 後面是重點（轉折後作者真正的想法）",
+        "Therefore / Thus / As a result 表因果，前後句要有邏輯關係",
+        "Moreover / Furthermore 後面是補充或加強論點，填空題若前句是正面論述，後句也應正面"
+      ]
+    }
+  }
+}

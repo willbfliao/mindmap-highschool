@@ -5,7 +5,7 @@
 - 動量（momentum）: $\vec{p} = m\vec{v}$（向量）
 - 向量: 方向與速度相同
 - 單位: $\text{kg} \cdot \text{m/s}$
-- 動量越大，越難改變運動狀態
+- 改變動量需施加對應衝量: $\vec{J} = \Delta \vec{p}$
 ### 動量定理（衝量-動量定理）
 - 衝量（impulse）: $\vec{J} = \vec{F} \Delta t = \Delta \vec{p}$（向量）
 - 合力的衝量 = 動量的變化量

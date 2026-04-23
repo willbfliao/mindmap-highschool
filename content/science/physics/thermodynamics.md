@@ -11,8 +11,9 @@
 - 水的比熱: $c = 4186 \, J/(kg \cdot °C)$，比大多數物質高
 - $Q = mc\Delta T$: 熱量計算公式
 ### 熱量交換
-- 熱平衡: 高溫物體放熱 = 低溫物體吸熱
-- $Q_{\text{放}} = Q_{\text{吸}}$ → $m_1 c_1 (T_1 - T_f) = m_2 c_2 (T_f - T_2)$
+- 熱平衡: 兩物體溫度相等、無淨熱流動的狀態
+- 達到熱平衡過程: 高溫物體放出的熱 $=$ 低溫物體吸收的熱
+  - $Q_{\text{放}} = Q_{\text{吸}}$ → $m_1 c_1 (T_1 - T_f) = m_2 c_2 (T_f - T_2)$
 - 混合溫度: $T_f = \frac{m_1 c_1 T_1 + m_2 c_2 T_2}{m_1 c_1 + m_2 c_2}$
 
 ## 理想氣體方程式
@@ -34,12 +35,16 @@
 - 分子間除碰撞外無交互作用
 ### 壓力的微觀解釋
 - 氣體壓力源自分子碰撞容器壁
-- $P = \frac{1}{3} \cdot \frac{N}{V} \cdot m \cdot \overline{v^2}$（$\overline{v^2}$ 為方均根速率的平方）
+- $P = \frac{1}{3} \cdot \frac{N}{V} \cdot m \cdot \overline{v^2}$
+  - $\overline{v^2}$: 分子速率平方的平均值
+  - 方均根速率 $v_{rms} = \sqrt{\overline{v^2}}$
 - $PV = \frac{2}{3} \cdot N \cdot \frac{1}{2}m\overline{v^2}$
 ### 溫度的微觀意義
 - 平均動能: $\frac{1}{2}m\overline{v^2} = \frac{3}{2}kT$
 - 溫度反映分子平均動能
 - 方均根速率: $v_{rms} = \sqrt{\frac{3kT}{m}} = \sqrt{\frac{3RT}{M}}$
+  - $m$: 單一分子質量（搭配波茲曼常數 $k$）
+  - $M$: 莫耳質量（kg/mol，搭配氣體常數 $R$）
   - $T$ 越高 → 分子運動越快
   - $M$ 越大 → 分子運動越慢
 

@@ -37,4 +37,4 @@
 - 功率（power）: $P = \frac{W}{t} = F \cdot v$
 - 瞬時功率: $P = Fv \cos\theta$
 - 單位: 瓦特（W），$1 \text{ hp} \approx 746 \text{ W}$
-- 等速行駛: 引擎功率 $=$ 摩擦力 $\times$ 速度
+- 等速行駛: 引擎功率 $P = F_{阻} \times v$（$F_{阻}$ 為總阻力：摩擦力 $+$ 空氣阻力等）

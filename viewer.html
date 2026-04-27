@@ -771,48 +771,34 @@
         return;
       }
 
-      /* ---------- Pre-scan associations (💡) before stripping non-heading lines ----------
-         Only h1-h4 render as nodes (per design rule). To preserve sidebar 💡 lookup,
-         attach each 💡 bullet to every ancestor heading path in associationMap. */
-      const associationMap = new Map(); // joined heading path → string[]
-      (function buildAssociationMap() {
-        const stack = []; // current h1-h4 path (texts only)
-        const lines = mergedMd.split('\n');
-        for (const line of lines) {
-          const headMatch = line.match(/^(#{1,4})\s+(.+?)\s*$/);
-          if (headMatch) {
-            const depth = headMatch[1].length;
-            stack.length = depth - 1;
-            stack[depth - 1] = headMatch[2].trim();
-            continue;
-          }
-          if (/^#{5,6}\s/.test(line)) continue; // ignore h5/h6, don't update stack
-          const bulletMatch = line.match(/^\s*[-*+]\s+(.*)$/);
-          if (bulletMatch && bulletMatch[1].includes('💡')) {
-            const tip = bulletMatch[1].trim()
-              .replace(/^💡\s*聯想[：:]\s*/, '')
-              .replace(/^💡\s*類比[：:]\s*/, '')
-              .replace(/^💡\s*/, '');
-            for (let i = 1; i <= stack.length; i++) {
-              const key = stack.slice(0, i).join('');
-              if (!associationMap.has(key)) associationMap.set(key, []);
-              const arr = associationMap.get(key);
-              if (!arr.includes(tip)) arr.push(tip);
-            }
-          }
-        }
-      })();
-
-      /* ---------- Filter to h1-h4 only (display rule: only headings are nodes) ---------- */
+      /* ---------- Filter to h1-h4 only for Markmap display (only headings render as nodes) ---------- */
       const filteredMd = mergedMd.split('\n')
         .filter(line => /^#{1,4}\s/.test(line) || line.trim() === '')
         .join('\n');
 
-      /* ---------- Transform markdown → markmap tree ---------- */
+      /* ---------- Transform markdown → markmap tree ----------
+         Dual-tree: `root` (filtered, h1-h4 only) drives the visual mindmap;
+         `fullRoot` retains the complete subtree (bullets, h5/h6) for sidebar
+         lookup so clicking a node can show its full markdown content. */
       const { Transformer } = window.markmap;
       const { Markmap } = window.markmap;
       const transformer = new Transformer();
       const { root } = transformer.transform(filteredMd);
+      const { root: fullRoot } = transformer.transform(mergedMd);
+
+      function findFullNode(pathParts) {
+        let node = fullRoot;
+        for (const target of (pathParts || [])) {
+          if (!node || !node.children) return null;
+          const next = node.children.find(c => {
+            const t = (c.content || '').replace(/<[^>]+>/g, '').trim();
+            return t === target;
+          });
+          if (!next) return null;
+          node = next;
+        }
+        return node;
+      }
 
       /* ---------- Render markmap ---------- */
       // NOTE: buildNodeMap must run AFTER Markmap.create because initializeData()
@@ -1146,12 +1132,15 @@
         // KaTeX is loaded synchronously via <script> tag
 
         // --- Tab 1: 概念與應用 (concepts + associations inline) ---
+        // Use fullRoot lookup so the sidebar shows the entire markdown subtree
+        // (bullets, h5/h6) below the clicked node, not just the filtered headings.
+        const fullNode = findFullNode(entry.pathParts) || entry.node;
         const conceptsPane = document.getElementById('tab-concepts');
         conceptsPane.innerHTML = '';
-        if (entry.node.children && entry.node.children.length > 0) {
-          renderNodeChildrenWithAssociations(entry.node, detailData, conceptsPane, entry.pathParts);
+        if (fullNode.children && fullNode.children.length > 0) {
+          renderNodeChildrenWithAssociations(fullNode, detailData, conceptsPane, entry.pathParts);
         } else if (detailData && detailData.formulaDetails) {
-          renderNodeChildrenWithAssociations(entry.node, detailData, conceptsPane, entry.pathParts);
+          renderNodeChildrenWithAssociations(fullNode, detailData, conceptsPane, entry.pathParts);
         } else {
           conceptsPane.innerHTML = '<p class="detail-item" style="color:var(--text-muted)">此節點暫無子項目</p>';
         }
@@ -1312,7 +1301,7 @@
 
       /* ===== Sidebar Content Renderer ===== */
       function renderNodeChildrenWithAssociations(parentNode, detailData, container, pathParts) {
-        const associations = extractAssociations(parentNode, pathParts);
+        const associations = extractAssociations(parentNode);
         if (detailData && detailData.associations) {
           detailData.associations.forEach(a => {
             if (!associations.includes(a)) associations.push(a);
@@ -1409,14 +1398,17 @@
         }
       }
 
-      function extractAssociations(node, pathParts) {
-        let key;
-        if (pathParts && pathParts.length) {
-          key = pathParts.join('');
-        } else {
-          key = (node.content || '').replace(/<[^>]+>/g, '').trim();
+      function extractAssociations(node) {
+        const results = [];
+        function walk(n) {
+          const text = (n.content || '').replace(/<[^>]+>/g, '').trim();
+          if (text.includes('💡')) {
+            results.push(text.replace(/^💡\s*聯想[：:]\s*/, '').replace(/^💡\s*類比[：:]\s*/, '').replace(/^💡\s*/, ''));
+          }
+          if (n.children) n.children.forEach(walk);
         }
-        return (associationMap.get(key) || []).slice();
+        walk(node);
+        return results;
       }
 
       function resolveTopicIdFromPath(pathParts) {

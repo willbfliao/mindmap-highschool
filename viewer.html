@@ -1048,9 +1048,7 @@
             }) || candidates[0];
           }
 
-          // Skip leaf nodes (no children) — not clickable
-          if (!entry.node.children || entry.node.children.length === 0) return;
-
+          const isLeaf = !entry.node.children || entry.node.children.length === 0;
           const boundNodeId = entry.node._nodeId;
           el.classList.add('clickable-node');
           el.style.cursor = 'pointer';
@@ -1065,20 +1063,28 @@
             el.classList.remove('node-checked');
           }
 
-          // Add click (fold) + dblclick (sidebar) handlers
+          // Bind click handlers — leaves: single click opens sidebar (no fold available);
+          // non-leaves: single click folds, dblclick opens sidebar.
           if (!textEl.dataset.bound) {
             textEl.dataset.bound = '1';
             const boundEntry = entry;
-            textEl.addEventListener('click', (e) => {
-              e.stopPropagation();
-              clearTimeout(_clickTimer);
-              _clickTimer = setTimeout(() => toggleNodeFold(boundEntry.node), 250);
-            });
-            textEl.addEventListener('dblclick', (e) => {
-              e.stopPropagation();
-              clearTimeout(_clickTimer);
-              openSidebar(boundEntry);
-            });
+            if (isLeaf) {
+              textEl.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openSidebar(boundEntry);
+              });
+            } else {
+              textEl.addEventListener('click', (e) => {
+                e.stopPropagation();
+                clearTimeout(_clickTimer);
+                _clickTimer = setTimeout(() => toggleNodeFold(boundEntry.node), 250);
+              });
+              textEl.addEventListener('dblclick', (e) => {
+                e.stopPropagation();
+                clearTimeout(_clickTimer);
+                openSidebar(boundEntry);
+              });
+            }
           }
 
           // Apply timestamp as separate element (not inside node content)

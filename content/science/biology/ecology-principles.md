@@ -2,7 +2,7 @@
 
 ## 族群生態學（population ecology）
 
-### 族群的特徵
+### 族群密度、出生死亡、年齡結構
 - **族群（population）**：同一時間、同一地區內同一物種的所有個體
 - **族群大小（population size, N）**：個體總數
 - **族群密度（population density）**：單位面積或體積內的個體數

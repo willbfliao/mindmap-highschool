@@ -42,7 +42,7 @@
 
 ## 轉錄（transcription）
 
-### 過程
+### RNA 聚合酶與 5'→3' 合成方向
 - 發生於**細胞核**中
 - **RNA 聚合酶（RNA polymerase）**以 DNA 模板股合成 **mRNA**
 - RNA 的鹼基配對：A-U、T-A、G-C、C-G

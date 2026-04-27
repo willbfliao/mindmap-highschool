@@ -22,7 +22,7 @@
 
 ## 聚合酶連鎖反應（PCR）
 
-### 原理
+### 體外複製 DNA 片段（Mullis 1983）
 - 在體外快速**複製特定 DNA 片段**
 - 由 **Kary Mullis**（1983）發明
 
@@ -52,7 +52,7 @@
 
 ## 凝膠電泳（gel electrophoresis）
 
-### 原理
+### DNA 帶負電→正極移動，依大小分離
 - DNA 帶**負電荷**（磷酸基）
 - 在電場中 DNA 向**正極**移動
 - 較小的 DNA 片段移動**較快**，較大的片段移動較慢
@@ -121,7 +121,7 @@
 
 ## CRISPR-Cas9 基因編輯
 
-### 原理
+### gRNA 引導 Cas9 切割 DNA
 - **CRISPR（Clustered Regularly Interspaced Short Palindromic Repeats）**
 - **Cas9** 蛋白為 DNA 切割酵素
 - **guide RNA（gRNA）**：引導 Cas9 到目標 DNA 序列

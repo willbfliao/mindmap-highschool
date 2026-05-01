@@ -675,9 +675,7 @@
 
       /* ---------- Quiz button → pick topic ---------- */
       document.getElementById('btn-quiz').addEventListener('click', () => {
-        if (allTopics.length === 1) {
-          window.location.href = buildQuizUrl(subjectId, subId, allTopics[0].id);
-        } else if (allTopics.length > 0) {
+        if (allTopics.length > 0) {
           window.location.href = buildQuizUrl(subjectId, subId, allTopics[0].id);
         }
       });
@@ -1536,7 +1534,6 @@
 
       /* ===== Search functionality ===== */
       const searchContainer = document.getElementById('search-container');
-      const searchPanel = document.getElementById('search-panel');
       const searchInput = document.getElementById('search-input');
       const searchResults = document.getElementById('search-results');
       const searchResultsWrap = document.getElementById('search-results-wrap');
@@ -1758,7 +1755,7 @@
           e.preventDefault();
           toggleSearch();
         }
-        if (e.key === 'Escape' && searchPanel.classList.contains('open')) {
+        if (e.key === 'Escape' && searchContainer.classList.contains('open')) {
           closeSearch();
           searchInput.blur();
         }

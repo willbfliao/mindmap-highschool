@@ -87,25 +87,6 @@ function getAllTopics(data) {
   return data.categories.flatMap(c => c.topics);
 }
 
-function buildReadKey(subjectId, subId, topicId) {
-  const parts = [subjectId];
-  if (subId) parts.push(subId);
-  parts.push(topicId);
-  return STORAGE_PREFIX + 'read-' + parts.join('-');
-}
-
-function isRead(subjectId, subId, topicId) {
-  return localStorage.getItem(buildReadKey(subjectId, subId, topicId)) === '1';
-}
-
-function markAsRead(subjectId, subId, topicId) {
-  localStorage.setItem(buildReadKey(subjectId, subId, topicId), '1');
-}
-
-function markAsUnread(subjectId, subId, topicId) {
-  localStorage.removeItem(buildReadKey(subjectId, subId, topicId));
-}
-
 function buildViewerUrl(subjectId, subId, topicId) {
   let url = 'viewer.html?subject=' + encodeURIComponent(subjectId);
   if (subId) url += '&sub=' + encodeURIComponent(subId);
@@ -123,7 +104,7 @@ function buildNodeKey(subjectId, subId, pathParts) {
 
 function isNodeChecked(nodeId) {
   const val = localStorage.getItem(nodeId);
-  return val === '1' || (val && val.length > 1);
+  return val === '1' || !!(val && val.length > 1);
 }
 
 function getNodeCheckedTime(nodeId) {
@@ -258,13 +239,8 @@ async function initSubject() {
 
   // Back button
   const backBtn = document.getElementById('back-btn');
-  if (subId) {
-    backBtn.href = buildSubjectUrl(subjectId);
-    document.getElementById('subject-title').textContent = subject.icon + ' ' + subject.title;
-  } else {
-    backBtn.href = 'index.html';
-    document.getElementById('subject-title').textContent = subject.icon + ' ' + subject.title;
-  }
+  backBtn.href = subId ? buildSubjectUrl(subjectId) : 'index.html';
+  document.getElementById('subject-title').textContent = subject.icon + ' ' + subject.title;
 
   // If subject has sub-subjects and no sub selected → show sub-subject cards
   if (subject.hasSubjects && !subId) {
@@ -292,10 +268,6 @@ async function initSubject() {
 function renderSubSubjects(subject) {
   document.getElementById('page-title').textContent = subject.title;
   document.getElementById('page-subtitle').textContent = subject.description || '';
-
-  // Hide progress for sub-subject selection
-  const progressSection = document.querySelector('.progress-section');
-  if (progressSection) progressSection.style.display = 'none';
 
   const container = document.getElementById('content-container');
   const grid = document.createElement('div');
@@ -328,11 +300,7 @@ function renderTopicsList(topicsData, subjectId, subId) {
   document.getElementById('page-subtitle').textContent = topicsData.subtitle;
   document.title = topicsData.title;
 
-  // Progress
-  const readCount = allTopics.filter(t => isRead(subjectId, subId, t.id)).length;
   const total = allTopics.length;
-  document.getElementById('progress-text').textContent = `${readCount} / ${total}`;
-  document.getElementById('progress-fill').style.width = total > 0 ? `${(readCount / total) * 100}%` : '0%';
 
   if (total === 0) {
     document.getElementById('content-container').innerHTML =
@@ -360,9 +328,8 @@ function renderTopicsList(topicsData, subjectId, subId) {
 
     for (const topic of category.topics) {
       const card = document.createElement('div');
-      card.className = 'card' + (isRead(subjectId, subId, topic.id) ? ' completed' : '');
+      card.className = 'card';
       card.innerHTML = `
-        <div class="card-check">✓</div>
         <div class="card-icon">${escapeHtml(topic.icon)}</div>
         <div class="card-title">${escapeHtml(topic.title)}</div>
         <div class="card-title-en">${escapeHtml(topic.titleEn)}</div>
@@ -383,19 +350,7 @@ function renderTopicsList(topicsData, subjectId, subId) {
 }
 
 /* ===== Viewer (Markmap) ===== */
-// Viewer initialization logic is in viewer.html inline script (uses markmap-autoloader)
-
-function updateReadButton(btn, subjectId, subId, topicId) {
-  if (isRead(subjectId, subId, topicId)) {
-    btn.textContent = '✓ 已完成';
-    btn.classList.remove('btn-primary');
-    btn.classList.add('btn-secondary');
-  } else {
-    btn.textContent = '☐ 標記已讀';
-    btn.classList.remove('btn-secondary');
-    btn.classList.add('btn-primary');
-  }
-}
+// Viewer initialization logic is in viewer.html inline script (uses programmatic Transformer + Markmap.create)
 
 /* ===== Quiz ===== */
 

@@ -690,7 +690,6 @@
       if (topicId) {
         const topic = allTopics.find(t => t.id === topicId);
         if (topic) {
-          saveSubjectLocation(subjectId, subId, topicId);
           // Update page title and nav title to show the specific topic
           const topicTitle = topic.icon + ' ' + topic.title;
           document.title = topic.title + ' - 心智圖';
@@ -707,7 +706,6 @@
       }
 
       if (!topicId) {
-        saveSubjectLocation(subjectId, subId, null);
         try {
         const rootTitle = displayTitle.replace(/^[^\s]+\s/, ''); // strip emoji
         if (topicsData.groupByCategory) {

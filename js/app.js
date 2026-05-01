@@ -121,23 +121,6 @@ function toggleNodeCheck(nodeId) {
   }
 }
 
-/* ===== Per-subject last location ===== */
-
-function saveSubjectLocation(subjectId, sub, topic) {
-  localStorage.setItem(
-    STORAGE_PREFIX + 'last-' + subjectId,
-    JSON.stringify({ sub: sub || null, topic: topic || null })
-  );
-}
-
-function getSubjectLocation(subjectId) {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_PREFIX + 'last-' + subjectId));
-  } catch {
-    return null;
-  }
-}
-
 /* ===== Zoom/pan state per view ===== */
 
 function buildViewKey(subjectId, subId, topicId) {
